@@ -1,0 +1,29 @@
+{
+  "name": "vanilla-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --colors --no-info --host=0.0.0.0 --port=4331 --content-base .",
+    "deploy": "set NODE_ENV=production && webpack -p --config webpack.production.config.js",
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^4.4.3",
+    "babel-loader": "^4.0.0",
+    "style-loader": "^0.8.3",
+    "webpack": "^1.5.3",
+    "webpack-dev-server": "^1.7.0"
+  },
+  "dependencies": {
+    "cherrytree": "file:../..",
+    "css-loader": "^0.9.1",
+    "jquery": "^2.1.4",
+    "lodash": "^3.10.1",
+    "underscore": "^1.8.1",
+    "underscore-template-loader": "^0.2.5",
+    "when": "^3.7.3"
+  }
+}
