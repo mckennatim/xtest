@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by jayphelps (http://jsbin.com/birogu/6/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <script src="https://unpkg.com/redux@^3.5.2/dist/redux.min.js"></script>
+  <script src="https://unpkg.com/@reactivex/rxjs@5.0.0-beta.12/dist/global/Rx.js"></script>
+  <script src="https://unpkg.com/redux-observable/dist/redux-observable.min.js"></script>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+h1 {
+  margin-top: 0;
+}
+</style>
+</head>
+<body>
+<script id="jsbin-javascript">
+/**
+ * IMPORTANT ***************************************************************
+ * 
+ * This example uses the global version of RxJS that includes ALL operators.
+ * Inside your app, you will likely need to import the operators you use or
+ * import all of them in your index.js entry file.
+ * 
+ * Learn more about this: http://goo.gl/4ZlYeC
+ */
+
+console.clear();
+
+const PING = 'PING';
+const PONG = 'PONG';
+
+const ping = () => ({ type: PING });
+
+const pingEpic = action$ =>
+  action$.ofType(PING)
+    .delay(1000) // Asynchronously wait 1000ms then continue
+    .mapTo({ type: PONG });
+
+const pingReducer = (state = { isPinging: false }, action) => {
+  switch (action.type) {
+    case PING:
+      return { isPinging: true };
+
+    case PONG:
+      return { isPinging: false };
+
+    default:
+      return state;
+  }
+};
+
+const { createStore, applyMiddleware } = Redux;
+const { createEpicMiddleware } = ReduxObservable;
+
+const epicMiddleware = createEpicMiddleware(pingEpic);
+
+const store = createStore(pingReducer,
+  applyMiddleware(epicMiddleware)
+);
+
+/**
+ * This is using raw HTML + redux.
+ * 
+ * You will most likely use some sort of UI framework
+ * like React, Angular, etc
+ */
+const renderApp = () => {
+  const { isPinging } = store.getState();
+
+  document.body.innerHTML = `
+    <div>
+      <h1>is pinging: ${isPinging}</h1>
+      <button
+        onclick="(${() => {
+          store.dispatch(ping());
+        }})();"
+      >
+        Start PING
+      </button>
+      <button id="dog" onclick="dodog()">dog</button>
+    </div>
+  `;
+};
+
+store.subscribe(renderApp);
+renderApp();
+
+</script>
+</body>
+</html>

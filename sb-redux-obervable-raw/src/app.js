@@ -1,4 +1,4 @@
-//import Rx from 'rxjs/Rx'
+// import Rx from 'rxjs/Rx'
 import {delay, mapTo} from 'rxjs/Rx'
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { createEpicMiddleware } from 'redux-observable';
@@ -24,6 +24,7 @@ console.log(store.getState())
 const dodog = ()=>{
   console.log('in dodog ok')
 }
+
 console.log(typeof window)
 //Object.assign(window, store, dodog, increase, decrease, ping)
 window.store = store
