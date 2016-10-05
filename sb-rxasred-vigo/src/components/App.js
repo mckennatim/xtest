@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import { changeName, loadGithubFollowers } from '../actions';
+import { changeName, loadGithubFollowers} from '../actions';
+var Navigo = require('navigo');
 
 const handleChangeName = (data) => () =>
   changeName(data);
@@ -15,10 +16,26 @@ function renderUsers(users) {
   );
 }
 
+function renderNav(){
+  return(
+    <div><h4>in render Nav</h4></div>
+    )
+}
+
+function showRt(props){
+  return props.rtpg(props)
+}
+
 export default function App(props) {
-  const { isLoading, name, users } = props;
+  const { isLoading, name, users, rtpg } = props;
   return (
     <div>
+      <div id="menu">
+        <a href="#dog" data-navigo>dog </a>        
+        <a href="#cat" data-navigo>cat </a>        
+      </div>      
+      <br />
+      { renderNav() } {showRt(props)}
       { isLoading ?
         <p>Loading...</p> :
         <h1>{ name }</h1> }
