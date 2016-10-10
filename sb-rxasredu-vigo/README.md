@@ -9,24 +9,3 @@ A simple effective Redux style framework using Rx https://github.com/ryardley/rx
 
 http://rudiyardley.com/redux-single-line-of-code-rxjs/
 
-## Installation
-
-Switch to use node 5.11.1 or above.
-
-```bash
-$ nvm use
-```
-
-Install dependencies
-
-```bash
-$ npm i
-```
-
-## Run
-
-Run development mode
-
-```bash
-$ npm start
-```

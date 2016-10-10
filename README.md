@@ -2,6 +2,14 @@
 Each directory represents a code exploration and has its own README.md. All share sbdev0/node_modules.
 
 ## tags
+### 04-sb-rxasred-vigo
+handles parameters by
+
+- in routes.js - instead of just passing the the react render function to `return changeDevInfo(pro)` create an object containing the params and render function and put that in payload. Now the reducer can parse it
+- in reducer.js - return a state that now has `currentDevId` and `currentDev` which is the devices record that matches the id.
+- in DevInfo.js, the render function - instead of passing it all the props, just pass it a destructured list `{name, currentDev}` of the parts of state that it needs.
+
+
 ### 03-sb-rxasred-vigo
 An interesting almost clean rendition where react renders from simple functions, state is managed by an rxjs implementation of redux and navigation works with navigo.
 ### 02-xtest-react-router

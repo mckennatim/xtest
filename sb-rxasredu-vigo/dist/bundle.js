@@ -56390,7 +56390,7 @@
 	
 	  return React.createElement(
 	    'div',
-	    null,
+	    { style: styles.outer },
 	    React.createElement(
 	      'h4',
 	      null,
@@ -56399,6 +56399,25 @@
 	    )
 	  );
 	}
+	var styles = {
+	  outer: {
+	    display: 'flex',
+	    flexDirection: 'column',
+	    background: '#C4A265',
+	    height: 400,
+	    textAlign: 'center'
+	  },
+	  inner: {
+	    margin: '0 auto',
+	    display: 'flex',
+	    flexDirection: 'column',
+	    background: '#FFF28E',
+	    height: 340,
+	    color: 'red',
+	    textAlign: 'center',
+	    fontSize: '300%'
+	  }
+	};
 
 /***/ },
 /* 525 */
