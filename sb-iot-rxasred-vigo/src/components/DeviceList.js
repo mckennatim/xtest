@@ -20,11 +20,11 @@ export default function DevicesList(props){
     	<ul style={styles.ul}>
         {devices.map(function(dev){
           return <li key={dev.id} style={styles.li}>
-          		<a onClick={handleNavigate('dev/'+dev.id)}>{dev.name}</a>
+          		<a onClick={handleNavigate('/dev/'+dev.id)}>{dev.name}</a>
           	</li>;
         })}
     	</ul>
-    	<button onClick={handleNavigate('dev/CYURD001')}>goto cat</button>
+    	<button onClick={handleNavigate('/dev/CYURD001')}>goto cat</button>
     </div> 
     )
 }

@@ -8,12 +8,14 @@ import Cat from './components/Cat';
 import Harry from './components/Harry';
 
 import { createStore } from './rxflux';
-import { log } from './utils';
+import { log } from './util/utils';
 import { changePage} from './actions';
 import {router} from './router'
 
 window.React = React;
-router.navigate(("/"+window.location.hash.substring(1)).replace(/(\/)\1+/,"/"))
+var path = ("/"+window.location.hash.substring(1)).replace(/(\/)\1+/,"/")
+console.log(path)
+router.navigate(path)
 
 const initState = { 
   name: 'Harry', 

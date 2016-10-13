@@ -88,7 +88,9 @@
 	// var Navigo = require('navigo');
 	
 	window.React = _react2.default;
-	_router.router.navigate(("/" + window.location.hash.substring(1)).replace(/(\/)\1+/, "/"));
+	var path = ("/" + window.location.hash.substring(1)).replace(/(\/)\1+/, "/");
+	console.log(path);
+	_router.router.navigate(path);
 	
 	var initState = {
 	  name: 'Harry',
@@ -21538,17 +21540,17 @@
 	      { id: 'menu' },
 	      _react2.default.createElement(
 	        'a',
-	        { href: '#devices', 'data-navigo': true },
+	        { href: '#/devices', 'data-navigo': true },
 	        'devices '
 	      ),
 	      _react2.default.createElement(
 	        'a',
-	        { href: '#cat', 'data-navigo': true },
+	        { href: '#/cat', 'data-navigo': true },
 	        'cat '
 	      ),
 	      _react2.default.createElement(
 	        'a',
-	        { href: '#harry', 'data-navigo': true },
+	        { href: '#/harry', 'data-navigo': true },
 	        'harry '
 	      )
 	    ),
@@ -21647,6 +21649,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	// import rootReducer from './reducers';
 	var action$ = new _Subject.Subject();
 	
 	var createStore = exports.createStore = function createStore(initState) {
@@ -56398,7 +56401,19 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function Devices(props) {
-	  console.log('in do devices');
+	  // console.log('in do devices')
+	  // console.log(deviceTypes)
+	  // console.log(browser)
+	  // let devNum =deviceTypes.indexOf(browser)
+	  // var more
+	  // console.log(window.innerWidth)
+	  // if (devNum==2) {
+	  //   console.log('bigger than 600')
+	  //   more = <div style={{flexGrow:1}}> dog </div>
+	  // }else{
+	  //   console.log('smaller than 600')
+	  //   more = <br/>
+	  // }   
 	  var isLoading = props.isLoading;
 	  var name = props.name;
 	  var users = props.users;
@@ -56489,7 +56504,7 @@
 	          { key: dev.id, style: styles.li },
 	          React.createElement(
 	            'a',
-	            { onClick: handleNavigate('dev/' + dev.id) },
+	            { onClick: handleNavigate('/dev/' + dev.id) },
 	            dev.name
 	          )
 	        );
@@ -56497,7 +56512,7 @@
 	    ),
 	    React.createElement(
 	      'button',
-	      { onClick: handleNavigate('dev/CYURD001') },
+	      { onClick: handleNavigate('/dev/CYURD001') },
 	      'goto cat'
 	    )
 	  );
@@ -56559,16 +56574,16 @@
 	var routing = function routing(mode) {
 	  exports.router = router = new Navigo(null, true);
 	  router.on({
-	    'devices': function devices() {
+	    '/devices': function devices() {
 	      return (0, _actions.changePage)(_Devices2.default);
 	    },
-	    'cat': function cat() {
+	    '/cat': function cat() {
 	      return (0, _actions.changePage)(_Cat2.default);
 	    },
-	    'harry': function harry() {
+	    '/harry': function harry() {
 	      return (0, _actions.changePage)(_Harry2.default);
 	    },
-	    'dev/:id': function devId(params) {
+	    '/dev/:id': function devId(params) {
 	      var pro = {};
 	      pro.ht = _DevInfo2.default;
 	      pro.par = params;

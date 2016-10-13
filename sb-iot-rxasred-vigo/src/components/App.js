@@ -25,9 +25,9 @@ export default function App(props) {
     <div>
       { renderNav() }    
       <div id="menu">
-        <a href="#devices" data-navigo>devices </a>        
-        <a href="#cat" data-navigo>cat </a>        
-        <a href="#harry" data-navigo>harry </a>        
+        <a href="#/devices" data-navigo>devices </a>        
+        <a href="#/cat" data-navigo>cat </a>        
+        <a href="#/harry" data-navigo>harry </a>        
       </div>      
       <br />
       {showRt(props)}

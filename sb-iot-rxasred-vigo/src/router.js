@@ -12,10 +12,10 @@ var routing = function(mode){
   router = new Navigo(null, true);
   router
     .on({
-      'devices': ()=>changePage(Devices),
-      'cat': ()=>changePage(Cat),
-      'harry': ()=>changePage(Harry),
-      'dev/:id': (params)=>{
+      '/devices': ()=>changePage(Devices),
+      '/cat': ()=>changePage(Cat),
+      '/harry': ()=>changePage(Harry),
+      '/dev/:id': (params)=>{
       	var pro ={}
       	pro.ht = DevInfo;
       	pro.par = params;
