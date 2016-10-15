@@ -1,7 +1,19 @@
 import DeviceList from './DeviceList'
 
 export default function Devices(props){
-  console.log('in do devices')
+  // console.log('in do devices')
+  // console.log(deviceTypes)
+  // console.log(browser)
+  // let devNum =deviceTypes.indexOf(browser)
+  // var more
+  // console.log(window.innerWidth)
+  // if (devNum==2) {
+  //   console.log('bigger than 600')
+  //   more = <div style={{flexGrow:1}}> dog </div>
+  // }else{
+  //   console.log('smaller than 600')
+  //   more = <br/>
+  // }   
   const { isLoading, name, users, rtpg, devices } = props;
   console.log(devices)
   return(

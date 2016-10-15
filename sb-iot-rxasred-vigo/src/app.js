@@ -8,12 +8,13 @@ import Cat from './components/Cat';
 import Harry from './components/Harry';
 
 import { createStore } from './rxflux';
-import { log } from './utils';
+import { log } from './util/utils';
 import { changePage} from './actions';
 import {router} from './router'
 
+console.log(router)
+
 window.React = React;
-router.navigate(("/"+window.location.hash.substring(1)).replace(/(\/)\1+/,"/"))
 
 const initState = { 
   name: 'Harry', 
@@ -45,7 +46,7 @@ const initState = {
       }
     }
   ],
-  rtpg: Devices 
+  rtpg: Cat
 };
 const container = document.getElementById('app');
 
@@ -54,5 +55,13 @@ createStore(initState)
   .subscribe((state) =>
     ReactDOM.render(<App {...state} />, container)
   );
+
+//var path = ("/"+window.location.hash.substring(1)).replace(/(\/)\1+/,"/")
+var path = "/"+window.location.hash.substring(1)
+// var path = window.location.hash.substring(1)
+console.log(path)
+router.navigate(path)
+
+
 
 export {router}
