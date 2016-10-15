@@ -87,10 +87,9 @@
 	
 	// var Navigo = require('navigo');
 	
+	console.log(_router.router);
+	
 	window.React = _react2.default;
-	var path = ("/" + window.location.hash.substring(1)).replace(/(\/)\1+/, "/");
-	console.log(path);
-	_router.router.navigate(path);
 	
 	var initState = {
 	  name: 'Harry',
@@ -119,13 +118,19 @@
 	      state: 'MA'
 	    }
 	  }],
-	  rtpg: _Devices2.default
+	  rtpg: _Cat2.default
 	};
 	var container = document.getElementById('app');
 	
 	(0, _rxflux.createStore)(initState).do(_utils.log).subscribe(function (state) {
 	  return _reactDom2.default.render(_react2.default.createElement(_App2.default, state), container);
 	});
+	
+	//var path = ("/"+window.location.hash.substring(1)).replace(/(\/)\1+/,"/")
+	var path = "/" + window.location.hash.substring(1);
+	// var path = window.location.hash.substring(1)
+	console.log(path);
+	_router.router.navigate(path);
 	
 	exports.router = _router.router;
 
@@ -56574,16 +56579,17 @@
 	var routing = function routing(mode) {
 	  exports.router = router = new Navigo(null, true);
 	  router.on({
-	    '/devices': function devices() {
+	    'devices': function devices() {
+	      console.log('in devices');
 	      return (0, _actions.changePage)(_Devices2.default);
 	    },
-	    '/cat': function cat() {
+	    'cat': function cat() {
 	      return (0, _actions.changePage)(_Cat2.default);
 	    },
-	    '/harry': function harry() {
+	    'harry': function harry() {
 	      return (0, _actions.changePage)(_Harry2.default);
 	    },
-	    '/dev/:id': function devId(params) {
+	    'dev/:id': function devId(params) {
 	      var pro = {};
 	      pro.ht = _DevInfo2.default;
 	      pro.par = params;
@@ -56792,6 +56798,7 @@
 	function Devinfo(_ref) {
 	  var name = _ref.name;
 	  var currentDev = _ref.currentDev;
+	  var rtpg = _ref.rtpg;
 	
 	  console.log('in Devinfo');
 	  return _react2.default.createElement(

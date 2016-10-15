@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Devinfo({name, currentDev}){
+export default function Devinfo({name, currentDev, rtpg}){
   console.log('in Devinfo')
   return(
     <div style={styles.outer}>
