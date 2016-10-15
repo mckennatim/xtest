@@ -77,7 +77,7 @@
 	
 	var _rxflux = __webpack_require__(174);
 	
-	var _utils = __webpack_require__(212);
+	var _utils = __webpack_require__(530);
 	
 	var _actions = __webpack_require__(173);
 	
@@ -21643,7 +21643,7 @@
 	
 	var _reducer2 = _interopRequireDefault(_reducer);
 	
-	var _utils = __webpack_require__(212);
+	var _utils = __webpack_require__(530);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -23906,24 +23906,7 @@
 	}
 
 /***/ },
-/* 212 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.log = exports.isObservable = undefined;
-	
-	var _Observable = __webpack_require__(175);
-	
-	var isObservable = exports.isObservable = function isObservable(obs) {
-	  return obs instanceof _Observable.Observable;
-	};
-	var log = exports.log = console.log.bind(console);
-
-/***/ },
+/* 212 */,
 /* 213 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -56817,6 +56800,24 @@
 	    fontSize: '300%'
 	  }
 	};
+
+/***/ },
+/* 530 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.log = exports.isObservable = undefined;
+	
+	var _Observable = __webpack_require__(175);
+	
+	var isObservable = exports.isObservable = function isObservable(obs) {
+	  return obs instanceof _Observable.Observable;
+	};
+	var log = exports.log = console.log.bind(console);
 
 /***/ }
 /******/ ]);
