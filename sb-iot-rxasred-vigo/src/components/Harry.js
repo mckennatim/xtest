@@ -16,17 +16,21 @@ function renderUsers(users) {
 }
 
 export default function Harry(props) {
-  const { isLoading, name, users, rtpg } = props;
+  console.log(props.harrysally)
+  const { isLoading, name, users} = props.harrysally;
+  
   return (
     <div style={styles.outer}>
-      { isLoading ?
-        <p>Loading...</p> :
-        <h1>{ name }</h1> }
-      { renderUsers(users) }
+        <h1>{ name }</h1>
+
       <button onClick={handleChangeName('Harry')} >Harry</button>
       <button onClick={handleChangeName('Sally')} >Sally</button>
       <br />
       <button className="button primary" onClick={handleLoadFollowers('ryardley')} > Load Followers</button>
+      { isLoading ?
+        <p>Loading...</p> :
+        "dog" }
+      { renderUsers(users) } 
     </div>
   );
 }
@@ -35,7 +39,7 @@ const styles= {
     display: 'flex',
     flexDirection: 'column',
     background:'#d2ef8f',
-    height: 400,
+    height: 800,
     textAlign: 'center'    
   },
   inner: {

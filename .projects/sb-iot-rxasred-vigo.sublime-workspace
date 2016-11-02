@@ -1,0 +1,566 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"prog",
+				"prog"
+			],
+			[
+				"f",
+				"f"
+			],
+			[
+				"cr",
+				"createNestedArray"
+			],
+			[
+				"ha",
+				"HAY_CNG"
+			],
+			[
+				"H",
+				"HAY_CNG"
+			],
+			[
+				"digi",
+				"digitalWrite"
+			],
+			[
+				"da",
+				"dar"
+			],
+			[
+				"O",
+				"Observable\talias"
+			],
+			[
+				"ne",
+				"newstate\tlet"
+			],
+			[
+				"On",
+				"OnDestroy\talias"
+			],
+			[
+				"p",
+				"people\tconst"
+			],
+			[
+				"con",
+				"constructor\tkeyword"
+			],
+			[
+				"import",
+				"import\tkeyword"
+			],
+			[
+				"se",
+				"selector\tproperty"
+			],
+			[
+				"r",
+				"rootScope"
+			],
+			[
+				"ge",
+				"getElementById"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"t",
+				"timr3"
+			],
+			[
+				"ti",
+				"timr2"
+			],
+			[
+				"tim",
+				"timr3"
+			],
+			[
+				"timr",
+				"timr1"
+			],
+			[
+				"do",
+				"document"
+			],
+			[
+				"print",
+				"println"
+			],
+			[
+				"str",
+				"String"
+			],
+			[
+				"email",
+				"emailKey"
+			],
+			[
+				"gro",
+				"GROUP"
+			],
+			[
+				"script",
+				"script\tHTML - Script"
+			],
+			[
+				"ng-re",
+				"ng-repeat\tAngularJS"
+			],
+			[
+				"ta",
+				"tagSet"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 388.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"MAR",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"Snippet: ",
+				"Snippet: consolelog"
+			],
+			[
+				"Package Control:",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 472.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo"
+	],
+	"file_history":
+	[
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/dist/index.html",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/catboxr.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/index.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/rxflux.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Cat.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/actions.js",
+		"/C/wamp/www/sbdev0/xtest/cycle/webpack.config.js",
+		"/C/wamp/www/sbdev0/xtest/cycle/dist/index.html",
+		"/C/wamp/www/sbdev0/xtest/cycle/src/app.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducer.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/harrysally.js",
+		"/C/wamp/www/sbdev0/yREADME.md",
+		"/C/wamp/www/sbdev0/xtest/cycle-webpack-boilerplate/src/main.js",
+		"/C/wamp/www/sbdev0/xtest/cycle-webpack-boilerplate/README.md",
+		"/C/wamp/www/sbdev0/xtest/cycle-webpack-boilerplate/src/app.js",
+		"/C/wamp/www/sbdev0/package.json",
+		"/C/wamp/www/sbdev0/xtest/cycle-webpack-boilerplate/src/index.html",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/router.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/app.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/DeviceList.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/DevInfo.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/README.md",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/App.js",
+		"/C/wamp/www/sbdev0/xtest/README.md",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Harry.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Devices.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/util/warning.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/util/combineReducers.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/route.js",
+		"/C/wamp/www/sbdev0/xtest/sb-rxasred-vigo/src/components/App.js",
+		"/C/wamp/www/sbdev0/xtest/sb-rxasred-vigo/src/app.js",
+		"/C/wamp/www/sbdev0/xtest/sb-rxasred-vigo/src/components/Harry.js",
+		"/C/wamp/www/sbdev0/xtest/sb-rxasred-vigo/src/components/Devices.js",
+		"/C/wamp/www/sbdev0/xtest/sb-rxasred-vigo/src/components/Cat.js",
+		"/C/wamp/www/sbdev0/xtest/sb-rxasred-vigo/webpack.config.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/package.json",
+		"/C/wamp/www/sbdev0/xtest/sb-rxasred-vigo/src/actions.js",
+		"/C/wamp/www/sbdev0/cascada/client/react/app/components/Yard.js",
+		"/C/wamp/www/sbdev0/xtest/sb-rxasred-vigo/src/reducer.js",
+		"/C/wamp/www/sbdev0/xtest/sb-rxasred-vigo/README.md",
+		"/C/wamp/www/sbdev0/xtest/sb_rxjs-as-redux/src/components/App.js",
+		"/C/wamp/www/sbdev0/xtest/sb-redux-obervable-react/src/reducers/ping.js",
+		"/C/wamp/www/sbdev0/xtest/sb-redux-obervable-react/package.json",
+		"/C/wamp/www/sbdev0/xtest/sb-redux-obervable-react/src/app.js",
+		"/C/wamp/www/sbdev0/xtest/sb-react-router/src/app.js",
+		"/C/wamp/www/sbdev0/xtest/sbasic/src/app.js",
+		"/C/wamp/www/sbdev0/xtest/sbasic/src/components/Foo.js",
+		"/C/wamp/www/sbdev0/xtest/sbasic/src/components/Dog.js",
+		"/C/wamp/www/sbdev0/xtest/sbasic/src/components/Bar.js",
+		"/C/wamp/www/sbdev0/xtest/sbasic/src/components/Animal.js",
+		"/C/wamp/www/sbdev0/xtest/cycle-demo/build/index.html",
+		"/C/wamp/www/sbdev0/xtest/cycle-demo/webpack.config.js",
+		"/C/wamp/www/sbdev0/xtest/cycle-demo/src/main.js",
+		"/C/wamp/www/sbdev0/xtest/cycle-demo/src/index.js",
+		"/C/wamp/www/sbdev0/xtest/cycle-demo/package.json",
+		"/C/wamp/www/sbdev0/xtest/sb-react-router4/src/app.js",
+		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/hello-world-react/webpack.config.js",
+		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/hello-world-react/app/index.js",
+		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/hello-world-react/package.json",
+		"/C/wamp/www/sbdev0/xtest/sb-react-router4/webpack.config.js",
+		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/hello-world-react/app/components.js",
+		"/C/wamp/www/sbdev0/xtest/sb-react-router/package.json",
+		"/C/wamp/www/sbdev0/xtest/sb-react-router/dist/index.html",
+		"/C/wamp/www/sbdev0/xtest/sb-react-router/dist2/index.html",
+		"/C/wamp/www/sbdev0/xtest/real-world-sb/dist/index.html",
+		"/C/wamp/www/sbdev0/xtest/sb-redux-obervable-raw/dist2/index.html",
+		"/C/wamp/www/sbdev0/xtest/sb-redux-obervable-raw/src/app.js",
+		"/C/wamp/www/sbdev0/xtest/sb-redux/dist2/index.html",
+		"/C/wamp/www/sbdev0/xtest/sb-redux/src/app.js",
+		"/C/wamp/www/sbdev0/xtest/sb-redux-obervable-raw/webpack.production.config.js",
+		"/C/wamp/www/sbdev0/xtest/sb-redux-obervable-raw/README.md",
+		"/C/wamp/www/sbdev0/xtest/sb-redux-obervable-raw/webpack.config.js",
+		"/C/wamp/www/sbdev0/xtest/sb-redux-obervable-raw/dist/bundle.js",
+		"/C/wamp/www/sbdev0/xtest/sb-redux-obervable-raw/package.json",
+		"/C/wamp/www/sbdev0/xtest/sb-redux/README.md",
+		"/C/Users/tim/AppData/Local/Temp/TextEditorAnywhere_13_08_17.mediawiki",
+		"/C/Users/tim/AppData/Local/Temp/TextEditorAnywhere_12_56_58.mediawiki",
+		"/C/wamp/www/sbdev0/geniot/client/rxjsraw/webpack.production.config.js",
+		"/C/wamp/www/sbdev0/xtest/sbnavigo/webpack.config.js",
+		"/C/wamp/www/sbdev0/geniot/client/rxjsraw/webpack.config.js",
+		"/C/wamp/www/sbdev0/geniot/client/rxjsraw/src/app.js",
+		"/C/wamp/www/sbdev0/xtest/sbnavigo/webpack.production.config.js",
+		"/C/wamp/www/sbdev0/xtest/sbnavigo/dist/index.html",
+		"/C/wamp/www/sbdev0/geniot/client/rxjsraw/dist/index.html",
+		"/C/wamp/www/sbdev0/geniot/client/rxjsraw/dist2/index.html",
+		"/C/wamp/www/sbdev0/xtest/sbnavigo/dist2/index.html",
+		"/C/wamp/www/sbdev0/demiot/client/vanilla/app.js",
+		"/C/wamp/www/sbdev0/demiot/client/vanilla/index.html",
+		"/C/wamp/www/sbdev0/xtest/sbcherry/src/handlers.js",
+		"/C/wamp/www/sbdev0/xtest/sbcherry/webpack.production.config.js",
+		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/vanilla-blog/client/screens/app/app.js",
+		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/vanilla-blog/webpack.production.config.js",
+		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/vanilla-blog/client/app.js",
+		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/vanilla-blog/dist2/index.html",
+		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/vanilla-blog/client/screens/app/templates/app.html",
+		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/vanilla-blog/package.json",
+		"/C/wamp/www/sbdev0/xtest/sbcherry/package.json",
+		"/C/wamp/www/sbdev0/xtest/sbcherry/webpack.config.js",
+		"/C/wamp/www/sbdev0/xtest/sbcherry/src/app.js",
+		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/hello-world-react/index.js",
+		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/xcherrytree-redux-react-example/webpack.config.js",
+		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/xcherrytree-redux-react-example/package.json",
+		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/xcherrytree-redux-react-example/.babelrc",
+		"/C/wamp/www/sbdev0/xtest/sbhistory/README.md",
+		"/C/wamp/www/sbdev0/xtest/page_demo/src/load_user.js",
+		"/C/wamp/www/sbdev0/xtest/page_demo/dist/index.html",
+		"/C/wamp/www/sbdev0/xtest/page_demo/package.json",
+		"/C/wamp/www/sbdev0/xtest/page_demo/webpack.config.js",
+		"/C/wamp/www/sbdev0/xtest/page_demo/src/load_users.js",
+		"/C/wamp/www/sbdev0/xtest/sbhistory/webpack.config.js",
+		"/C/wamp/www/sbdev0/xtest/sbnavigo/src/app.js",
+		"/C/wamp/www/sbdev0/xtest/sbhistory/dist/index.html",
+		"/C/wamp/www/sbdev0/xtest/sbnavigo/dist2/app.js",
+		"/C/wamp/www/sbdev0/xtest/sbhistory/dist2/index.html",
+		"/C/wamp/www/sbdev0/xtest/sbhistory/package.json",
+		"/C/wamp/www/sbdev0/xtest/sbhistory/src/app.js",
+		"/C/wamp/www/sbdev0/xtest/real-world-sb/package.json",
+		"/C/wamp/www/sbdev0/xtest/sbasic/webpack.config.js",
+		"/C/wamp/www/sbdev0/xtest/real-world-sb/src/index.js",
+		"/C/wamp/www/sbdev0/yconfig/paths.js",
+		"/C/wamp/www/sbdev0/xtest/real-world-sb/webpack.production.config.js",
+		"/C/wamp/www/sbdev0/xtest/real-world-sb/webpack.config.js",
+		"/C/wamp/www/sbdev0/xtest/react-router-redux/examples/basic/README.md",
+		"/C/wamp/www/sbdev0/xtest/sbnavigo/package.json",
+		"/C/wamp/www/sbdev0/xtest/sbnavigo/dist/bundle.js",
+		"/C/wamp/www/sbdev0/xtest/sbasic/src/components/index.js",
+		"/C/wamp/www/sbdev0/xtest/real-world/package.json",
+		"/C/wamp/www/sbdev0/xtest/real-world-eject/package.json"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\wamp\\www\\react\\react-seed\\app",
+			"<project>"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"route",
+			"harrysally",
+			"props",
+			"vin",
+			"par",
+			"para",
+			"iceList",
+			"Cat",
+			"Harry",
+			"listValue",
+			"myObj",
+			"4",
+			"02130",
+			"dog",
+			"Dog",
+			"Cat",
+			"cat",
+			"App",
+			"React",
+			"BrowserRouter",
+			"Message",
+			"About",
+			"App",
+			"ping",
+			"h1",
+			"template",
+			"profile",
+			"application",
+			"reply",
+			"root",
+			"rxjsraw",
+			"appSrc",
+			"Animal",
+			"Bar",
+			"admin",
+			"pushPath",
+			"0.0.0.0",
+			"cmd",
+			"8",
+			"4",
+			"bridge",
+			"center",
+			"4",
+			"pond",
+			"bridge",
+			"t2",
+			"t3",
+			"t2",
+			"2",
+			"pond",
+			"16",
+			"f",
+			"timr",
+			"srstate",
+			"r1",
+			"e.timr",
+			"r1",
+			"por",
+			"st",
+			"(po",
+			"t po",
+			"r1",
+			"4",
+			"HIGH",
+			"LOW",
+			"g(o",
+			"f.ISrELAYoN",
+			"flags",
+			"p.",
+			"r.temp2.",
+			"rgs.temp2.",
+			"rgs.timr1.",
+			"aid",
+			"2",
+			"4",
+			"1",
+			"bm1",
+			"1",
+			"Alarm",
+			"*",
+			"TODO:",
+			" ",
+			"_",
+			"](",
+			"-",
+			"progs",
+			"/progs",
+			"\"/progs\"",
+			"progs",
+			"prog",
+			"sched",
+			"prog",
+			"srstate",
+			"in default",
+			"in de",
+			"Ser",
+			"HAY_CNG",
+			",\\\"ev:\\\":2",
+			"rg",
+			"ro",
+			"cur",
+			"p1",
+			"temp",
+			"heat",
+			"sr.temp1",
+			"state",
+			"s.s",
+			"s.",
+			"ste",
+			"state",
+			"HAY_CNG",
+			"clpub",
+			"prgs,",
+			"ipayload",
+			"devtime",
+			"schedArr",
+			"hil",
+			"Sched",
+			"req",
+			"mq",
+			"vois",
+			"de",
+			"void",
+			";",
+			"bool ",
+			";",
+			"int ",
+			"setCur"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"f.H",
+			"this.packet.length",
+			"this.packet.lengt"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "sb-iot-rxasred-vigo.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\wamp\\www\\sbdev0\\xtest\\.projects\\xtest.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 318.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

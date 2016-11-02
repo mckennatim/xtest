@@ -17,36 +17,45 @@ console.log(router)
 window.React = React;
 
 const initState = { 
-  name: 'Harry', 
-  devices: [
-    {
-      id: 'CYURD001',
-      name: 'geniot',
-      desc: '2temp, 3timer demo board',
-      location: {
-        lat: 222,
-        lon: 333,
-        zip: '02130',
-        street: '12 Parley Vale',
-        city: 'Jamaica Plain',
-        state: 'MA'
+  harrysally: {
+    name: 'Harry', 
+    users: [],
+    isLoading: false
+  },
+  route: {
+    currentDevId: '00002zzz',
+    currentDev: {},
+    devices: [
+      {
+        id: 'CYURD001',
+        name: 'geniot',
+        desc: '2temp, 3timer demo board',
+        location: {
+          lat: 222,
+          lon: 333,
+          zip: '02130',
+          street: '12 Parley Vale',
+          city: 'Jamaica Plain',
+          state: 'MA'
+        }
+      },
+      {
+        id: 'CYURD002',
+        name: 'cascada',
+        desc: '3timer for waterfall and garden',
+        location: {
+          lat: 222,
+          lon: 333,
+          zip: '02130',
+          street: '12 Parley Vale',
+          city: 'Jamaica Plain',
+          state: 'MA'
+        }
       }
-    },
-    {
-      id: 'CYURD002',
-      name: 'cascada',
-      desc: '3timer for waterfall and garden',
-      location: {
-        lat: 222,
-        lon: 333,
-        zip: '02130',
-        street: '12 Parley Vale',
-        city: 'Jamaica Plain',
-        state: 'MA'
-      }
-    }
-  ],
-  rtpg: Cat
+    ],    
+    rtpg: Cat
+  }, 
+  catboxr: {catbox: true}, 
 };
 const container = document.getElementById('app');
 

@@ -14,13 +14,13 @@ function renderNav(){
     )
 }
 
-function showRt(rt){
-  //pass in just appropriate rt
-  return rt.rtpg(rt)
+function showRt(props){
+  //pass in just appropriate props
+  return props.route.rtpg(props)
 }
 
 export default function App(props) {
-  const { isLoading, name, users, rtpg } = props;
+  const { isLoading, name, users, rtpg, route } = props;
   return (
     <div>
       { renderNav() }    

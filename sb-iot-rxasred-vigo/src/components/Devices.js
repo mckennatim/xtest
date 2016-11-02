@@ -1,6 +1,6 @@
 import DeviceList from './DeviceList'
 
-export default function Devices(props){
+export default function Devices({route}){
   // console.log('in do devices')
   // console.log(deviceTypes)
   // console.log(browser)
@@ -13,8 +13,9 @@ export default function Devices(props){
   // }else{
   //   console.log('smaller than 600')
   //   more = <br/>
-  // }   
-  const { isLoading, name, users, rtpg, devices } = props;
+  // }  
+  const {devices, rtpg, name} = route
+  // const { isLoading, name, users, rtpg, devices } = props;
   console.log(devices)
   return(
     <div style={styles.outer} >
