@@ -1,5 +1,9 @@
 # sb-rxasred-vigo
 
+##log
+##sb-iot-rxasred-vigo-2
+todo - unpack state data as entries if table
+
 ## puzlles to solve
 calling a react render function like `changePage(Harry)` changes the state by modifying rtpg changing it to the `Harry` react render function. The `Harry` has `props` that seem to be passed in by magic.
 

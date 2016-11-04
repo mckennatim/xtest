@@ -25,7 +25,8 @@ var routing = function(mode){
       	console.log('in dev id')
       	console.log(pro)
       	return changeDevInfo(pro)
-      }
+      },
+      '/': ()=>changePage(Cat)
     })
     .resolve();
 }

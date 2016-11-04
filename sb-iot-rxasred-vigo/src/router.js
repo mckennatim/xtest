@@ -1,11 +1,17 @@
 var Navigo = require('navigo');
+var React = require('react');
 import { changePage, changeDevInfo} from './actions';
 
 import App from './components/App';
 import Devices from './components/Devices';
 import Cat from './components/Cat';
 import Harry from './components/Harry';
-import DevInfo from './components/DevInfo';
+import DevInf from './components/DevInf';
+
+function insertElement(pro){
+  console.log(pro)
+  return (<h4>duck</h4>)
+}
 
 var router;
 var routing = function(mode){
@@ -20,14 +26,15 @@ var routing = function(mode){
       'harry': ()=>changePage(Harry),
       'dev/:id': (params)=>{
       	var pro ={}
-      	pro.ht = DevInfo;
+      	pro.ht = DevInf;
       	pro.par = params;
       	console.log('in dev id')
       	console.log(pro)
       	return changeDevInfo(pro)
-      }
+      },
+      '/': ()=>changePage(Cat)
     })
-    .resolve();
+    .resolve();  
 }
 routing()
 

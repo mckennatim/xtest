@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { changeName, loadGithubFollowers} from '../actions';
 var Navigo = require('navigo');
+import DevInf from './DevInf'
 
 const handleChangeName = (data) => () =>
   changeName(data);
@@ -15,8 +16,16 @@ function renderNav(){
 }
 
 function showRt(props){
-  //pass in just appropriate props
-  return props.route.rtpg(props)
+  console.log(props.route.rtpg.name)
+  // if (props.route.rtpg.name=='Devinfo'){
+  //   console.log('in showRt crel')
+  //   //return <DevInf drogs={props}/>
+  //   return React.createElement(DevInf, {drogs: props})
+  // }
+  // //return props.route.rtpg(props)
+  const {harrysally, route, catboxr} = props
+  //return React.createElement(props.route.rtpg, {harrysally, route, catboxr})
+  return React.createElement(props.route.rtpg, props)
 }
 
 export default function App(props) {
@@ -31,6 +40,7 @@ export default function App(props) {
       </div>      
       <br />
       {showRt(props)}
+      <div id="devi"></div>
     </div>
   );
 }

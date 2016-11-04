@@ -4,8 +4,10 @@ import { toggleCatbox} from '../actions';
 
 export default function Cat(props){
   console.log('in do cat 12')
+  console.log(props)
   const {catbox}=props.catboxr
-  const { isLoading, name, users, rtpg, catboxr} = props;
+  const {name}=props.harrysally
+  //const { isLoading, name, users, rtpg, catboxr} = props;
   var toggled = false;
 	const handleNavigate = (data) => () =>{
 		console.log(data)

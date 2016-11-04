@@ -92,33 +92,42 @@
 	window.React = _react2.default;
 	
 	var initState = {
-	  name: 'Harry',
-	  devices: [{
-	    id: 'CYURD001',
-	    name: 'geniot',
-	    desc: '2temp, 3timer demo board',
-	    location: {
-	      lat: 222,
-	      lon: 333,
-	      zip: '02130',
-	      street: '12 Parley Vale',
-	      city: 'Jamaica Plain',
-	      state: 'MA'
-	    }
-	  }, {
-	    id: 'CYURD002',
-	    name: 'cascada',
-	    desc: '3timer for waterfall and garden',
-	    location: {
-	      lat: 222,
-	      lon: 333,
-	      zip: '02130',
-	      street: '12 Parley Vale',
-	      city: 'Jamaica Plain',
-	      state: 'MA'
-	    }
-	  }],
-	  route: { rtpg: _Cat2.default }
+	  harrysally: {
+	    name: 'Harry',
+	    users: [],
+	    isLoading: false
+	  },
+	  route: {
+	    currentDevId: '00002zzz',
+	    currentDev: {},
+	    devices: [{
+	      id: 'CYURD001',
+	      name: 'geniot',
+	      desc: '2temp, 3timer demo board',
+	      location: {
+	        lat: 222,
+	        lon: 333,
+	        zip: '02130',
+	        street: '12 Parley Vale',
+	        city: 'Jamaica Plain',
+	        state: 'MA'
+	      }
+	    }, {
+	      id: 'CYURD002',
+	      name: 'cascada',
+	      desc: '3timer for waterfall and garden',
+	      location: {
+	        lat: 222,
+	        lon: 333,
+	        zip: '02130',
+	        street: '12 Parley Vale',
+	        city: 'Jamaica Plain',
+	        state: 'MA'
+	      }
+	    }],
+	    rtpg: _Cat2.default
+	  },
+	  catboxr: { catbox: true }
 	};
 	var container = document.getElementById('app');
 	
@@ -21527,7 +21536,7 @@
 	
 	function showRt(props) {
 	  //pass in just appropriate props
-	  return props.route.rtpg(pros.route);
+	  return props.route.rtpg(props);
 	}
 	
 	function App(props) {
@@ -21639,10 +21648,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.createAction = exports.actionCreator = exports.createStore = undefined;
-	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; //uses combineReducers
-	
+	exports.actionCreator = exports.createStore = undefined;
 	
 	var _Observable = __webpack_require__(175);
 	
@@ -21680,12 +21686,9 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-	
 	//import Cat from './components/Cat';
 	
-	var action$ = new _Subject.Subject();
-	
+	var action$ = new _Subject.Subject(); //uses combineReducers
 	var createStore = exports.createStore = function createStore(initState) {
 	  return action$.flatMap(function (action) {
 	    return (0, _utils.isObservable)(action) ? action : _Observable.Observable.from([action]);
@@ -21705,17 +21708,18 @@
 	  };
 	};
 	
-	//my take at deconstucting actionCreator
-	var createAction = exports.createAction = function createAction(initState) {
-	  return action$.flatMap(function (action) {
-	    return (0, _utils.isObservable)(action) ? action : _Observable.Observable.from([action]);
-	  }).startWith(initState);
-	};
+	// //my take at deconstucting actionCreator
+	// export const createAction = (initState) =>
+	//   action$
+	//     .flatMap((action) => isObservable(action) ? action : Observable.from([action]))
+	//     .startWith(initState)
+	
 	
 	var stat = {
 	  harrysally: {
 	    name: 'Harry',
-	    users: []
+	    users: [],
+	    isLoading: false
 	  },
 	  route: {
 	    currentDevId: '00002zzz',
@@ -21760,32 +21764,31 @@
 	
 	//nst$.subscribe(x=>console.log(x))
 	
-	function combineReducers(reducersObject) {
-	  var keys = Object.keys(reducersObject);
-	  console.log(keys);
-	  return function () {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	    var action = arguments[1];
-	    return keys.reduce(function (currState, key) {
-	      console.log(currState);
-	      var reducer = reducersObject[key];
-	      return _extends({}, currState, _defineProperty({}, key, reducer(currState[key], action)));
-	    }, state);
-	  };
-	}
+	// function combineReducers(reducersObject) {
+	//   const keys = Object.keys(reducersObject);
+	//   console.log(keys)
+	//   return (state = {}, action) => keys.reduce((currState, key) => {
+	//   	console.log(currState)
+	//     const reducer = reducersObject[key];
+	//     return {
+	//       ...currState,
+	//       [key]: reducer(currState[key], action)
+	//     };
+	//   }, state);
+	// }
 	
-	var redobj = { harrysally: _harrysally2.default, catboxr: _catboxr2.default };
-	console.log(redobj["harrysally"]); //the reducer function
+	// var redobj = {harrysally, catboxr}
+	// console.log(redobj["harrysally"]) //the reducer function
 	
-	var cr = combineReducers(redobj);
+	// var cr = combineReducers(redobj)
 	
-	action$.subscribe(function (action) {
-	  console.log(action);
-	  console.log('what the fuck ' + action.type);
-	  console.log(action.payload);
-	  var newst = cr(stat, action);
-	  console.log(newst);
-	});
+	// action$.subscribe((action)=>{
+	// 	console.log(action)
+	// 	console.log('what the fuck '+action.type)
+	// 	console.log(action.payload)
+	// 	var newst = cr(stat,action)
+	// 	console.log(newst)
+	// })
 	
 	//action$.scan(cr).subscribe((x)=>console.log(x))
 	
@@ -56686,7 +56689,9 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function Devices(props) {
+	function Devices(_ref) {
+	  var route = _ref.route;
+	
 	  // console.log('in do devices')
 	  // console.log(deviceTypes)
 	  // console.log(browser)
@@ -56699,12 +56704,11 @@
 	  // }else{
 	  //   console.log('smaller than 600')
 	  //   more = <br/>
-	  // }   
-	  var isLoading = props.isLoading;
-	  var name = props.name;
-	  var users = props.users;
-	  var rtpg = props.rtpg;
-	  var devices = props.devices;
+	  // }  
+	  var devices = route.devices;
+	  var rtpg = route.rtpg;
+	  var name = route.name;
+	  // const { isLoading, name, users, rtpg, devices } = props;
 	
 	  console.log(devices);
 	  return React.createElement(
@@ -56877,6 +56881,9 @@
 	      console.log('in dev id');
 	      console.log(pro);
 	      return (0, _actions.changeDevInfo)(pro);
+	    },
+	    '/': function _() {
+	      return (0, _actions.changePage)(_Cat2.default);
 	    }
 	  }).resolve();
 	};
@@ -56901,11 +56908,9 @@
 	
 	function Cat(props) {
 	  console.log('in do cat 12');
-	  var isLoading = props.isLoading;
-	  var name = props.name;
-	  var users = props.users;
-	  var rtpg = props.rtpg;
-	  var catboxr = props.catboxr;
+	  var catbox = props.catboxr.catbox;
+	  var name = props.harrysally.name;
+	  //const { isLoading, name, users, rtpg, catboxr} = props;
 	
 	  var toggled = false;
 	  var handleNavigate = function handleNavigate(data) {
@@ -56917,7 +56922,7 @@
 	  var handleToggled = function handleToggled(e) {
 	    (0, _actions.toggleCatbox)(e.target.checked);
 	    console.log(e.target.checked);
-	    console.log(catboxr);
+	    console.log(catbox);
 	  };
 	
 	  return React.createElement(
@@ -56934,11 +56939,12 @@
 	      { onClick: handleNavigate('dev/CYURD002') },
 	      'goto CYURD002'
 	    ),
-	    React.createElement('input', { type: 'checkbox', onClick: function onClick(e) {
+	    React.createElement('input', { type: 'checkbox', onChange: function onChange(e) {
 	        return handleToggled(e);
 	      },
 	      style: styles.ckbox,
-	      id: 'c1', name: 'cc' }),
+	      id: 'c1', name: 'cc',
+	      checked: catbox }),
 	    React.createElement(
 	      'label',
 	      { htmlFor: 'c1', style: styles.ckbox },
@@ -56947,7 +56953,7 @@
 	    React.createElement(
 	      'p',
 	      null,
-	      catboxr ? 'ON' : 'off'
+	      catbox ? 'ON' : 'off'
 	    )
 	  );
 	}
@@ -57023,10 +57029,12 @@
 	}
 	
 	function Harry(props) {
-	  var isLoading = props.isLoading;
-	  var name = props.name;
-	  var users = props.users;
-	  var rtpg = props.rtpg;
+	  console.log(props.harrysally);
+	  var _props$harrysally = props.harrysally;
+	  var isLoading = _props$harrysally.isLoading;
+	  var name = _props$harrysally.name;
+	  var users = _props$harrysally.users;
+	
 	
 	  return _react2.default.createElement(
 	    'div',
@@ -57103,10 +57111,11 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function Devinfo(_ref) {
-	  var name = _ref.name;
-	  var currentDev = _ref.currentDev;
-	  var rtpg = _ref.rtpg;
+	function Devinfo(props) {
+	  var _props$route = props.route;
+	  var currentDev = _props$route.currentDev;
+	  var rtpg = _props$route.rtpg;
+	  var name = props.harrysally.name;
 	
 	  console.log('in Devinfo');
 	  return _react2.default.createElement(

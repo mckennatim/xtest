@@ -6,6 +6,7 @@ import App from './components/App';
 import Devices from './components/Devices';
 import Cat from './components/Cat';
 import Harry from './components/Harry';
+import DevInf from './components/DevInf';
 
 import { createStore } from './rxflux';
 import { log } from './util/utils';
@@ -53,7 +54,9 @@ const initState = {
         }
       }
     ],    
-    rtpg: Cat
+    rtpg: Cat,
+    timr: [0,0,0],
+    srstate: {id: -1, darr:[]}
   }, 
   catboxr: {catbox: true}, 
 };

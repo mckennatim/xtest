@@ -124,70 +124,10 @@
 	"buffers":
 	[
 		{
-			"file": "/C/wamp/www/sbdev0/xtest/sb-rxasredu-vigo/src/reducer.js",
+			"file": "/C/wamp/www/sbdev0/xtest/sbnavigo/src/app.js",
 			"settings":
 			{
-				"buffer_size": 569,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/wamp/www/sbdev0/xtest/sb-rxasred/src/reducers/nameReducer.js",
-			"settings":
-			{
-				"buffer_size": 234,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/wamp/www/sbdev0/xtest/sb-rxasred/src/reducers/gitReducer.js",
-			"settings":
-			{
-				"buffer_size": 360,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/wamp/www/sbdev0/xtest/sb-rxasred/src/reducers/catboxr.js",
-			"settings":
-			{
-				"buffer_size": 214,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/wamp/www/sbdev0/xtest/sb-rxasredu-vigo/src/actions.js",
-			"settings":
-			{
-				"buffer_size": 729,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/wamp/www/sbdev0/xtest/sb-rxasred/src/actions.js",
-			"settings":
-			{
-				"buffer_size": 826,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/actions.js",
-			"settings":
-			{
-				"buffer_size": 929,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/wamp/www/sbdev0/xtest/sb-rxasred/src/rxflux.js",
-			"settings":
-			{
-				"buffer_size": 810,
-				"encoding": "UTF-8",
+				"buffer_size": 6811,
 				"line_ending": "Windows"
 			}
 		}
@@ -246,36 +186,41 @@
 		"/C/wamp/www/sbdev0/.projects/geniot",
 		"/C/wamp/www/sbdev0/xtest",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/dist",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers",
-		"/C/wamp/www/sbdev0/xtest/sb-rxasred/dist",
-		"/C/wamp/www/sbdev0/xtest/sb-rxasred/src",
-		"/C/wamp/www/sbdev0/xtest/sb-rxasred/src/reducers",
-		"/C/wamp/www/sbdev0/xtest/sb-rxasredu-vigo",
-		"/C/wamp/www/sbdev0/xtest/sb-rxasredu-vigo/src",
-		"/C/wamp/www/sbdev0/xtest/sb-rxasredu-vigo/src/components",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/util",
+		"/C/wamp/www/sbdev0/xtest/sbnavigo",
 		"/C/wamp/www/sbdev0/xtest/sbnavigo/src"
 	],
 	"file_history":
 	[
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/rxflux.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Devices.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/DevInfo.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/app.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/App.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Cat.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/router.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/harrysally.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Harry.js",
+		"/C/wamp/www/sbdev0/xtest/sb-rxasred/src/reducers/catboxr.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/dist/index.html",
+		"/C/wamp/www/sbdev0/xtest/sb-rxasred/src/reducers/nameReducer.js",
+		"/C/wamp/www/sbdev0/xtest/sb-rxasred/src/reducers/gitReducer.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/index.js",
+		"/C/wamp/www/sbdev0/xtest/sb-rxasred/src/actions.js",
+		"/C/wamp/www/sbdev0/xtest/sb-rxasred/src/rxflux.js",
 		"/C/wamp/www/sbdev0/xtest/sb-rxasred/src/app.js",
 		"/C/wamp/www/sbdev0/xtest/sb-rxasred/src/reducers/reducer.js",
 		"/C/wamp/www/sbdev0/xtest/sb-rxasred/src/reducers/index.js",
-		"/C/wamp/www/sbdev0/xtest/sb-rxasred/src/reducers/nameReducer.js",
 		"/C/wamp/www/sbdev0/package.json",
 		"/C/wamp/www/sbdev0/xtest/sb-rxasred/dist/bundle.js.map",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/index.js",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/actions.js",
 		"/C/wamp/www/sbdev0/xtest/sbnavigo/src/app.js",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/rxflux.js",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/README.md",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/catboxr.js",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/router.js",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/App.js",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Cat.js",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/harrysally.js",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Harry.js",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/DeviceList.js",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducer.js",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/route.js",
@@ -285,7 +230,6 @@
 		"/C/wamp/www/sbdev0/xtest/.projects/sbnavigo.sublime-project",
 		"/C/wamp/www/sbdev0/xtest/.projects/sb-iot-rxasred-vigo.sublime-project",
 		"/C/wamp/www/sbdev0/.projects/xtest/xtest.sublime-project",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/dist/index.html",
 		"/C/wamp/www/sbdev0/xtest/cycle/webpack.config.js",
 		"/C/wamp/www/sbdev0/xtest/cycle/dist/index.html",
 		"/C/wamp/www/sbdev0/xtest/cycle/src/app.js",
@@ -294,10 +238,7 @@
 		"/C/wamp/www/sbdev0/xtest/cycle-webpack-boilerplate/README.md",
 		"/C/wamp/www/sbdev0/xtest/cycle-webpack-boilerplate/src/app.js",
 		"/C/wamp/www/sbdev0/xtest/cycle-webpack-boilerplate/src/index.html",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/app.js",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/DevInfo.js",
 		"/C/wamp/www/sbdev0/xtest/README.md",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Devices.js",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/util/warning.js",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/util/combineReducers.js",
 		"/C/wamp/www/sbdev0/xtest/sb-rxasred-vigo/src/components/App.js",
@@ -382,11 +323,7 @@
 		"/C/wamp/www/sbdev0/xtest/page_demo/src/load_users.js",
 		"/C/wamp/www/sbdev0/xtest/sbhistory/webpack.config.js",
 		"/C/wamp/www/sbdev0/xtest/sbhistory/dist/index.html",
-		"/C/wamp/www/sbdev0/xtest/sbnavigo/dist2/app.js",
-		"/C/wamp/www/sbdev0/xtest/sbhistory/dist2/index.html",
-		"/C/wamp/www/sbdev0/xtest/sbhistory/package.json",
-		"/C/wamp/www/sbdev0/xtest/sbhistory/src/app.js",
-		"/C/wamp/www/sbdev0/xtest/real-world-sb/package.json"
+		"/C/wamp/www/sbdev0/xtest/sbnavigo/dist2/app.js"
 	],
 	"find":
 	{
@@ -554,24 +491,39 @@
 	"groups":
 	[
 		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		},
+		{
 			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/wamp/www/sbdev0/xtest/sb-rxasredu-vigo/src/reducer.js",
+					"file": "/C/wamp/www/sbdev0/xtest/sbnavigo/src/app.js",
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 569,
+						"buffer_size": 6811,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1858,
+								4033
 							]
 						],
 						"settings":
@@ -581,241 +533,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1618.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 2,
-			"sheets":
-			[
-				{
-					"buffer": 1,
-					"file": "/C/wamp/www/sbdev0/xtest/sb-rxasred/src/reducers/nameReducer.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 234,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								228,
-								228
-							]
-						],
-						"settings":
-						{
-							"mediawiker_wiki_instead_editor": false,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/C/wamp/www/sbdev0/xtest/sb-rxasred/src/reducers/gitReducer.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 360,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								360,
-								360
-							]
-						],
-						"settings":
-						{
-							"mediawiker_wiki_instead_editor": false,
-							"open_with_edit": true,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/wamp/www/sbdev0/xtest/sb-rxasred/src/reducers/catboxr.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 214,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								214,
-								214
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 4,
-					"file": "/C/wamp/www/sbdev0/xtest/sb-rxasredu-vigo/src/actions.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 729,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 5,
-					"file": "/C/wamp/www/sbdev0/xtest/sb-rxasred/src/actions.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 826,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"mediawiker_wiki_instead_editor": false,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/actions.js",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 929,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								927,
-								829
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/C/wamp/www/sbdev0/xtest/sb-rxasred/src/rxflux.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 810,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								588,
-								588
-							]
-						],
-						"settings":
-						{
-							"mediawiker_wiki_instead_editor": false,
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -900,7 +621,7 @@
 		[
 			[
 				"",
-				"C:\\wamp\\www\\.projects\\sbdev0.sublime-project"
+				"C:\\wamp\\www\\sbdev0\\xtest\\.projects\\sb-iot-rxasred-vigo.sublime-project"
 			]
 		],
 		"width": 380.0
@@ -914,7 +635,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 3,
 	"settings":
 	{
 	},

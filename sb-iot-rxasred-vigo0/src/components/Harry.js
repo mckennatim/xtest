@@ -16,7 +16,9 @@ function renderUsers(users) {
 }
 
 export default function Harry(props) {
-  const { isLoading, name, users, rtpg } = props;
+  console.log(props.harrysally)
+  const { isLoading, name, users} = props.harrysally;
+  
   return (
     <div style={styles.outer}>
         <h1>{ name }</h1>

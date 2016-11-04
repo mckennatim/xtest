@@ -16,7 +16,7 @@ function renderNav(){
 
 function showRt(props){
   //pass in just appropriate props
-  return props.route.rtpg(pros.route)
+  return props.route.rtpg(props)
 }
 
 export default function App(props) {

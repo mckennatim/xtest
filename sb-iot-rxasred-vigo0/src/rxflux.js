@@ -30,17 +30,18 @@ export const actionCreator = (func) => (...args) => {
 };
 
 
-//my take at deconstucting actionCreator
-export const createAction = (initState) =>
-  action$
-    .flatMap((action) => isObservable(action) ? action : Observable.from([action]))
-    .startWith(initState)
+// //my take at deconstucting actionCreator
+// export const createAction = (initState) =>
+//   action$
+//     .flatMap((action) => isObservable(action) ? action : Observable.from([action]))
+//     .startWith(initState)
 
 
 const stat = { 
 	harrysally: {
 	  name: 'Harry', 
-	  users: []
+	  users: [],
+    isLoading: false
 	},
 	route: {
 		currentDevId: '00002zzz',
@@ -89,31 +90,31 @@ const stat = {
 
 //nst$.subscribe(x=>console.log(x))
 
-function combineReducers(reducersObject) {
-  const keys = Object.keys(reducersObject);
-  console.log(keys)
-  return (state = {}, action) => keys.reduce((currState, key) => {
-  	console.log(currState)
-    const reducer = reducersObject[key];
-    return {
-      ...currState,
-      [key]: reducer(currState[key], action)
-    };
-  }, state);
-}
+// function combineReducers(reducersObject) {
+//   const keys = Object.keys(reducersObject);
+//   console.log(keys)
+//   return (state = {}, action) => keys.reduce((currState, key) => {
+//   	console.log(currState)
+//     const reducer = reducersObject[key];
+//     return {
+//       ...currState,
+//       [key]: reducer(currState[key], action)
+//     };
+//   }, state);
+// }
 
-var redobj = {harrysally, catboxr}
-console.log(redobj["harrysally"]) //the reducer function
+// var redobj = {harrysally, catboxr}
+// console.log(redobj["harrysally"]) //the reducer function
 
-var cr = combineReducers(redobj)
+// var cr = combineReducers(redobj)
 
-action$.subscribe((action)=>{
-	console.log(action)
-	console.log('what the fuck '+action.type)
-	console.log(action.payload)
-	var newst = cr(stat,action)
-	console.log(newst)
-})
+// action$.subscribe((action)=>{
+// 	console.log(action)
+// 	console.log('what the fuck '+action.type)
+// 	console.log(action.payload)
+// 	var newst = cr(stat,action)
+// 	console.log(newst)
+// })
 
 //action$.scan(cr).subscribe((x)=>console.log(x))
 

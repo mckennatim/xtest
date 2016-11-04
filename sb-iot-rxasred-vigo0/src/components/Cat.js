@@ -4,7 +4,9 @@ import { toggleCatbox} from '../actions';
 
 export default function Cat(props){
   console.log('in do cat 12')
-  const { isLoading, name, users, rtpg, catboxr} = props;
+  const {catbox}=props.catboxr
+  const {name}=props.harrysally
+  //const { isLoading, name, users, rtpg, catboxr} = props;
   var toggled = false;
 	const handleNavigate = (data) => () =>{
 		console.log(data)
@@ -13,18 +15,19 @@ export default function Cat(props){
   const handleToggled= (e)=>{
     toggleCatbox(e.target.checked)
     console.log(e.target.checked)
-    console.log(catboxr)
+    console.log(catbox)
   }
 
   return(
     <div style = {styles.outer}>
     	<h4>in doCat {name}</h4>
     	<button onClick={handleNavigate('dev/CYURD002')}>goto CYURD002</button>
-      <input type="checkbox" onClick={(e)=>handleToggled(e)}
+      <input type="checkbox" onChange={(e)=>handleToggled(e)}
         style = {styles.ckbox}
-        id="c1" name="cc"/> 
+        id="c1" name="cc"
+        checked={catbox}/> 
         <label htmlFor="c1" style = {styles.ckbox}>Toggle me</label>
-      <p>{catboxr? 'ON' : 'off'}</p>      
+      <p>{catbox? 'ON' : 'off'}</p>      
     </div>
     )
 }

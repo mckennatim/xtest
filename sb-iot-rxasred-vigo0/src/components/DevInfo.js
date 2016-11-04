@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default function Devinfo({name, currentDev, rtpg}){
+export default function Devinfo(props){
+  const {currentDev, rtpg} = props.route
+  const {name}= props.harrysally
   console.log('in Devinfo')
   return(
     <div style={styles.outer}>

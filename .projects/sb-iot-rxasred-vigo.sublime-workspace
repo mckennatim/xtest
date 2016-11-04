@@ -123,6 +123,30 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/harrysally.js",
+			"settings":
+			{
+				"buffer_size": 499,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/route.js",
+			"settings":
+			{
+				"buffer_size": 507,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/actions.js",
+			"settings":
+			{
+				"buffer_size": 929,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -173,7 +197,10 @@
 	},
 	"expanded_folders":
 	[
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo"
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers"
 	],
 	"file_history":
 	[
@@ -463,7 +490,7 @@
 			"this.packet.length",
 			"this.packet.lengt"
 		],
-		"reverse": false,
+		"reverse": true,
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
@@ -472,6 +499,114 @@
 	"groups":
 	[
 		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/harrysally.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 499,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/route.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 507,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								458,
+								458
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/actions.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 929,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
 			"sheets":
 			[
 			]
@@ -479,7 +614,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"input":
 	{
@@ -494,16 +629,36 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
 		[
 			0.0,
+			0.5,
 			1.0
 		]
 	},
@@ -550,7 +705,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 3,
 	"settings":
 	{
 	},
