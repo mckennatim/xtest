@@ -15,6 +15,12 @@ export const loadGithubFollowers = actionCreator((payload) => {
       }))
   };
 });
+// export const getFlagsGrabTimr = actionCreator((payload) => {
+//   return {
+//     type: 'FLAGS_LOADING',
+//     payload: Observable.
+//   } 
+// });
 
 export const changeName = actionCreator((payload) => ({
   type: 'NAME_CHANGED',
@@ -32,19 +38,21 @@ export const changeDevInfo = actionCreator((payload) => {
   }
 });
 export const grabTimrData = actionCreator((payload) => {
-  //timr's are the 2nd 3rd and 4th of this device
-  const justTimr = payload.tIMElEFT.filter(function(x,i){
-    return i>1
-  }) 
   return {
     type: 'TIMR_CHANGED',
-    payload: justTimr
+    payload
   }
 });
 export const grabSrstateData = actionCreator((payload) => {
   return {
     type: 'SRSTATE_CHANGED',
     payload
+  }
+});
+export const grabFlagData = actionCreator((payload) => {
+  return {
+    type: 'FLAGS_CHANGED',
+    payload 
   }
 });
 export const toggleCatbox = actionCreator((payload) => ({

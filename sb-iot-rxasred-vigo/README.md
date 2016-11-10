@@ -1,7 +1,15 @@
 # sb-rxasred-vigo
 
 ##log
-##sb-iot-rxasred-vigo-2
+### sb-iot_DevInf-onmessage
+What happens or should happen when user refreshes a devInf page or goes back to it from somewhere else. 
+
+- send token to see if authorized
+- get flags
+- respond to messages
+
+If any of that causes a state change then re-render. Re-rendering reruns `makeTimrMap` uses flag info to decide what timrs to display and formats the array of numbers into an array of objects 
+### sb-iot-rxasred-vigo-2
 todo - unpack state data as entries if table
 
 ## puzlles to solve

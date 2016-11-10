@@ -13,7 +13,7 @@ import { log } from './util/utils';
 import { changePage} from './actions';
 import {router} from './router'
 
-console.log(router)
+// console.log(router)
 
 window.React = React;
 
@@ -56,24 +56,35 @@ const initState = {
     ],    
     rtpg: Cat,
     timr: [0,0,0],
-    srstate: {id: -1, darr:[]}
+    flags: {HAStIMR: 28},
+    srstate: [{id:14, temp:32}]
   }, 
   catboxr: {catbox: true}, 
 };
 const container = document.getElementById('app');
 
-createStore(initState)
-  .do(log)
-  .subscribe((state) =>
+const theStore =createStore(initState)
+
+const domRenderer = theStore.subscribe((state)=>
     ReactDOM.render(<App {...state} />, container)
-  );
+  )
+
+// function stateListener(state){
+//   console.log('state is being listened to')
+// }
+
+// theStore.subscribe((state)=>stateListener(state))
+
+// theStore
+//   .do(log)
+//   .subscribe((state) =>
+//     ReactDOM.render(<App {...state} />, container)
+//   );
 
 //var path = ("/"+window.location.hash.substring(1)).replace(/(\/)\1+/,"/")
 var path = "/"+window.location.hash.substring(1)
 // var path = window.location.hash.substring(1)
 console.log(path)
 router.navigate(path)
-
-
 
 export {router}

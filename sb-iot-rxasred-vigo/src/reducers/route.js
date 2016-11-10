@@ -10,7 +10,7 @@ export default function route(state, action) {
         rtpg: action.payload
       };
     case 'DEVINFO_CHANGED':
-      console.log(action.payload)
+      // console.log(action.payload)
       return {
         ...state,
         rtpg: action.payload.ht, 
@@ -22,10 +22,19 @@ export default function route(state, action) {
         ...state,
         timr: action.payload
       }
-    case 'SRSTATE_CHANGED':
+    case 'FLAGS_CHANGED':
       return {
         ...state,
-        srstate: action.payload
+        flags: action.payload
+      }
+    case 'SRSTATE_CHANGED':
+      const ridx = 4;
+      const newdat = {id:23, temp:149}
+      const newsr = state.srstate.slice()
+      newsr[ridx]=newdat
+      return {
+        ...state,
+        srstate: newsr
       }
     default:
       return state;

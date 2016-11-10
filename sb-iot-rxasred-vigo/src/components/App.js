@@ -16,7 +16,7 @@ function renderNav(){
 }
 
 function showRt(props){
-  console.log(props.route.rtpg.name)
+  // console.log(props.route.rtpg.name)
   // if (props.route.rtpg.name=='Devinfo'){
   //   console.log('in showRt crel')
   //   //return <DevInf drogs={props}/>

@@ -6,10 +6,7 @@ const handleNavigate = (data) => () =>
   router.navigate(data);
 
 export default function DevicesList(props){
-  console.log('in do devices')
   const { devices, name } = props;
-
-  console.log(devices)
   devices.map((dev)=>{
   	console.log(dev)
   })

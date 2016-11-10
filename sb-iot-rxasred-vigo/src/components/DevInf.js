@@ -5,20 +5,32 @@ const DevInf = React.createClass({
 
   componentDidMount: function() {
     console.log('Devinf mounted')
-    console.log(this.currentDev.id)
-    this.client = mqttCon(this.currentDev.id)
+    this.client = mqttCon(this.currentDev.id, this.props)
   },
   componentWillUnmount: function(){
     console.log('Devinf unmountd')
     this.client.publish('presence', 'Help, wants to close! ');
     this.client.end();    
   },
+  makeTimrMap: function(HAStIMR, timrRaw){
+    const timr = timrRaw.map((x,i)=>{
+      if((Math.pow(2,i) & HAStIMR)>0){
+        return {id: i, sec:x}
+      }else {
+        return
+      }
+    }).filter(function(x,i){
+      return typeof x === 'object'
+    })
+    return timr
+  },
   render: function(){
     this.currentDev = this.props.route.currentDev
-    const timr = this.props.route.timr
+    const HAStIMR = this.props.route.flags.HAStIMR
+    const timrRaw = this.props.route.timr
+    const timr = this.makeTimrMap(HAStIMR, timrRaw)
     const srstate = this.props.route.srstate
     const {name}= this.props.harrysally  
-    console.log(this.props)  
     return(
       <div style={styles.outer}>
         <h4>in doDevinfo {name}</h4>
@@ -27,8 +39,8 @@ const DevInf = React.createClass({
         {this.currentDev.desc}<br/>
         <ul style={styles.ul}>
         {timr.map((tmr, idx)=>
-          <li key={idx+2} style={styles.inner}>Timer {idx+2}:  
-          <span style={styles.span}>{tmr}</span>
+          <li key={idx} style={styles.inner}>Timer {tmr.id}:  
+          <span style={styles.span}>{tmr.sec}</span>
           </li>
         )}
         </ul>

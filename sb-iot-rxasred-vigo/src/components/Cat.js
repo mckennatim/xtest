@@ -3,20 +3,15 @@ import { toggleCatbox} from '../actions';
 
 
 export default function Cat(props){
-  console.log('in do cat 12')
-  console.log(props)
   const {catbox}=props.catboxr
   const {name}=props.harrysally
   //const { isLoading, name, users, rtpg, catboxr} = props;
   var toggled = false;
 	const handleNavigate = (data) => () =>{
-		console.log(data)
 	  router.navigate(data);
 	}
   const handleToggled= (e)=>{
     toggleCatbox(e.target.checked)
-    console.log(e.target.checked)
-    console.log(catbox)
   }
 
   return(

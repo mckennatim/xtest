@@ -1,9 +1,15 @@
 var mqtt = require('mqtt')
-import {grabTimrData, grabSrstateData } from './index'
+import {grabTimrData, grabSrstateData, grabFlagData } from './index'
 
-export default function mqttCon(id){
+function stateListener(state){
+  console.log('state is being listened tog')
+
+}
+
+export default function mqttCon(id, props){
   const client = mqtt.connect('ws://162.217.250.109:3333')
   var deviceId = id
+  console.log('device id = '+ deviceId)
   var prg = deviceId+'/prg'
   var cmd = deviceId +'/cmd'
   var req = deviceId +'/req'
@@ -35,12 +41,15 @@ export default function mqttCon(id){
           grabSrstateData(plo) 
           break;
         case "timr":
-          var otimr = plo;
-          grabTimrData(plo)
+          grabTimrData(plo.tIMElEFT)
+          break;
+        case "flags":
+          grabFlagData(plo)
           break;
       }
     });
-
+    var thecmd =  `{\"id\":2,\"req\":\"flags\"}`
+    client.publish(req, thecmd);
   });    
   return client
 }

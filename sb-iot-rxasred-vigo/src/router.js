@@ -28,8 +28,8 @@ var routing = function(mode){
       	var pro ={}
       	pro.ht = DevInf;
       	pro.par = params;
-      	console.log('in dev id')
-      	console.log(pro)
+      	// console.log('in dev id')
+      	// console.log(pro)
       	return changeDevInfo(pro)
       },
       '/': ()=>changePage(Cat)

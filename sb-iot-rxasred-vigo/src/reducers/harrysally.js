@@ -1,5 +1,4 @@
 export default function harrysally (state, action) {
-  console.log(action)
   switch (action.type) {
     case 'GITHUB_FOLLOWERS_LOADING':
       return {

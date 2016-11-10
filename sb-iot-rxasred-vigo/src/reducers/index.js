@@ -4,7 +4,7 @@ import catboxr from './catboxr'
 
 function combineReducers(reducersObject) {
   const keys = Object.keys(reducersObject);
-	console.log(keys)
+	// console.log(keys)
   return (state = {}, action) => keys.reduce((currState, key) => {
     const reducer = reducersObject[key];
     return {
