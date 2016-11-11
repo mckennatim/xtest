@@ -28,14 +28,15 @@ export default function route(state, action) {
         flags: action.payload
       }
     case 'SRSTATE_CHANGED':
-      const ridx = 4;
-      const newdat = {id:23, temp:149}
-      const newsr = state.srstate.slice()
-      newsr[ridx]=newdat
-      return {
-        ...state,
-        srstate: newsr
-      }
+      const ridx = action.payload.id;
+      const notTimer = 31 - state.flags.HAStIMR
+      if((Math.pow(2,ridx) & notTimer)>0){
+        const newsr = state.srstate.slice()
+        newsr[ridx]=action.payload        
+        return {...state, srstate: newsr}
+      }else {
+        return state
+      }      
     default:
       return state;
   }

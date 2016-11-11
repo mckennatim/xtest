@@ -63,15 +63,15 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _Devices = __webpack_require__(530);
+	var _Devices = __webpack_require__(529);
 	
 	var _Devices2 = _interopRequireDefault(_Devices);
 	
-	var _Cat = __webpack_require__(533);
+	var _Cat = __webpack_require__(532);
 	
 	var _Cat2 = _interopRequireDefault(_Cat);
 	
-	var _Harry = __webpack_require__(534);
+	var _Harry = __webpack_require__(533);
 	
 	var _Harry2 = _interopRequireDefault(_Harry);
 	
@@ -85,7 +85,7 @@
 	
 	var _actions = __webpack_require__(173);
 	
-	var _router = __webpack_require__(532);
+	var _router = __webpack_require__(531);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -114,6 +114,10 @@
 	        street: '12 Parley Vale',
 	        city: 'Jamaica Plain',
 	        state: 'MA'
+	      },
+	      specs: {
+	        HAStIMER: 28,
+	        notTimerTags: ["temp", "onoff", "hilimit", "lolimit"]
 	      }
 	    }, {
 	      id: 'CYURD002',
@@ -126,12 +130,16 @@
 	        street: '12 Parley Vale',
 	        city: 'Jamaica Plain',
 	        state: 'MA'
+	      },
+	      specs: {
+	        HAStIMER: 28,
+	        notTimerTags: ["temp", "onoff", "hilimit", "lolimit"]
 	      }
 	    }],
 	    rtpg: _Cat2.default,
 	    timr: [0, 0, 0],
 	    flags: { HAStIMR: 28 },
-	    srstate: [{ id: 14, temp: 32 }]
+	    srstate: []
 	  },
 	  catboxr: { catbox: true }
 	};
@@ -21532,7 +21540,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Navigo = __webpack_require__(529);
+	var Navigo = __webpack_require__(528);
 	
 	
 	var handleChangeName = function handleChangeName(data) {
@@ -56262,13 +56270,15 @@
 	        flags: action.payload
 	      });
 	    case 'SRSTATE_CHANGED':
-	      var ridx = 4;
-	      var newdat = { id: 23, temp: 149 };
-	      var newsr = state.srstate.slice();
-	      newsr[ridx] = newdat;
-	      return _extends({}, state, {
-	        srstate: newsr
-	      });
+	      var ridx = action.payload.id;
+	      var notTimer = 31 - state.flags.HAStIMR;
+	      if ((Math.pow(2, ridx) & notTimer) > 0) {
+	        var newsr = state.srstate.slice();
+	        newsr[ridx] = action.payload;
+	        return _extends({}, state, { srstate: newsr });
+	      } else {
+	        return state;
+	      }
 	    default:
 	      return state;
 	  }
@@ -56433,7 +56443,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _mqttCon = __webpack_require__(528);
+	var _mqttCon = __webpack_require__(534);
 	
 	var _mqttCon2 = _interopRequireDefault(_mqttCon);
 	
@@ -56464,14 +56474,58 @@
 	    });
 	    return timr;
 	  },
+	  generateHeaders: function generateHeaders() {
+	    var tags = this.props.route.currentDev.specs.notTimerTags;
+	    console.log(tags);
+	    return tags.map(function (h, i) {
+	      return _react2.default.createElement(
+	        'th',
+	        { key: i },
+	        ' ',
+	        h,
+	        ' '
+	      );
+	    });
+	  },
+	  generateRows: function generateRows() {
+	    var srstate = this.props.route.srstate;
+	    var rows = srstate.map(function (sens) {
+	      var cells = sens.darr.map(function (d, i) {
+	        return _react2.default.createElement(
+	          'td',
+	          { key: i },
+	          ' ',
+	          d,
+	          ' '
+	        );
+	      });
+	      return _react2.default.createElement(
+	        'tr',
+	        { key: sens.id },
+	        _react2.default.createElement(
+	          'td',
+	          null,
+	          'temp',
+	          sens.id
+	        ),
+	        cells
+	      );
+	    });
+	    console.log(rows);
+	    return rows;
+	  },
 	  render: function render() {
+	    console.log(this.props);
 	    this.currentDev = this.props.route.currentDev;
 	    var HAStIMR = this.props.route.flags.HAStIMR;
 	    var timrRaw = this.props.route.timr;
 	    var timr = this.makeTimrMap(HAStIMR, timrRaw);
-	    var srstate = this.props.route.srstate;
+	    // const srstate = this.props.route.srstate
+	    // console.log(srstate)
 	    var name = this.props.harrysally.name;
 	
+	    var headerComponents = this.generateHeaders();
+	    var rowComponents = this.generateRows();
 	    return _react2.default.createElement(
 	      'div',
 	      { style: styles.outer },
@@ -56507,9 +56561,30 @@
 	          );
 	        })
 	      ),
-	      srstate.id,
-	      ' ',
-	      srstate.darr
+	      _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'table',
+	          null,
+	          _react2.default.createElement('thead', null),
+	          _react2.default.createElement(
+	            'tbody',
+	            null,
+	            _react2.default.createElement(
+	              'tr',
+	              null,
+	              _react2.default.createElement(
+	                'th',
+	                null,
+	                'sensor'
+	              ),
+	              headerComponents
+	            ),
+	            rowComponents
+	          )
+	        )
+	      )
 	    );
 	  }
 	});
@@ -56546,74 +56621,6 @@
 
 /***/ },
 /* 528 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = mqttCon;
-	
-	var _index = __webpack_require__(173);
-	
-	var mqtt = __webpack_require__(535);
-	
-	
-	function stateListener(state) {
-	  console.log('state is being listened tog');
-	}
-	
-	function mqttCon(id, props) {
-	  var client = mqtt.connect('ws://162.217.250.109:3333');
-	  var deviceId = id;
-	  console.log('device id = ' + deviceId);
-	  var prg = deviceId + '/prg';
-	  var cmd = deviceId + '/cmd';
-	  var req = deviceId + '/req';
-	  //publish to server
-	  var trigtime = deviceId + '/time';
-	  //subscribe
-	  var devtime = deviceId + '/devtime';
-	  var srstate = deviceId + '/srstate';
-	  var sched = deviceId + '/sched';
-	  var flags = deviceId + '/flags';
-	  //deprecate
-	  var timr = deviceId + '/timr';
-	  client.on('connect', function () {
-	    console.log('maybe connected');
-	    client.subscribe(devtime); //device time
-	    client.subscribe(srstate);
-	    client.subscribe(timr);
-	    client.subscribe(sched);
-	    client.subscribe(flags);
-	    client.on('message', function (topic, payload) {
-	      var pls = payload.toString();
-	      var plo = JSON.parse(pls);
-	      //console.log(plo)
-	      console.log('[' + topic + '] ' + payload.toString());
-	      var sp = topic.split("/");
-	      var job = sp[1];
-	      switch (job) {
-	        case "srstate":
-	          (0, _index.grabSrstateData)(plo);
-	          break;
-	        case "timr":
-	          (0, _index.grabTimrData)(plo.tIMElEFT);
-	          break;
-	        case "flags":
-	          (0, _index.grabFlagData)(plo);
-	          break;
-	      }
-	    });
-	    var thecmd = '{"id":2,"req":"flags"}';
-	    client.publish(req, thecmd);
-	  });
-	  return client;
-	}
-
-/***/ },
-/* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
 	(function webpackUniversalModuleDefinition(root, factory) {
@@ -57020,7 +57027,7 @@
 	//# sourceMappingURL=navigo.js.map
 
 /***/ },
-/* 530 */
+/* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57030,7 +57037,7 @@
 	});
 	exports.default = Devices;
 	
-	var _DeviceList = __webpack_require__(531);
+	var _DeviceList = __webpack_require__(530);
 	
 	var _DeviceList2 = _interopRequireDefault(_DeviceList);
 	
@@ -57091,7 +57098,7 @@
 	};
 
 /***/ },
-/* 531 */
+/* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57101,7 +57108,7 @@
 	});
 	exports.default = DevicesList;
 	
-	var _router = __webpack_require__(532);
+	var _router = __webpack_require__(531);
 	
 	var handleNavigate = function handleNavigate(data) {
 	  return function () {
@@ -57167,7 +57174,7 @@
 	};
 
 /***/ },
-/* 532 */
+/* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57183,15 +57190,15 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _Devices = __webpack_require__(530);
+	var _Devices = __webpack_require__(529);
 	
 	var _Devices2 = _interopRequireDefault(_Devices);
 	
-	var _Cat = __webpack_require__(533);
+	var _Cat = __webpack_require__(532);
 	
 	var _Cat2 = _interopRequireDefault(_Cat);
 	
-	var _Harry = __webpack_require__(534);
+	var _Harry = __webpack_require__(533);
 	
 	var _Harry2 = _interopRequireDefault(_Harry);
 	
@@ -57201,7 +57208,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Navigo = __webpack_require__(529);
+	var Navigo = __webpack_require__(528);
 	var React = __webpack_require__(1);
 	
 	
@@ -57246,7 +57253,7 @@
 	exports.router = router;
 
 /***/ },
-/* 533 */
+/* 532 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57256,7 +57263,7 @@
 	});
 	exports.default = Cat;
 	
-	var _router = __webpack_require__(532);
+	var _router = __webpack_require__(531);
 	
 	var _actions = __webpack_require__(173);
 	
@@ -57331,7 +57338,7 @@
 	};
 
 /***/ },
-/* 534 */
+/* 533 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -57349,7 +57356,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Navigo = __webpack_require__(529);
+	var Navigo = __webpack_require__(528);
 	
 	var handleChangeName = function handleChangeName(data) {
 	  return function () {
@@ -57443,6 +57450,74 @@
 	  users: _react.PropTypes.array,
 	  isLoading: _react.PropTypes.bool
 	};
+
+/***/ },
+/* 534 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = mqttCon;
+	
+	var _index = __webpack_require__(173);
+	
+	var mqtt = __webpack_require__(535);
+	
+	
+	function stateListener(state) {
+	  console.log('state is being listened tog');
+	}
+	
+	function mqttCon(id, props) {
+	  var client = mqtt.connect('ws://162.217.250.109:3333');
+	  var deviceId = id;
+	  console.log('device id = ' + deviceId);
+	  var prg = deviceId + '/prg';
+	  var cmd = deviceId + '/cmd';
+	  var req = deviceId + '/req';
+	  //publish to server
+	  var trigtime = deviceId + '/time';
+	  //subscribe
+	  var devtime = deviceId + '/devtime';
+	  var srstate = deviceId + '/srstate';
+	  var sched = deviceId + '/sched';
+	  var flags = deviceId + '/flags';
+	  //deprecate
+	  var timr = deviceId + '/timr';
+	  client.on('connect', function () {
+	    console.log('maybe connected');
+	    client.subscribe(devtime); //device time
+	    client.subscribe(srstate);
+	    client.subscribe(timr);
+	    client.subscribe(sched);
+	    client.subscribe(flags);
+	    client.on('message', function (topic, payload) {
+	      var pls = payload.toString();
+	      var plo = JSON.parse(pls);
+	      //console.log(plo)
+	      console.log('[' + topic + '] ' + payload.toString());
+	      var sp = topic.split("/");
+	      var job = sp[1];
+	      switch (job) {
+	        case "srstate":
+	          (0, _index.grabSrstateData)(plo);
+	          break;
+	        case "timr":
+	          (0, _index.grabTimrData)(plo.tIMElEFT);
+	          break;
+	        case "flags":
+	          (0, _index.grabFlagData)(plo);
+	          break;
+	      }
+	    });
+	    var thecmd = '{"id":2,"req":"flags"}';
+	    client.publish(req, thecmd);
+	  });
+	  return client;
+	}
 
 /***/ },
 /* 535 */

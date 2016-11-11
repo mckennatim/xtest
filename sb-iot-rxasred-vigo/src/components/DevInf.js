@@ -24,13 +24,35 @@ const DevInf = React.createClass({
     })
     return timr
   },
+  generateHeaders: function() {
+    const tags = this.props.route.currentDev.specs.notTimerTags
+    console.log(tags)
+    return tags.map(function(h,i) {
+        return <th key={i}> {h} </th>;
+    });
+  },    
+  generateRows: function(){
+    const srstate = this.props.route.srstate
+    const rows = srstate.map((sens)=>{
+      const cells = sens.darr.map((d,i)=>{
+        return <td key={i}> {d} </td>;
+      })
+      return <tr key={sens.id}><td>temp{sens.id}</td>{cells}</tr>
+    })
+    console.log(rows)
+    return rows
+  },    
   render: function(){
+    console.log(this.props)
     this.currentDev = this.props.route.currentDev
     const HAStIMR = this.props.route.flags.HAStIMR
     const timrRaw = this.props.route.timr
     const timr = this.makeTimrMap(HAStIMR, timrRaw)
-    const srstate = this.props.route.srstate
-    const {name}= this.props.harrysally  
+    // const srstate = this.props.route.srstate
+    // console.log(srstate)
+    const {name}= this.props.harrysally 
+    const headerComponents = this.generateHeaders()  
+    const rowComponents = this.generateRows()   
     return(
       <div style={styles.outer}>
         <h4>in doDevinfo {name}</h4>
@@ -44,7 +66,15 @@ const DevInf = React.createClass({
           </li>
         )}
         </ul>
-        {srstate.id} {srstate.darr}
+        <div>
+          <table>
+            <thead></thead>
+            <tbody>
+              <tr><th>sensor</th>{headerComponents}</tr>
+              {rowComponents}
+            </tbody>                      
+          </table>
+        </div>
       </div>
     )    
   }

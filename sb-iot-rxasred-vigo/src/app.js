@@ -38,6 +38,10 @@ const initState = {
           street: '12 Parley Vale',
           city: 'Jamaica Plain',
           state: 'MA'
+        },
+        specs: {
+          HAStIMER: 28,
+          notTimerTags: ["temp", "onoff", "hilimit", "lolimit"]
         }
       },
       {
@@ -51,13 +55,17 @@ const initState = {
           street: '12 Parley Vale',
           city: 'Jamaica Plain',
           state: 'MA'
+        },
+        specs: {
+          HAStIMER: 28,
+          notTimerTags: ["temp", "onoff", "hilimit", "lolimit"]
         }
       }
     ],    
     rtpg: Cat,
     timr: [0,0,0],
     flags: {HAStIMR: 28},
-    srstate: [{id:14, temp:32}]
+    srstate: []
   }, 
   catboxr: {catbox: true}, 
 };
