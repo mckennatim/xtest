@@ -1,7 +1,13 @@
 import DeviceList from './DeviceList'
 
-export default function Devices({route}){
+export default function Devices({route, brow}){
   const {devices, rtpg, name} = route
+  const {types, sizes, browser, size} = brow
+  console.log(browser)
+  let more
+  if(browser == "phone"){
+    console.log('its a phone')
+  }
   return(
     <div style={styles.outer} >
       <h4>in Devices {name}</h4>

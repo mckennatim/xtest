@@ -14,7 +14,7 @@ const initState = {
       {
         id: 'CYURD001',
         name: 'geniot',
-        desc: '2temp, 3timer demo board',
+        desc: '2 temps, 3 timers 1 relay demo board',
         location: {
           lat: 222,
           lon: 333,
@@ -31,7 +31,7 @@ const initState = {
       {
         id: 'CYURD002',
         name: 'cascada',
-        desc: '3timer for waterfall and garden',
+        desc: '3 timers 2 relays for waterfall and garden',
         location: {
           lat: 222,
           lon: 333,

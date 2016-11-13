@@ -1,10 +1,24 @@
 import {router} from '../router'
 import { toggleCatbox} from '../actions';
+import Harry from './Harry';
+
 
 
 export default function Cat(props){
   const {catbox}=props.catboxr
   const {name}=props.harrysally
+  const {types, sizes, browser, size} = props.brow
+  console.log(browser)
+  const domore = ()=>{
+    if(browser == "phone"){
+      console.log('its a phone')
+      return React.createElement(Harry, props)  
+    } else {
+      return <p>a duck is a duck</p>
+    }
+  }
+  const more = domore()
+
   //const { isLoading, name, users, rtpg, catboxr} = props;
   var toggled = false;
 	const handleNavigate = (data) => () =>{
@@ -13,6 +27,7 @@ export default function Cat(props){
   const handleToggled= (e)=>{
     toggleCatbox(e.target.checked)
   }
+
 
   return(
     <div style = {styles.outer}>
@@ -23,7 +38,8 @@ export default function Cat(props){
         id="c1" name="cc"
         checked={catbox}/> 
         <label htmlFor="c1" style = {styles.ckbox}>Toggle me</label>
-      <p>{catbox? 'ON' : 'off'}</p>      
+      <p>{catbox? 'ON' : 'off'}</p> 
+      {more}     
     </div>
     )
 }
