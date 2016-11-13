@@ -8,7 +8,6 @@ const handleNavigate = (data) => () =>
 export default function DevicesList(props){
   const { devices, name } = props;
   devices.map((dev)=>{
-  	console.log(dev)
   })
 
   return(

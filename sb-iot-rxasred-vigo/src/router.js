@@ -19,7 +19,6 @@ var routing = function(mode){
   router
     .on({
       'devices': ()=>{
-        console.log('in devices')
         return changePage(Devices)
       },
       'cat': ()=>changePage(Cat),

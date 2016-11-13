@@ -12,44 +12,40 @@ const DevInf = React.createClass({
     this.client.publish('presence', 'Help, wants to close! ');
     this.client.end();    
   },
-  makeTimrMap: function(HAStIMR, timrRaw){
-    const timr = timrRaw.map((x,i)=>{
-      if((Math.pow(2,i) & HAStIMR)>0){
-        return {id: i, sec:x}
-      }else {
-        return
-      }
-    }).filter(function(x,i){
-      return typeof x === 'object'
+  makeTimrMap: function(){
+    const timrRaw = this.props.route.timr.tIMElEFT
+    const ISrELAYoN = this.props.route.timr.ISrELAYoN
+    const timr = timrRaw.map((t,i)=>{
+      const relon = (Math.pow(2,i) & ISrELAYoN)>0 ? "on" : "off"
+      return {id:i, sec:t, ison:relon}
+    }).filter((t,i)=>{
+      return (Math.pow(2,i) & this.HAStIMR)>0
     })
     return timr
   },
   generateHeaders: function() {
     const tags = this.props.route.currentDev.specs.notTimerTags
-    console.log(tags)
     return tags.map(function(h,i) {
         return <th key={i}> {h} </th>;
     });
   },    
   generateRows: function(){
-    const srstate = this.props.route.srstate
-    const rows = srstate.map((sens)=>{
+    const rawState = this.props.route.srstate
+    const notTimer = 31 - this.HAStIMR
+    const srstate = rawState.filter((sens)=>{
+      return (Math.pow(2,sens.id) & notTimer)>0
+    }).map((sens)=>{
       const cells = sens.darr.map((d,i)=>{
         return <td key={i}> {d} </td>;
       })
       return <tr key={sens.id}><td>temp{sens.id}</td>{cells}</tr>
     })
-    console.log(rows)
-    return rows
+    return srstate
   },    
   render: function(){
-    console.log(this.props)
     this.currentDev = this.props.route.currentDev
-    const HAStIMR = this.props.route.flags.HAStIMR
-    const timrRaw = this.props.route.timr
-    const timr = this.makeTimrMap(HAStIMR, timrRaw)
-    // const srstate = this.props.route.srstate
-    // console.log(srstate)
+    this.HAStIMR = this.props.route.flags.HAStIMR
+    const timr = this.makeTimrMap()
     const {name}= this.props.harrysally 
     const headerComponents = this.generateHeaders()  
     const rowComponents = this.generateRows()   
@@ -61,13 +57,14 @@ const DevInf = React.createClass({
         {this.currentDev.desc}<br/>
         <ul style={styles.ul}>
         {timr.map((tmr, idx)=>
-          <li key={idx} style={styles.inner}>Timer {tmr.id}:  
-          <span style={styles.span}>{tmr.sec}</span>
+          <li key={idx} style={styles.inner}>relay{tmr.id}: 
+          <span style={styles.span}> {tmr.ison}</span>
+          <span style={styles.span}> {tmr.sec}</span>
           </li>
         )}
         </ul>
-        <div>
-          <table>
+        <div style={styles.tablediv}>
+          <table style={styles.table}>
             <thead></thead>
             <tbody>
               <tr><th>sensor</th>{headerComponents}</tr>
@@ -94,18 +91,30 @@ const styles= {
   inner: {
     margin: '0 auto',
     background: '#FFF28E',
-    color: 'red',
+    color: 'green',
+    textAlign: 'left',
+    fontSize: '100%',
+    padding: 3,
+    border: '1px solid #dddddd'
+  },
+  tablediv: {
+    margin: '0 auto',
+    background: '#8fd3ba',
+    color: 'blue',
     textAlign: 'left',
     fontSize: '100%'
   },
   span: {
-    display: 'table',
-    color: 'blue',
     float: 'right',
-    textAlign: 'right',
-    fontSize: '120%'    
+    paddingLeft: 15
   },
   ul: {
-    listStyleType: 'none'
+    margin: '0 auto',
+    listStyleType: 'none',
+    width: 160,
+    padding: 35
+  },
+  table:{
+    borderCollapse: 'collapse'
   }
 }

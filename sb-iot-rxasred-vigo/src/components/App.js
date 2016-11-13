@@ -16,20 +16,14 @@ function renderNav(){
 }
 
 function showRt(props){
-  // console.log(props.route.rtpg.name)
-  // if (props.route.rtpg.name=='Devinfo'){
-  //   console.log('in showRt crel')
-  //   //return <DevInf drogs={props}/>
-  //   return React.createElement(DevInf, {drogs: props})
-  // }
-  // //return props.route.rtpg(props)
   const {harrysally, route, catboxr} = props
-  //return React.createElement(props.route.rtpg, {harrysally, route, catboxr})
   return React.createElement(props.route.rtpg, props)
 }
 
 export default function App(props) {
-  const { isLoading, name, users, rtpg, route } = props;
+  const { isLoading, name, users, rtpg, route, brow } = props;
+  console.log(props)
+
   return (
     <div>
       { renderNav() }    

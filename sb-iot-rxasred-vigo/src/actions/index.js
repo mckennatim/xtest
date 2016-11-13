@@ -59,4 +59,10 @@ export const toggleCatbox = actionCreator((payload) => ({
   type: 'CATBOX_CHANGED',
   payload
 }));
+export const setDeviceType = actionCreator((payload) => {
+  return {
+    type: 'SET_DEVICE',
+    payload
+  }
+});
 

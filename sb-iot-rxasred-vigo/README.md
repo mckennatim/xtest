@@ -1,6 +1,8 @@
 # sb-rxasred-vigo
 
 ##log
+
+### sb-iot_devinf-obs-size
 ### sb-iot_devinf-pre-css
 ### sb-iot_DevInf-onmessage
 What happens or should happen when user refreshes a devInf page or goes back to it from somewhere else. 

@@ -41,15 +41,16 @@ export default function mqttCon(id, props){
           grabSrstateData(plo) 
           break;
         case "timr":
-          grabTimrData(plo.tIMElEFT)
+          grabTimrData(plo)
           break;
         case "flags":
           grabFlagData(plo)
           break;
       }
     });
-    var thecmd =  `{\"id\":2,\"req\":\"flags\"}`
-    client.publish(req, thecmd);
+    client.publish(req, `{\"id\":2,\"req\":\"flags\"}`);
+    client.publish(req, `{\"id\":3,\"req\":\"timr\"}`);
+    client.publish(req, `{\"id\":0,\"req\":\"srstates\"}`);
   });    
   return client
 }
