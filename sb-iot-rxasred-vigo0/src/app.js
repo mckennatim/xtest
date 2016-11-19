@@ -1,76 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Observable } from 'rxjs/Observable';
 // var Navigo = require('navigo');
 
 import App from './components/App';
 import Devices from './components/Devices';
 import Cat from './components/Cat';
 import Harry from './components/Harry';
+import DevInf from './components/DevInf';
 
 import { createStore } from './rxflux';
 import { log } from './util/utils';
-import { changePage} from './actions';
+import { changePage, setDeviceType} from './actions';
 import {router} from './router'
-
-console.log(router)
+import {initState} from './data/initState'
 
 window.React = React;
 
-const initState = { 
-  harrysally: {
-    name: 'Harry', 
-    users: [],
-    isLoading: false
-  },
-  route: {
-    currentDevId: '00002zzz',
-    currentDev: {},
-    devices: [
-      {
-        id: 'CYURD001',
-        name: 'geniot',
-        desc: '2temp, 3timer demo board',
-        location: {
-          lat: 222,
-          lon: 333,
-          zip: '02130',
-          street: '12 Parley Vale',
-          city: 'Jamaica Plain',
-          state: 'MA'
-        }
-      },
-      {
-        id: 'CYURD002',
-        name: 'cascada',
-        desc: '3timer for waterfall and garden',
-        location: {
-          lat: 222,
-          lon: 333,
-          zip: '02130',
-          street: '12 Parley Vale',
-          city: 'Jamaica Plain',
-          state: 'MA'
-        }
-      }
-    ],    
-    rtpg: Cat
-  }, 
-  catboxr: {catbox: true}, 
-};
 const container = document.getElementById('app');
 
-createStore(initState)
-  .do(log)
-  .subscribe((state) =>
+const theStore =createStore(initState)
+
+Observable.fromEvent(window, 'resize')
+  .debounceTime(300)
+  .subscribe((e)=>setDeviceType(window.innerWidth));
+
+const domRenderer = theStore.subscribe((state)=>
     ReactDOM.render(<App {...state} />, container)
-  );
+  )
 
-//var path = ("/"+window.location.hash.substring(1)).replace(/(\/)\1+/,"/")
 var path = "/"+window.location.hash.substring(1)
-// var path = window.location.hash.substring(1)
-console.log(path)
 router.navigate(path)
-
-
 
 export {router}

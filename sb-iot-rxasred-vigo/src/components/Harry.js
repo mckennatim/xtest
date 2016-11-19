@@ -36,18 +36,14 @@ export default function Harry(props) {
 }
 const styles= {
   outer: {
-    display: 'flex',
-    flexDirection: 'column',
     background:'#d2ef8f',
-    height: 800,
+    height: 450,
     textAlign: 'center'    
   },
   inner: {
     margin: '0 auto',
-    display: 'flex',
-    flexDirection: 'column',
     background: '#FFF28E',
-    height: 340,
+    height: 280,
     color: 'red',
     textAlign: 'center',
     fontSize: '300%'
@@ -59,3 +55,12 @@ Harry.propTypes = {
   users: PropTypes.array,
   isLoading: PropTypes.bool
 };
+
+  // outer: {
+  //   float: 'left',
+  //   display: 'flex',
+  //   flexDirection: 'column',
+  //   background:'#d2ef8f',
+  //   height: 800,
+  //   textAlign: 'center'    
+  // },

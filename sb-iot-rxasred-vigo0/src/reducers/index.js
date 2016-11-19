@@ -1,10 +1,11 @@
 import harrysally from './harrysally'
 import route from './route'
 import catboxr from './catboxr'
+import brow from './brow'
 
 function combineReducers(reducersObject) {
   const keys = Object.keys(reducersObject);
-	console.log(keys)
+	// console.log(keys)
   return (state = {}, action) => keys.reduce((currState, key) => {
     const reducer = reducersObject[key];
     return {
@@ -13,7 +14,7 @@ function combineReducers(reducersObject) {
     };
   }, state);
 }
-var reducersObj={route, harrysally, catboxr}
+var reducersObj={route, harrysally, catboxr, brow}
 
 export const rootReducer = combineReducers(reducersObj)
 
