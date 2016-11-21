@@ -5,15 +5,16 @@ import mqttCon from '../actions/mqttCon'
 const DevInf = React.createClass({
 
   componentDidMount: function() {
-    console.log('Devinf mounted')
-    this.client = mqttCon(this.currentDev.id, this.props)
+    // console.log('Devinf mounted')
+    // this.client = mqttCon(this.currentDev.id, this.props)
   },
   componentWillUnmount: function(){
-    console.log('Devinf unmountd')
-    this.client.publish('presence', 'Help, wants to close! ');
-    this.client.end();    
+    // console.log('Devinf unmountd')
+    // this.client.publish('presence', 'Help, wants to close! ');
+    // this.client.end();    
   },
   makeTimrMap: function(){
+    const dev = this.props.route.currentDev
     const timrRaw = this.props.route.timr.tIMElEFT
     const ISrELAYoN = this.props.route.timr.ISrELAYoN
     const timr = timrRaw.map((t,i)=>{
@@ -31,6 +32,8 @@ const DevInf = React.createClass({
     });
   },    
   generateRows: function(){
+    const dev = this.props.route.currentDev.id
+    console.log(dev)
     const rawState = this.props.route.srstate
     const notTimer = 31 - this.HAStIMR
     const srstate = rawState.filter((sens)=>{

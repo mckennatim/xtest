@@ -50,7 +50,7 @@ const initState = {
         }
       }
     ],    
-    rtpg: Cat,
+    rtpg: 'Cat',
     timr: {tIMElEFT:[0,0,0]},
     flags: {HAStIMR: 28},
     srstate: []

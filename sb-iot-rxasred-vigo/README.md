@@ -1,6 +1,35 @@
 # sb-rxasred-vigo
 
 ##log
+### fromMqttEvent
+#### the problem
+The mqttCon code connects to a device when the DevInf page is rendered ala:
+
+    componentDidMount: function() {
+      console.log('Devinf mounted')
+      this.client = mqttCon(this.currentDev.id, this.props)
+    }
+
+so it can be disconnected 
+
+    componentWillUnmount: function(){
+      console.log('Devinf unmountd')
+      this.client.publish('presence', 'Help, wants to close! ');
+      this.client.end();    
+    },
+
+The problem with this approach is when you have a big display with both `Devices` and `DevInf` rendered, the mqtt client never reconnects to the right device and reinitialize the data.
+#### the solution
+##### jump striaght to rxasred
+
+mqttConnect('CYURD001')
+  type: MQTT_CONNECTING
+  payload: 
+  MQTT_DEVICE_DATA
+
+##### create Rx.Subject
+and subsribe to it. 
+
 ### sb-iot_flexbox+condrender
 Flexbox does not depend on media queries. Combining it with javascript code for conditional rendering allows for the best of both worlds. 
 

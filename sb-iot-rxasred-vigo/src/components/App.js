@@ -40,7 +40,7 @@ function showRt(props){
       const singleElement = React.createElement(cf[rtPage], props)
       elArr.push(singleElement)    
     }else{
-      console.log(multiList[0])
+      // console.log(multiList[0])
       const elList = multiList[0].map((pgStr, i)=>{
         const pg = React.createElement(cf[pgStr], props)
         return pg
@@ -54,7 +54,7 @@ return elArr
 
 export default function App(props) {
   const { isLoading, name, users, rtpg, route, brow } = props;
-  console.log(props)
+  // console.log(props)
 
   return (
     <div className="container">

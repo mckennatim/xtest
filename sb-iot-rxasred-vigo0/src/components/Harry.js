@@ -42,8 +42,6 @@ const styles= {
   },
   inner: {
     margin: '0 auto',
-    display: 'flex',
-    flexDirection: 'column',
     background: '#FFF28E',
     height: 280,
     color: 'red',

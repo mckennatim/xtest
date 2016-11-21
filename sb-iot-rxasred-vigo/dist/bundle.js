@@ -22295,7 +22295,7 @@
 	      var _singleElement = _react2.default.createElement(cf[rtPage], props);
 	      elArr.push(_singleElement);
 	    } else {
-	      console.log(multiList[0]);
+	      // console.log(multiList[0])
 	      var elList = multiList[0].map(function (pgStr, i) {
 	        var pg = _react2.default.createElement(cf[pgStr], props);
 	        return pg;
@@ -22313,8 +22313,7 @@
 	  var rtpg = props.rtpg;
 	  var route = props.route;
 	  var brow = props.brow;
-	
-	  console.log(props);
+	  // console.log(props)
 	
 	  return _react2.default.createElement(
 	    'div',
@@ -56387,7 +56386,7 @@
 	
 	var multi = [{ pri: 'Cat', mul: [['Cat', 'Harry'], ['Harry', 'Cat', 'Devices']]
 	}, { pri: 'Harry', mul: [['Harry', 'Cat'], ['Cat', 'Harry', 'Devices']]
-	}, { pri: 'DevInf', mul: [['Devices', 'Devinf'], ['Devices', 'Devinf', 'Cat']]
+	}, { pri: 'DevInf', mul: [['Devices', 'DevInf'], ['Devices', 'DevInf', 'Cat']]
 	}];
 	
 	//['watch', 'phone', 'phoneL', 'tablet', 'tabletL', 'laptop']
@@ -56428,35 +56427,17 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function Devices(props) {
-	  // const browserProfile = {2:{2:DevInf},3:{2:DevInf}, 4:{2:DevInf}}
-	  // //['watch', 'phone', 'phoneL', 'tablet', 'tabletL', 'laptop']
-	  // const typesProfiles= [1,1,2,2,3,4]
 	  var _props$brow = props.brow;
 	  var types = _props$brow.types;
 	  var sizes = _props$brow.sizes;
 	  var browser = _props$brow.browser;
 	  var size = _props$brow.size;
-	  // const addPg = (ba)=>{
-	  //   const ix = types.indexOf(browser)
-	  //   const tf = typesProfiles[ix]
-	  //   const bf = browserProfile[tf]
-	  //   if (typeof bf=="object"){
-	  //     if(typeof bf[ba] =="function"){
-	  //       return React.createElement(bf[ba], props)
-	  //     }
-	  //   }
-	  // }
-	  // const beforeA = addPg(0)
-	  // const beforeB = addPg(1)
-	  // const afterA = addPg(2)
-	  // const afterB = addPg(3)
-	
 	  var _props$route = props.route;
 	  var devices = _props$route.devices;
 	  var rtpg = _props$route.rtpg;
 	  var name = _props$route.name;
+	  // console.log(browser)
 	
-	  console.log(browser);
 	  var more = void 0;
 	  if (browser == "phone") {
 	    console.log('its a phone');
@@ -57303,17 +57284,18 @@
 	
 	
 	  componentDidMount: function componentDidMount() {
-	    console.log('Devinf mounted');
-	    this.client = (0, _mqttCon2.default)(this.currentDev.id, this.props);
+	    // console.log('Devinf mounted')
+	    // this.client = mqttCon(this.currentDev.id, this.props)
 	  },
 	  componentWillUnmount: function componentWillUnmount() {
-	    console.log('Devinf unmountd');
-	    this.client.publish('presence', 'Help, wants to close! ');
-	    this.client.end();
+	    // console.log('Devinf unmountd')
+	    // this.client.publish('presence', 'Help, wants to close! ');
+	    // this.client.end();    
 	  },
 	  makeTimrMap: function makeTimrMap() {
 	    var _this = this;
 	
+	    var dev = this.props.route.currentDev;
 	    var timrRaw = this.props.route.timr.tIMElEFT;
 	    var ISrELAYoN = this.props.route.timr.ISrELAYoN;
 	    var timr = timrRaw.map(function (t, i) {
@@ -57337,6 +57319,8 @@
 	    });
 	  },
 	  generateRows: function generateRows() {
+	    var dev = this.props.route.currentDev.id;
+	    console.log(dev);
 	    var rawState = this.props.route.srstate;
 	    var notTimer = 31 - this.HAStIMR;
 	    var srstate = rawState.filter(function (sens) {
