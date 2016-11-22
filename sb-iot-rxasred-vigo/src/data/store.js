@@ -1,0 +1,3 @@
+var storeCopy ={}
+
+export {storeCopy}

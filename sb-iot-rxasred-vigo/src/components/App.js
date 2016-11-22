@@ -1,24 +1,17 @@
 import React, { PropTypes } from 'react';
-import { changeName, loadGithubFollowers} from '../actions';
+import { changeName, loadGithubFollowers, copyStore} from '../actions';
 var Navigo = require('navigo');
 import * as cf from './index'
 
-var fnstr= 'Devices'
-var fn = cf[fnstr]
-if (typeof fn === "function") console.log(fn);
-console.log(fn.name)
-
-const handleChangeName = (data) => () =>
-  changeName(data);
-
-const handleLoadFollowers = (data) => () =>
-  loadGithubFollowers(data);
+function handleCopyStore(props){
+  copyStore(props);
+}
 
 function renderNav(){
   return(
     <div><h4>Sitebuilt IOT app</h4></div>
     )
-}
+}  
 
 function showRt(props){
   let elArr=[]
@@ -49,15 +42,13 @@ function showRt(props){
     }
   }
 return elArr
-
 }
 
-export default function App(props) {
+export function App(props) {
   const { isLoading, name, users, rtpg, route, brow } = props;
-  // console.log(props)
-
   return (
     <div className="container">
+      {handleCopyStore(props) }
       <div className="header item-default">
         { renderNav() }    
         <div id="menu">

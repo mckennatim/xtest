@@ -65,7 +65,7 @@ function fromMqtt(connectObserver, url, devId){
 	return Subject.create(observer, observable);  
 }
 
-const Observer = {
+const connectObserver = {
 	next(value) {},
 	error(err) {throw err;},
 	complete() {}
@@ -73,6 +73,6 @@ const Observer = {
 
 //const mqttCon = fromMqtt(Observer, url, devId);
 
-const fromMqtt$ = (devId)=>fromMqtt(Observer, url, devId)
+const fromMqtt$ = (devId)=>fromMqtt(connectObserver, url, devId)
 
 export {fromMqtt$}

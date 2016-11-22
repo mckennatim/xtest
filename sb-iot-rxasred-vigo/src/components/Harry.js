@@ -16,7 +16,7 @@ function renderUsers(users) {
 }
 
 export default function Harry(props) {
-  console.log(props.harrysally)
+  // console.log(props.harrysally)
   const { isLoading, name, users} = props.harrysally;
   
   return (

@@ -32,33 +32,28 @@ function fromMqtt(connectObserver, url, devId){
 		    client.subscribe(flags)
 	      connectObserver.next();
 	      connectObserver.complete();
-	      console.log('maybe connected')		    
+	      // console.log('maybe connected')		    
 	    });
       client.on('message', function (topic, payload) {
 	      var pls = payload.toString()
 	      var plo = JSON.parse(pls)
-	      console.log(plo)
 	      obs.next({
 	      	topic: topic,
 	      	payload: plo
 	      })
-	      console.log('['+topic+'] '+payload.toString())
+	      // console.log('['+topic+'] '+payload.toString())
       });	    
 	  }
 	})
-
   let observer = {
   	next: (data)=>{
   		if (data=='end'){
-	  		console.log(data)
 	  		client.end()
   		}else{
-	  		console.log(data)
 	  		client.publish(req, data)
   		}
   	}
   }
-	
 	return Subject.create(observer, observable);  
 }
 
@@ -67,9 +62,6 @@ const Observer = {
 	error(err) {throw err;},
 	complete() {}
 }
-
-//const mqttCon = fromMqtt(Observer, url, devId);
-
 const fromMqtt$ = (devId)=>fromMqtt(Observer, url, devId)
 
 export {fromMqtt$}

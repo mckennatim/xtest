@@ -1,7 +1,7 @@
 var Navigo = require('navigo');
 var React = require('react');
 import { changePage, changeDevInfo} from './actions';
-import App from './components/App';
+import {App} from './components/App';
 import Devices from './components/Devices';
 import Cat from './components/Cat';
 import Harry from './components/Harry';

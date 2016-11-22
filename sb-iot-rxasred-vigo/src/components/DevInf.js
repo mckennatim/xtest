@@ -1,15 +1,14 @@
 import React from 'react';
 import mqttCon from '../actions/mqttCon'
 
-
 const DevInf = React.createClass({
 
   componentDidMount: function() {
-    // console.log('Devinf mounted')
+    console.log('Devinf mounted')
     // this.client = mqttCon(this.currentDev.id, this.props)
   },
   componentWillUnmount: function(){
-    // console.log('Devinf unmountd')
+    console.log('Devinf unmountd')
     // this.client.publish('presence', 'Help, wants to close! ');
     // this.client.end();    
   },
@@ -33,7 +32,6 @@ const DevInf = React.createClass({
   },    
   generateRows: function(){
     const dev = this.props.route.currentDev.id
-    console.log(dev)
     const rawState = this.props.route.srstate
     const notTimer = 31 - this.HAStIMR
     const srstate = rawState.filter((sens)=>{

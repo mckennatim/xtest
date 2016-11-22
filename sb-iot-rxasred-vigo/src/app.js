@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { Observable } from 'rxjs/Observable';
 // var Navigo = require('navigo');
 
-import App from './components/App';
-import Devices from './components/Devices';
-import Cat from './components/Cat';
-import Harry from './components/Harry';
-import DevInf from './components/DevInf';
+import {App} from './components/App';
+// import Devices from './components/Devices';
+// import Cat from './components/Cat';
+// import Harry from './components/Harry';
+// import DevInf from './components/DevInf';
 
 import { createStore } from './rxflux';
 import { log } from './util/utils';
@@ -29,7 +29,12 @@ const domRenderer = theStore.subscribe((state)=>
     ReactDOM.render(<App {...state} />, container)
   )
 
+var storeCopy ={}
+const store = theStore.subscribe((state)=>{
+	//console.log(state)
+})
+
 var path = "/"+window.location.hash.substring(1)
 router.navigate(path)
 
-export {router}
+///export {router, storeCopy}
