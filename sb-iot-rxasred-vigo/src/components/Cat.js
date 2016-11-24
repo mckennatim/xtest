@@ -5,10 +5,6 @@ import Devices from './Devices';
 import DevInf from './DevInf';
 
 export default function Cat(props){
-  // console.log(props)
-  // const browserProfile = {2:{0:Harry},3:{2:Harry, 3:Devices}, 4:{0:Harry, 2:Devices, 3:DevInf}}
-  // //['watch', 'phone', 'phoneL', 'tablet', 'tabletL', 'laptop']
-  // const typesProfiles= [1,1,2,2,3,4]
   const {types, sizes, browser, size} = props.brow
 
   const {catbox}=props.catboxr

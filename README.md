@@ -4,7 +4,7 @@ Each directory represents a code exploration and has its own README.md. All shar
 ## tags
 ### sb-mqtt
 
-test wrapper `mqttCon` to turn mqtt into an Subject, ie observer+observable. 
+A wrapper `mqttCon` to turn mqtt into an Subject, ie observer+observable. 
 
 OK, so you've got 2x2 different things going on here. mqtt subscribes to the data coming out of the iot device and publishes commands from the frontend client to the iot device. fromMqtt makes the iot device data observable by the frontend app and acts as observer of the frontend app to see if it wants to send anything to the iotDevice. The frontend app subscribes to that observable to find out whats happening on the iot device and sends the subject data that it is observing via the `mqttCon.next()` callback
 

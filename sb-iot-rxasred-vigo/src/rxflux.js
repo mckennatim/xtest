@@ -24,6 +24,7 @@ export const createStore = (initState) =>
 export const actionCreator = (func) => (...args) => {
   const action = func.call(null, ...args);
   action$.next(action);
+  //console.log(`in creator ${action.type} ${isObservable(action.payload)}`)
   if (isObservable(action.payload))
     action$.next(action.payload);
   return action;

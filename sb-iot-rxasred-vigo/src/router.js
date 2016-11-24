@@ -1,11 +1,12 @@
 var Navigo = require('navigo');
 var React = require('react');
-import { changePage, changeDevInfo} from './actions';
-import {App} from './components/App';
+import { changePage, changeDevInfo, changeSenRel} from './actions';
+//import {App} from './components/App';
 import Devices from './components/Devices';
 import Cat from './components/Cat';
 import Harry from './components/Harry';
 import DevInf from './components/DevInf';
+import SenRel from './components/SenRel';
 
 function insertElement(pro){
   console.log(pro)
@@ -14,6 +15,7 @@ function insertElement(pro){
 
 var router;
 var routing = function(mode){
+  console.log('started routing')
   router = new Navigo(null, true);
   router
     .on({
@@ -26,9 +28,14 @@ var routing = function(mode){
       	var pro ={}
       	pro.ht = 'DevInf';
       	pro.par = params;
-      	// console.log('in dev id')
-      	// console.log(pro)
       	return changeDevInfo(pro)
+      },
+      'dev/:id/:tmr': (params)=>{
+        console.log(`${params.id}/${params.tmr}`)
+        var pro ={}
+        pro.ht = 'SenRel';
+        pro.par = params;
+        return changeSenRel(pro)
       },
       '/': ()=>changePage('Cat')
     })

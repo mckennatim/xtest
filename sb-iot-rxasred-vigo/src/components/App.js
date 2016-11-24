@@ -3,10 +3,6 @@ import { changeName, loadGithubFollowers, copyStore} from '../actions';
 var Navigo = require('navigo');
 import * as cf from './index'
 
-function handleCopyStore(props){
-  copyStore(props);
-}
-
 function renderNav(){
   return(
     <div><h4>Sitebuilt IOT app</h4></div>
@@ -22,14 +18,14 @@ function showRt(props){
   const panesPerType = cf.panes[browserTypeIdx]
   const pageList = cf.multi.filter((amul,i)=>(amul.pri==rtPage))
   if(pageList.length==0){
-    console.log('no pageList for this rtPage -> 1 screen ')
+    // console.log('no pageList for this rtPage -> 1 screen ')
     const singleElement = React.createElement(cf[rtPage], props)
     elArr.push(singleElement)    
   }else{
     const multiList= pageList[0].mul.filter((mu)=>(mu.length==panesPerType))
     // console.log(multiList.length)
     if (multiList.length==0){
-      console.log('no multiList for this screensize -> 1 screen')
+      // console.log('no multiList for this screensize -> 1 screen')
       const singleElement = React.createElement(cf[rtPage], props)
       elArr.push(singleElement)    
     }else{
@@ -46,9 +42,9 @@ return elArr
 
 export function App(props) {
   const { isLoading, name, users, rtpg, route, brow } = props;
+  // console.log(props)
   return (
     <div className="container">
-      {handleCopyStore(props) }
       <div className="header item-default">
         { renderNav() }    
         <div id="menu">

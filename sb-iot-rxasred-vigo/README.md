@@ -1,7 +1,8 @@
 # sb-rxasred-vigo
-
 ##log
-
+### senRel-page
+#### architecture
+*App* combined with actions/index controls conditional rendering of what occurs under the menu
 ### sb-iot_storeCopy
 I would like to access the store$ or state from other parts of the app not within the DOM. Here's how. In the App render function run a function on each update (whenever props update).
 

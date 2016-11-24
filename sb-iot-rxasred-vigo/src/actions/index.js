@@ -3,8 +3,6 @@ import { map } from 'lodash';
 import { Observable } from 'rxjs/Rx';
 import { actionCreator } from '../rxflux';
 import { fromMqtt$ } from './fromMqtt';
-import { props} from '../components/App'
-//import { initState } from '../data/initState'
 
 var mqtt$ = {
   next(value) {},
@@ -14,7 +12,36 @@ var mqtt$ = {
 
 var storeCopy = {route: {currentDevId: 'instorcopy'}}
 export const copyStore= (props)=>{
+  //console.log(props)
   storeCopy = props
+}
+export const nrGetDevData= (devId)=>{
+  mqtt$.next('end')
+  mqtt$ = fromMqtt$(devId)
+  mqtt$.subscribe(
+    function (e) {
+      var sp = e.topic.split("/")
+      var job = sp[1];
+      switch(job){
+        case "srstate":
+          grabSrstateData(e.payload) 
+          break;
+        case "timr":
+          grabTimrData(e.payload)
+          break;
+        case "flags":
+          grabFlagData(e.payload)
+          break;
+        case "sched":
+          // console.log('grabSchedData')
+          grabSchedData(e)
+          break;
+      }
+  });  
+  mqtt$.next(`{\"id\":2,\"req\":\"flags\"}`)
+  mqtt$.next(`{\"id\":3,\"req\":\"timr\"}`)
+  mqtt$.next(`{\"id\":0,\"req\":\"srstates\"}`)
+  mqtt$.next(`{\"id\":1,\"req\":\"progs\"}`)  
 }
 
 export const loadGithubFollowers = actionCreator((payload) => {
@@ -37,29 +64,47 @@ export const changePage = actionCreator((payload) => ({
   type: 'PAGE_CHANGED',
   payload
 }));
-export const changeDevInfo = actionCreator((payload) => {
+export const changeSenRel = actionCreator((payload) => {
+  console.log(`${storeCopy.route.currentDevId} != ${payload.par.id}`)
   if (storeCopy.route.currentDevId != payload.par.id){
-    mqtt$.next('end')
-    mqtt$ = fromMqtt$(payload.par.id)
-    mqtt$.subscribe(
-      function (e) {
-        var sp = e.topic.split("/")
-        var job = sp[1];
-        switch(job){
-          case "srstate":
-            grabSrstateData(e.payload) 
-            break;
-          case "timr":
-            grabTimrData(e.payload)
-            break;
-          case "flags":
-            grabFlagData(e.payload)
-            break;
-        }
-    });  
-    mqtt$.next(`{\"id\":2,\"req\":\"flags\"}`)
-    mqtt$.next(`{\"id\":3,\"req\":\"timr\"}`)
-    mqtt$.next(`{\"id\":0,\"req\":\"srstates\"}`)
+    console.log(`should somehow update to ${payload.par.id}`)
+    //nrGetDevData(payload.par.id)
+  }  
+  return {
+    type: 'SENREL_CHANGED',
+    payload
+  }
+});
+export const changeDevInfo = actionCreator((payload) => {
+  console.log(`${storeCopy.route.currentDevId} != ${payload.par.id}`)
+  if (storeCopy.route.currentDevId != payload.par.id){
+    nrGetDevData(payload.par.id)
+    // mqtt$.next('end')
+    // mqtt$ = fromMqtt$(payload.par.id)
+    // mqtt$.subscribe(
+    //   function (e) {
+    //     var sp = e.topic.split("/")
+    //     var job = sp[1];
+    //     switch(job){
+    //       case "srstate":
+    //         grabSrstateData(e.payload) 
+    //         break;
+    //       case "timr":
+    //         grabTimrData(e.payload)
+    //         break;
+    //       case "flags":
+    //         grabFlagData(e.payload)
+    //         break;
+    //       case "sched":
+    //         // console.log('grabSchedData')
+    //         grabSchedData(e)
+    //         break;
+    //     }
+    // });  
+    // mqtt$.next(`{\"id\":2,\"req\":\"flags\"}`)
+    // mqtt$.next(`{\"id\":3,\"req\":\"timr\"}`)
+    // mqtt$.next(`{\"id\":0,\"req\":\"srstates\"}`)
+    // mqtt$.next(`{\"id\":1,\"req\":\"progs\"}`)
   }  
   return {
     type: 'DEVINFO_CHANGED',
@@ -70,6 +115,25 @@ export const grabTimrData = actionCreator((payload) => {
   return {
     type: 'TIMR_CHANGED',
     payload
+  }
+});
+export const reqSchedData = actionCreator((payload) => {
+  //mqtt$.next(`{\"id\":1,\"req\":\"progs\"}`)
+  return {
+    type: 'REQ_SCHED',
+    payload
+  }
+});
+export const grabSchedData = actionCreator((payload) => {
+  // console.log('inaction grabSchedData')
+  let pl={}
+  pl.sched = payload.payload
+  var sp = payload.topic.split("/")
+  const devId = sp[0]
+  pl.devId = devId
+  return {
+    type: 'SCHED_CHANGED',
+    payload: pl
   }
 });
 export const grabSrstateData = actionCreator((payload) => {
@@ -94,4 +158,3 @@ export const setDeviceType = actionCreator((payload) => {
     payload
   }
 });
-

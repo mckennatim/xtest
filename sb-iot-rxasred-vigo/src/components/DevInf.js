@@ -50,7 +50,8 @@ const DevInf = React.createClass({
     const timr = this.makeTimrMap()
     const {name}= this.props.harrysally 
     const headerComponents = this.generateHeaders()  
-    const rowComponents = this.generateRows()   
+    const rowComponents = this.generateRows() 
+      
     return(
       <div style={styles.outer}>
         <h4>in doDevinfo {name}</h4>
@@ -58,11 +59,15 @@ const DevInf = React.createClass({
         {this.currentDev.id} <br/>
         {this.currentDev.desc}<br/>
         <ul style={styles.ul}>
-        {timr.map((tmr, idx)=>
-          <li key={idx} style={styles.inner}>relay{tmr.id}: 
-          <span style={styles.span}> {tmr.ison}</span>
-          <span style={styles.span}> {tmr.sec}</span>
-          </li>
+        {timr.map((tmr, idx)=>{
+          const art = `#/dev/${this.currentDev.id}/${tmr.id}`
+          return(
+            <li key={idx} style={styles.inner}>
+            <a href={art}>relay{tmr.id}:</a> 
+            <span style={styles.span}> {tmr.ison}</span>
+            <span style={styles.span}> {tmr.sec}</span>
+            </li>
+          )}
         )}
         </ul>
         <div style={styles.tablediv}>

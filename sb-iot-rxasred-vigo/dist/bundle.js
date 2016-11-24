@@ -66,7 +66,7 @@
 	
 	var _router = __webpack_require__(615);
 	
-	var _initState = __webpack_require__(621);
+	var _initState = __webpack_require__(622);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -87,12 +87,8 @@
 	});
 	
 	var domRenderer = theStore.subscribe(function (state) {
+	  (0, _actions.copyStore)(state);
 	  return _reactDom2.default.render(_react2.default.createElement(_App.App, state), container);
-	});
-	
-	var storeCopy = {};
-	var store = theStore.subscribe(function (state) {
-	  //console.log(state)
 	});
 	
 	var path = "/" + window.location.hash.substring(1);
@@ -22220,10 +22216,6 @@
 	var Navigo = __webpack_require__(618);
 	
 	
-	function handleCopyStore(props) {
-	  (0, _actions.copyStore)(props);
-	}
-	
 	function renderNav() {
 	  return _react2.default.createElement(
 	    'div',
@@ -22255,7 +22247,7 @@
 	    return amul.pri == rtPage;
 	  });
 	  if (pageList.length == 0) {
-	    console.log('no pageList for this rtPage -> 1 screen ');
+	    // console.log('no pageList for this rtPage -> 1 screen ')
 	    var singleElement = _react2.default.createElement(cf[rtPage], props);
 	    elArr.push(singleElement);
 	  } else {
@@ -22264,7 +22256,7 @@
 	    });
 	    // console.log(multiList.length)
 	    if (multiList.length == 0) {
-	      console.log('no multiList for this screensize -> 1 screen');
+	      // console.log('no multiList for this screensize -> 1 screen')
 	      var _singleElement = _react2.default.createElement(cf[rtPage], props);
 	      elArr.push(_singleElement);
 	    } else {
@@ -22286,11 +22278,11 @@
 	  var rtpg = props.rtpg;
 	  var route = props.route;
 	  var brow = props.brow;
+	  // console.log(props)
 	
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'container' },
-	    handleCopyStore(props),
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'header item-default' },
@@ -22341,7 +22333,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.setDeviceType = exports.toggleCatbox = exports.grabFlagData = exports.grabSrstateData = exports.grabTimrData = exports.changeDevInfo = exports.changePage = exports.changeName = exports.loadGithubFollowers = exports.copyStore = undefined;
+	exports.setDeviceType = exports.toggleCatbox = exports.grabFlagData = exports.grabSrstateData = exports.grabSchedData = exports.reqSchedData = exports.grabTimrData = exports.changeDevInfo = exports.changeSenRel = exports.changePage = exports.changeName = exports.loadGithubFollowers = exports.nrGetDevData = exports.copyStore = undefined;
 	
 	__webpack_require__(188);
 	
@@ -22353,10 +22345,6 @@
 	
 	var _fromMqtt = __webpack_require__(528);
 	
-	var _App = __webpack_require__(186);
-	
-	//import { initState } from '../data/initState'
-	
 	var mqtt$ = {
 	  next: function next(value) {},
 	  error: function error(err) {
@@ -22367,7 +22355,35 @@
 	
 	var storeCopy = { route: { currentDevId: 'instorcopy' } };
 	var copyStore = exports.copyStore = function copyStore(props) {
+	  //console.log(props)
 	  storeCopy = props;
+	};
+	var nrGetDevData = exports.nrGetDevData = function nrGetDevData(devId) {
+	  mqtt$.next('end');
+	  mqtt$ = (0, _fromMqtt.fromMqtt$)(devId);
+	  mqtt$.subscribe(function (e) {
+	    var sp = e.topic.split("/");
+	    var job = sp[1];
+	    switch (job) {
+	      case "srstate":
+	        grabSrstateData(e.payload);
+	        break;
+	      case "timr":
+	        grabTimrData(e.payload);
+	        break;
+	      case "flags":
+	        grabFlagData(e.payload);
+	        break;
+	      case "sched":
+	        // console.log('grabSchedData')
+	        grabSchedData(e);
+	        break;
+	    }
+	  });
+	  mqtt$.next('{"id":2,"req":"flags"}');
+	  mqtt$.next('{"id":3,"req":"timr"}');
+	  mqtt$.next('{"id":0,"req":"srstates"}');
+	  mqtt$.next('{"id":1,"req":"progs"}');
 	};
 	
 	var loadGithubFollowers = exports.loadGithubFollowers = (0, _rxflux.actionCreator)(function (payload) {
@@ -22396,28 +22412,47 @@
 	    payload: payload
 	  };
 	});
-	var changeDevInfo = exports.changeDevInfo = (0, _rxflux.actionCreator)(function (payload) {
+	var changeSenRel = exports.changeSenRel = (0, _rxflux.actionCreator)(function (payload) {
+	  console.log(storeCopy.route.currentDevId + ' != ' + payload.par.id);
 	  if (storeCopy.route.currentDevId != payload.par.id) {
-	    mqtt$.next('end');
-	    mqtt$ = (0, _fromMqtt.fromMqtt$)(payload.par.id);
-	    mqtt$.subscribe(function (e) {
-	      var sp = e.topic.split("/");
-	      var job = sp[1];
-	      switch (job) {
-	        case "srstate":
-	          grabSrstateData(e.payload);
-	          break;
-	        case "timr":
-	          grabTimrData(e.payload);
-	          break;
-	        case "flags":
-	          grabFlagData(e.payload);
-	          break;
-	      }
-	    });
-	    mqtt$.next('{"id":2,"req":"flags"}');
-	    mqtt$.next('{"id":3,"req":"timr"}');
-	    mqtt$.next('{"id":0,"req":"srstates"}');
+	    console.log('should somehow update to ' + payload.par.id);
+	    //nrGetDevData(payload.par.id)
+	  }
+	  return {
+	    type: 'SENREL_CHANGED',
+	    payload: payload
+	  };
+	});
+	var changeDevInfo = exports.changeDevInfo = (0, _rxflux.actionCreator)(function (payload) {
+	  console.log(storeCopy.route.currentDevId + ' != ' + payload.par.id);
+	  if (storeCopy.route.currentDevId != payload.par.id) {
+	    nrGetDevData(payload.par.id);
+	    // mqtt$.next('end')
+	    // mqtt$ = fromMqtt$(payload.par.id)
+	    // mqtt$.subscribe(
+	    //   function (e) {
+	    //     var sp = e.topic.split("/")
+	    //     var job = sp[1];
+	    //     switch(job){
+	    //       case "srstate":
+	    //         grabSrstateData(e.payload) 
+	    //         break;
+	    //       case "timr":
+	    //         grabTimrData(e.payload)
+	    //         break;
+	    //       case "flags":
+	    //         grabFlagData(e.payload)
+	    //         break;
+	    //       case "sched":
+	    //         // console.log('grabSchedData')
+	    //         grabSchedData(e)
+	    //         break;
+	    //     }
+	    // });  
+	    // mqtt$.next(`{\"id\":2,\"req\":\"flags\"}`)
+	    // mqtt$.next(`{\"id\":3,\"req\":\"timr\"}`)
+	    // mqtt$.next(`{\"id\":0,\"req\":\"srstates\"}`)
+	    // mqtt$.next(`{\"id\":1,\"req\":\"progs\"}`)
 	  }
 	  return {
 	    type: 'DEVINFO_CHANGED',
@@ -22428,6 +22463,25 @@
 	  return {
 	    type: 'TIMR_CHANGED',
 	    payload: payload
+	  };
+	});
+	var reqSchedData = exports.reqSchedData = (0, _rxflux.actionCreator)(function (payload) {
+	  //mqtt$.next(`{\"id\":1,\"req\":\"progs\"}`)
+	  return {
+	    type: 'REQ_SCHED',
+	    payload: payload
+	  };
+	});
+	var grabSchedData = exports.grabSchedData = (0, _rxflux.actionCreator)(function (payload) {
+	  // console.log('inaction grabSchedData')
+	  var pl = {};
+	  pl.sched = payload.payload;
+	  var sp = payload.topic.split("/");
+	  var devId = sp[0];
+	  pl.devId = devId;
+	  return {
+	    type: 'SCHED_CHANGED',
+	    payload: pl
 	  };
 	});
 	var grabSrstateData = exports.grabSrstateData = (0, _rxflux.actionCreator)(function (payload) {
@@ -56084,6 +56138,7 @@
 	
 	    var action = func.call.apply(func, [null].concat(args));
 	    action$.next(action);
+	    //console.log(`in creator ${action.type} ${isObservable(action.payload)}`)
 	    if ((0, _utils.isObservable)(action.payload)) action$.next(action.payload);
 	    return action;
 	  };
@@ -56143,6 +56198,7 @@
 	}
 	
 	function route(state, action) {
+	  console.log(action.type);
 	  switch (action.type) {
 	    case 'PAGE_CHANGED':
 	      return _extends({}, state, {
@@ -56152,6 +56208,14 @@
 	      // console.log(action.payload)
 	      return _extends({}, state, {
 	        rtpg: action.payload.ht,
+	        currentDevId: action.payload.par.id,
+	        currentDev: state.devices[getIndex(state.devices, action.payload.par.id)]
+	      });
+	    case 'SENREL_CHANGED':
+	      // console.log(action.payload)
+	      return _extends({}, state, {
+	        rtpg: action.payload.ht,
+	        currentSenRel: action.payload.par.tmr,
 	        currentDevId: action.payload.par.id,
 	        currentDev: state.devices[getIndex(state.devices, action.payload.par.id)]
 	      });
@@ -56167,7 +56231,22 @@
 	      var ridx = action.payload.id;
 	      var newsr = state.srstate.slice();
 	      newsr[ridx] = action.payload;
-	      return _extends({}, state, { srstate: newsr });
+	      return _extends({}, state, { srstate: newsr
+	      });
+	    case 'SCHED_CHANGED':
+	      var devlist = state.devices.slice();
+	      var devicesCopy = devlist.map(function (dev, i) {
+	        if (dev.id == action.payload.devId) {
+	          if (!dev.sched) {
+	            var sched = [];
+	            dev.sched = sched;
+	          }
+	          dev.sched[action.payload.sched.id] = action.payload.sched;
+	        }
+	        return dev;
+	      });
+	      return _extends({}, state, { devices: devicesCopy
+	      });
 	    default:
 	      return state;
 	  }
@@ -56187,6 +56266,7 @@
 	
 	exports.default = catboxr;
 	function catboxr(state, action) {
+	  //console.log(`in catboxr ${action.type}`)
 	  switch (action.type) {
 	    case 'CATBOX_CHANGED':
 	      return _extends({}, state, {
@@ -56288,7 +56368,7 @@
 	
 	function combineReducers(reducersObject) {
 	  var keys = Object.keys(reducersObject);
-	  // console.log(keys)
+	  //console.log(keys)
 	  return function () {
 	    var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 	    var action = arguments[1];
@@ -74250,7 +74330,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.panes = exports.multi = exports.DeviceList = exports.App = exports.DevInf = exports.Harry = exports.Cat = exports.Devices = undefined;
+	exports.panes = exports.multi = exports.SenRel = exports.DeviceList = exports.App = exports.DevInf = exports.Harry = exports.Cat = exports.Devices = undefined;
 	
 	var _Devices = __webpack_require__(613);
 	
@@ -74274,6 +74354,10 @@
 	
 	var _DeviceList2 = _interopRequireDefault(_DeviceList);
 	
+	var _SenRel = __webpack_require__(621);
+	
+	var _SenRel2 = _interopRequireDefault(_SenRel);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var multi = [{ pri: 'Cat', mul: [['Cat', 'Harry'], ['Harry', 'Cat', 'Devices']]
@@ -74290,6 +74374,7 @@
 	exports.DevInf = _DevInf2.default;
 	exports.App = _App.App;
 	exports.DeviceList = _DeviceList2.default;
+	exports.SenRel = _SenRel2.default;
 	exports.multi = multi;
 	exports.panes = panes;
 
@@ -74453,8 +74538,6 @@
 	
 	var _actions = __webpack_require__(187);
 	
-	var _App = __webpack_require__(186);
-	
 	var _Devices = __webpack_require__(613);
 	
 	var _Devices2 = _interopRequireDefault(_Devices);
@@ -74471,10 +74554,15 @@
 	
 	var _DevInf2 = _interopRequireDefault(_DevInf);
 	
+	var _SenRel = __webpack_require__(621);
+	
+	var _SenRel2 = _interopRequireDefault(_SenRel);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Navigo = __webpack_require__(618);
 	var React = __webpack_require__(1);
+	//import {App} from './components/App';
 	
 	
 	function insertElement(pro) {
@@ -74488,6 +74576,7 @@
 	
 	var router;
 	var routing = function routing(mode) {
+	  console.log('started routing');
 	  exports.router = router = new Navigo(null, true);
 	  router.on({
 	    'devices': function devices() {
@@ -74503,9 +74592,14 @@
 	      var pro = {};
 	      pro.ht = 'DevInf';
 	      pro.par = params;
-	      // console.log('in dev id')
-	      // console.log(pro)
 	      return (0, _actions.changeDevInfo)(pro);
+	    },
+	    'dev/:id/:tmr': function devIdTmr(params) {
+	      console.log(params.id + '/' + params.tmr);
+	      var pro = {};
+	      pro.ht = 'SenRel';
+	      pro.par = params;
+	      return (0, _actions.changeSenRel)(pro);
 	    },
 	    '/': function _() {
 	      return (0, _actions.changePage)('Cat');
@@ -74546,10 +74640,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function Cat(props) {
-	  // console.log(props)
-	  // const browserProfile = {2:{0:Harry},3:{2:Harry, 3:Devices}, 4:{0:Harry, 2:Devices, 3:DevInf}}
-	  // //['watch', 'phone', 'phoneL', 'tablet', 'tabletL', 'laptop']
-	  // const typesProfiles= [1,1,2,2,3,4]
 	  var _props$brow = props.brow;
 	  var types = _props$brow.types;
 	  var sizes = _props$brow.sizes;
@@ -75239,6 +75329,8 @@
 	    return srstate;
 	  },
 	  render: function render() {
+	    var _this2 = this;
+	
 	    this.currentDev = this.props.route.currentDev;
 	    this.HAStIMR = this.props.route.flags.HAStIMR;
 	    var timr = this.makeTimrMap();
@@ -75246,6 +75338,7 @@
 	
 	    var headerComponents = this.generateHeaders();
 	    var rowComponents = this.generateRows();
+	
 	    return _react2.default.createElement(
 	      'div',
 	      { style: styles.outer },
@@ -75267,12 +75360,17 @@
 	        'ul',
 	        { style: styles.ul },
 	        timr.map(function (tmr, idx) {
+	          var art = '#/dev/' + _this2.currentDev.id + '/' + tmr.id;
 	          return _react2.default.createElement(
 	            'li',
 	            { key: idx, style: styles.inner },
-	            'relay',
-	            tmr.id,
-	            ':',
+	            _react2.default.createElement(
+	              'a',
+	              { href: art },
+	              'relay',
+	              tmr.id,
+	              ':'
+	            ),
 	            _react2.default.createElement(
 	              'span',
 	              { style: styles.span },
@@ -75429,6 +75527,81 @@
 
 /***/ },
 /* 621 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = SenRel;
+	
+	var _actions = __webpack_require__(187);
+	
+	function SenRel(props) {
+	  var _props$brow = props.brow;
+	  var types = _props$brow.types;
+	  var sizes = _props$brow.sizes;
+	  var browser = _props$brow.browser;
+	  var size = _props$brow.size;
+	  var _props$route = props.route;
+	  var devices = _props$route.devices;
+	  var rtpg = _props$route.rtpg;
+	  var currentSenRel = _props$route.currentSenRel;
+	  var currentDevId = _props$route.currentDevId;
+	  // if (currentDevId=='00002zzz'){
+	  //   console.log(devices[0].id)
+	  //   changeDevInfo(devices[0].id)
+	  // }
+	
+	  var name = props.harrysally.name;
+	  // console.log(devices[0].id)
+	
+	  console.log(currentDevId);
+	  var device = devices.filter(function (dev) {
+	    return dev.id == currentDevId;
+	  });
+	  // console.log(device)
+	  // if(device[0].sched!='undefined'){
+	  //   console.log(device[0].sched[currentSenRel].pro)
+	  // }else{
+	  //   console.log(devices[0])
+	  // }
+	  return React.createElement(
+	    'div',
+	    null,
+	    React.createElement(
+	      'div',
+	      { style: styles.outer },
+	      React.createElement(
+	        'h4',
+	        null,
+	        'in SenRel ',
+	        name,
+	        ' senrel:',
+	        currentSenRel
+	      )
+	    )
+	  );
+	}
+	var styles = {
+	  outer: {
+	    background: '#9338f4',
+	    height: 400,
+	    textAlign: 'center'
+	  },
+	  inner: {
+	    margin: '0 auto',
+	    background: '#FFF28E',
+	    height: 340,
+	    color: 'red',
+	    textAlign: 'center',
+	    fontSize: '300%'
+	  }
+	};
+
+/***/ },
+/* 622 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
