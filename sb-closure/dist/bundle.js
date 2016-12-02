@@ -46,8 +46,6 @@
 
 	'use strict';
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -56,134 +54,20 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
+	var _App = __webpack_require__(172);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	// import {App} from './components/App'
-	
-	
-	var Wel = function Wel(props) {
-		return _react2.default.createElement(
-			'h5',
-			null,
-			'inner ',
-			props.name
-		);
-	};
-	
-	var Welc = function (_React$Component) {
-		_inherits(Welc, _React$Component);
-	
-		function Welc() {
-			_classCallCheck(this, Welc);
-	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Welc).apply(this, arguments));
-		}
-	
-		_createClass(Welc, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'h5',
-					null,
-					'welc ',
-					this.props.name
-				);
-			}
-		}]);
-	
-		return Welc;
-	}(_react2.default.Component);
-	
-	var Welco = _react2.default.createClass({
-		displayName: 'Welco',
-	
-		componentDidMount: function componentDidMount() {
-			console.log('yard mounted');
-		},
-		componentWillUnmount: function componentWillUnmount() {
-			console.log('yard unmountd');
-		},
-		render: function render() {
-			return _react2.default.createElement(
-				'h5',
-				null,
-				'welco ',
-				this.props.name
-			);
-		}
-	});
-	
-	var props = {
+	var store = {
 		route: { currentDevice: 'CYURD001', arr: ['dog', 'cat'] },
 		harrysally: { name: 'Fred' },
 		catboxr: { catbox: 'meow' }
 	};
 	
-	var Cat = function Cat(props) {
-		console.log(props);
-		var catbox = props.catbox;
-		var name = props.name;
-	
-		return _react2.default.createElement(
-			'div',
-			null,
-			'in cats ',
-			props.catbox,
-			' ',
-			name,
-			' '
-		);
-	};
-	
-	function limitPropsOf(afn) {
-		return function (props) {
-			var ob = {
-				fn: afn,
-				pr: {
-					catbox: props.catboxr.catbox,
-					name: props.harrysally.name
-				}
-			};
-			return ob;
-		};
-	}
-	
-	var CatO = limitPropsOf(Cat);
-	console.log(CatO(props));
-	
-	function crne(ob) {
-		return _react2.default.createElement(ob.fn, ob.pr);
-	}
-	
-	var App = function App(props) {
-		console.log(props);
-		var newcat = crne(CatO(props));
-		return _react2.default.createElement(
-			'div',
-			null,
-			_react2.default.createElement(
-				'h4',
-				null,
-				'hello blank es6 rect'
-			),
-			_react2.default.createElement(Wel, { name: 'fred' }),
-			_react2.default.createElement(Welc, { name: 'dirt' }),
-			_react2.default.createElement(Welco, { name: 'funcy' }),
-			_react2.default.createElement(Cat, null),
-			newcat
-		);
-	};
-	
 	var container = document.getElementById('app');
 	
-	//ReactDOM.render(<App {...props}/>, container) is same as
-	_reactDom2.default.render(_react2.default.createElement(App, props), container);
+	_reactDom2.default.render(_react2.default.createElement(_App.App, store), container); //is same as
+	// ReactDOM.render(React.createElement(App, store), container)
 
 /***/ },
 /* 1 */
@@ -21530,6 +21414,153 @@
 	
 	module.exports = ReactDOMNullInputValuePropHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 172 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.App = undefined;
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Cat = __webpack_require__(173);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Wel = function Wel(props) {
+		return _react2.default.createElement(
+			'h5',
+			null,
+			'inner ',
+			props.name
+		);
+	};
+	
+	var Welc = function (_React$Component) {
+		_inherits(Welc, _React$Component);
+	
+		function Welc() {
+			_classCallCheck(this, Welc);
+	
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Welc).apply(this, arguments));
+		}
+	
+		_createClass(Welc, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'h5',
+					null,
+					'welc ',
+					this.props.name
+				);
+			}
+		}]);
+	
+		return Welc;
+	}(_react2.default.Component);
+	
+	var Welco = _react2.default.createClass({
+		displayName: 'Welco',
+	
+		componentDidMount: function componentDidMount() {
+			console.log('yard mounted');
+		},
+		componentWillUnmount: function componentWillUnmount() {
+			console.log('yard unmountd');
+		},
+		render: function render() {
+			return _react2.default.createElement(
+				'h5',
+				null,
+				'welco ',
+				this.props.name
+			);
+		}
+	});
+	
+	var App = function App(props) {
+		// const newcat = createElementWithProps(CatO(props))
+		var newcat = (0, _Cat.Cat)(props);
+		return _react2.default.createElement(
+			'div',
+			null,
+			_react2.default.createElement(
+				'h4',
+				null,
+				'hello blank es6 rect'
+			),
+			_react2.default.createElement(Wel, { name: 'freed' }),
+			_react2.default.createElement(Welc, { name: 'dirt' }),
+			_react2.default.createElement(Welco, { name: 'funcy' }),
+			newcat
+		);
+	};
+	
+	exports.App = App;
+
+/***/ },
+/* 173 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.Cat = undefined;
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Cat = function Cat(props) {
+		console.log(props);
+		var catbox = props.catbox;
+		var name = props.name;
+	
+		return _react2.default.createElement(
+			'div',
+			null,
+			'in catsd ',
+			props.catbox,
+			' ',
+			name,
+			' '
+		);
+	};
+	
+	function mapStateToProps(anElement) {
+		//returns a function called later with store as its arg and el from here
+		return function (store) {
+			var props = {
+				catbox: store.catboxr.catbox,
+				name: store.harrysally.name
+			};
+			return _react2.default.createElement(anElement, props);
+		};
+	}
+	
+	exports.Cat = Cat = mapStateToProps(Cat);
+	
+	exports.Cat = Cat;
 
 /***/ }
 /******/ ]);
