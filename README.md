@@ -2,6 +2,9 @@
 Each directory represents a code exploration and has its own README.md. All share sbdev0/node_modules.
 
 ## tags
+### sb-closure_01
+closure on a single page of code
+
 ### sb-mqtt
 
 A wrapper `mqttCon` to turn mqtt into an Subject, ie observer+observable. 

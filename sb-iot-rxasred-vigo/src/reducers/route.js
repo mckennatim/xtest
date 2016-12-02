@@ -3,7 +3,7 @@ function getIndex(d,c){
 }
 
 export default function route(state, action) {
-  console.log(action.type)
+  // console.log(action.type)
   switch (action.type) {
     case 'PAGE_CHANGED':
       return {

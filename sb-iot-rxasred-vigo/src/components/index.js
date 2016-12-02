@@ -1,5 +1,5 @@
 import Devices from './Devices';
-import Cat from './Cat';
+import {Cat} from './Cat';
 import Harry from './Harry';
 import DevInf from './DevInf';
 import {App} from './App';

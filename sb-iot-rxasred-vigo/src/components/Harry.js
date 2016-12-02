@@ -63,4 +63,41 @@ Harry.propTypes = {
   //   background:'#d2ef8f',
   //   height: 800,
   //   textAlign: 'center'    
-  // },
+  // 
+// function Cat(pops){
+//   var newprops = {
+//     cat: pops.cat,
+//     school: pops.class.school,
+//     course: pops.class.course
+//   }  
+//   return Cat(newprops)
+// }
+
+
+
+
+// var fops = {
+//   dog: 'uli',
+//   cat: 'mabobi',
+//   class: {school: 'westie', grade: 12, course:{name: 'humanities', history: 'world'}}
+// }
+
+// Cat(fops)
+// console.log(Newcat)
+
+// function connect(fn, pops){
+//   var newprops = {
+//     cat: pops.cat,
+//     school: pops.class.school,
+//     course: pops.class.course
+//   }
+//   return fn(newprops)
+//   // return fn()
+// }
+
+// const acat = connect(Cat,fops)
+
+// console.log(acat)
+
+// const bcat = (Cat)=>Cat()
+// console.log(bcat)

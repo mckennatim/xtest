@@ -124,10 +124,181 @@
 	"buffers":
 	[
 		{
-			"file": "/C/wamp/www/sbdev0/xtest/sbnavigo/src/app.js",
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/actions/fromMqtt.js",
 			"settings":
 			{
-				"buffer_size": 6811,
+				"buffer_size": 1719,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/DevInf.js",
+			"settings":
+			{
+				"buffer_size": 3386,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/SenRel.js",
+			"settings":
+			{
+				"buffer_size": 1048,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Cat.js",
+			"settings":
+			{
+				"buffer_size": 1249,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Devices.js",
+			"settings":
+			{
+				"buffer_size": 759,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/route.js",
+			"settings":
+			{
+				"buffer_size": 1715,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/catboxr.js",
+			"settings":
+			{
+				"buffer_size": 258,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/geniot/client/raw/raw.html",
+			"settings":
+			{
+				"buffer_size": 12925,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/App.js",
+			"settings":
+			{
+				"buffer_size": 2058,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Harry.js",
+			"settings":
+			{
+				"buffer_size": 1518,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/index.js",
+			"settings":
+			{
+				"buffer_size": 708,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/actions/index.js",
+			"settings":
+			{
+				"buffer_size": 4171,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/README.md",
+			"settings":
+			{
+				"buffer_size": 8730,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/data/store.js",
+			"settings":
+			{
+				"buffer_size": 37,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/data/initState.js",
+			"settings":
+			{
+				"buffer_size": 1733,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/README.md",
+			"settings":
+			{
+				"buffer_size": 11588,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/rxflux.js",
+			"settings":
+			{
+				"buffer_size": 1085,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/index.js",
+			"settings":
+			{
+				"buffer_size": 552,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/app.js",
+			"settings":
+			{
+				"buffer_size": 1029,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/router.js",
+			"settings":
+			{
+				"buffer_size": 1151,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -185,26 +356,43 @@
 		"/C/wamp/www/sbdev0/.projects",
 		"/C/wamp/www/sbdev0/.projects/geniot",
 		"/C/wamp/www/sbdev0/xtest",
+		"/C/wamp/www/sbdev0/xtest/sb-blank",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/dist",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/dist/styles",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/actions",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/data",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/util",
-		"/C/wamp/www/sbdev0/xtest/sbnavigo",
-		"/C/wamp/www/sbdev0/xtest/sbnavigo/src"
+		"/C/wamp/www/sbdev0/xtest/sb-mqtt",
+		"/C/wamp/www/sbdev0/xtest/sb-mqtt/dist",
+		"/C/wamp/www/sbdev0/xtest/sb-mqtt/src"
 	],
 	"file_history":
 	[
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/rxflux.js",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Devices.js",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/DevInfo.js",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/app.js",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/App.js",
+		"/C/wamp/www/sbdev0/xtest/sb-mqtt/src/app.js",
+		"/C/wamp/www/sbdev0/xtest/sb-mqtt/dist/index.html",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/actions/mqttCon.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Harry.js",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Cat.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Devices.js",
+		"/C/wamp/www/sbdev0/xtest/sb-mqtt/src/fromMqtt.js",
+		"/C/wamp/www/sbdev0/xtest/README.md",
+		"/C/wamp/www/sbdev0/xtest/sb-mqtt/README.md",
+		"/C/wamp/www/sbdev0/xtest/sb-blank/README.md",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/App.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/route.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/dist/styles/main.css",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/app.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/actions/fromMqtt.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo0/src/components/Devices.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/README.md",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/rxflux.js",
+		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/DevInfo.js",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/router.js",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/harrysally.js",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Harry.js",
 		"/C/wamp/www/sbdev0/xtest/sb-rxasred/src/reducers/catboxr.js",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/dist/index.html",
 		"/C/wamp/www/sbdev0/xtest/sb-rxasred/src/reducers/nameReducer.js",
@@ -219,11 +407,9 @@
 		"/C/wamp/www/sbdev0/xtest/sb-rxasred/dist/bundle.js.map",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/actions.js",
 		"/C/wamp/www/sbdev0/xtest/sbnavigo/src/app.js",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/README.md",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/catboxr.js",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/DeviceList.js",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducer.js",
-		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/route.js",
 		"/C/wamp/www/sbdev0/xtest/.projects/sb-cycle.sublime-project",
 		"/C/wamp/www/sbdev0/xtest/.projects/xtest.sublime-project",
 		"/C/wamp/www/sbdev0/.projects/geniot/raw.sublime-project",
@@ -238,7 +424,6 @@
 		"/C/wamp/www/sbdev0/xtest/cycle-webpack-boilerplate/README.md",
 		"/C/wamp/www/sbdev0/xtest/cycle-webpack-boilerplate/src/app.js",
 		"/C/wamp/www/sbdev0/xtest/cycle-webpack-boilerplate/src/index.html",
-		"/C/wamp/www/sbdev0/xtest/README.md",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/util/warning.js",
 		"/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/util/combineReducers.js",
 		"/C/wamp/www/sbdev0/xtest/sb-rxasred-vigo/src/components/App.js",
@@ -314,20 +499,11 @@
 		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/hello-world-react/index.js",
 		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/xcherrytree-redux-react-example/webpack.config.js",
 		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/xcherrytree-redux-react-example/package.json",
-		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/xcherrytree-redux-react-example/.babelrc",
-		"/C/wamp/www/sbdev0/xtest/sbhistory/README.md",
-		"/C/wamp/www/sbdev0/xtest/page_demo/src/load_user.js",
-		"/C/wamp/www/sbdev0/xtest/page_demo/dist/index.html",
-		"/C/wamp/www/sbdev0/xtest/page_demo/package.json",
-		"/C/wamp/www/sbdev0/xtest/page_demo/webpack.config.js",
-		"/C/wamp/www/sbdev0/xtest/page_demo/src/load_users.js",
-		"/C/wamp/www/sbdev0/xtest/sbhistory/webpack.config.js",
-		"/C/wamp/www/sbdev0/xtest/sbhistory/dist/index.html",
-		"/C/wamp/www/sbdev0/xtest/sbnavigo/dist2/app.js"
+		"/C/wamp/www/sbdev0/xtest/cherrytree/examples/xcherrytree-redux-react-example/.babelrc"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -343,6 +519,30 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"payload.par.id",
+			"nrGetDevData",
+			"payload.par.id",
+			"DeviceList",
+			"DevInf",
+			"plo",
+			"client",
+			"Subject",
+			"socket",
+			"open",
+			"pageLista2",
+			"ca",
+			"bf",
+			"tf",
+			"pg",
+			"ix",
+			"Cat",
+			"Devices",
+			"DevInf",
+			"Inf",
+			"DevInf",
+			"/components",
+			"</div> ",
+			"<div className='col4'>",
 			"console.log(",
 			"{}",
 			"nameReducer",
@@ -446,31 +646,7 @@
 			" ",
 			"_",
 			"](",
-			"-",
-			"progs",
-			"/progs",
-			"\"/progs\"",
-			"progs",
-			"prog",
-			"sched",
-			"prog",
-			"srstate",
-			"in default",
-			"in de",
-			"Ser",
-			"HAY_CNG",
-			",\\\"ev:\\\":2",
-			"rg",
-			"ro",
-			"cur",
-			"p1",
-			"temp",
-			"heat",
-			"sr.temp1",
-			"state",
-			"s.s",
-			"s.",
-			"ste"
+			"-"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -491,39 +667,147 @@
 	"groups":
 	[
 		{
-			"sheets":
-			[
-			]
-		},
-		{
-			"sheets":
-			[
-			]
-		},
-		{
-			"sheets":
-			[
-			]
-		},
-		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/wamp/www/sbdev0/xtest/sbnavigo/src/app.js",
-					"semi_transient": true,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/actions/fromMqtt.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6811,
+						"buffer_size": 1719,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1858,
-								4033
+								1295,
+								1295
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/DevInf.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3386,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2488,
+								2488
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 469.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/SenRel.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1048,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								395,
+								395
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"open_with_edit": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Cat.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1249,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								442,
+								442
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Devices.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 759,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -533,10 +817,488 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1618.0,
+						"translation.y": 70.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/route.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1715,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								836,
+								836
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 136.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/catboxr.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 258,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								53,
+								53
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/C/wamp/www/sbdev0/geniot/client/raw/raw.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12925,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4657,
+								4633
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1405.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/App.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2058,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1432,
+								1456
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 378.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/Harry.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1518,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								462,
+								462
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/components/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 708,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								197,
+								197
+							],
+							[
+								212,
+								212
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 11,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/actions/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4171,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1954,
+								1954
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 665.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/C/wamp/www/sbdev0/xtest/README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8730,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								366,
+								366
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"syntax": "Packages/MarkdownEditing/Markdown.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/data/store.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 37,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13,
+								13
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"open_with_edit": true,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/data/initState.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1733,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1260,
+								1260
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 401.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 15,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11588,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								39,
+								28
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"parser": "markdown",
+							"syntax": "Packages/MarkdownEditing/Markdown.tmLanguage",
+							"tab_size": 2,
+							"target": "disk",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/rxflux.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1085,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								918,
+								918
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/reducers/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 552,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								215,
+								215
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1029,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1029,
+								1029
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 357.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "/C/wamp/www/sbdev0/xtest/sb-iot-rxasred-vigo/src/router.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1151,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								523,
+								523
+							]
+						],
+						"settings":
+						{
+							"mediawiker_wiki_instead_editor": false,
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 246.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -582,13 +1344,13 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.488240617494,
 			1.0
 		],
 		"rows":
 		[
 			0.0,
-			0.441048231406,
+			0.493879744462,
 			1.0
 		]
 	},

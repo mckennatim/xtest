@@ -43,6 +43,7 @@ return elArr
 export function App(props) {
   const { isLoading, name, users, rtpg, route, brow } = props;
   // console.log(props)
+  console.log('re-rendering App')
   return (
     <div className="container">
       <div className="header item-default">

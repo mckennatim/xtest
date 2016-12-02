@@ -1,14 +1,17 @@
+// const { connect } = require('react-redux');
 import {router} from '../router'
 import { toggleCatbox} from '../actions';
 import Harry from './Harry';
 import Devices from './Devices';
 import DevInf from './DevInf';
 
-export default function Cat(props){
+function Cat(props){
+  // console.log('cat rerouting')
   const {types, sizes, browser, size} = props.brow
-
   const {catbox}=props.catboxr
   const {name}=props.harrysally
+  // const catbox = props.catbox;
+  // const name = props.name;
   var toggled = false;
 	const handleNavigate = (data) => () =>{
 	  router.navigate(data);
@@ -18,7 +21,6 @@ export default function Cat(props){
   }
   return(
     <div>
-      {browser}
       <div style = {styles.outer}>
       	<h4>in doCat {name}</h4>
       	<button onClick={handleNavigate('dev/CYURD002')}>goto CYURD002</button>
@@ -32,6 +34,27 @@ export default function Cat(props){
     </div>
     )
 }
+
+// function connect(fn, props){
+//   var newprops = {
+//     catbox: props.catboxr.catbox,
+//     name: props.harrysally.name
+//   }
+//   return fn(newprops)
+// }
+
+// const Cat = connect(Catt,props)
+
+// function redprops(fn){
+//   console.log(fn)
+//   // fn()
+// }
+
+// redprops(Cat)
+console.log(Cat)
+
+export {Cat}
+
 const styles= {
   outer: {
     background:'#ccb7b7',

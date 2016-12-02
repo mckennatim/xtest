@@ -65,10 +65,11 @@ export const changePage = actionCreator((payload) => ({
   payload
 }));
 export const changeSenRel = actionCreator((payload) => {
+  //console.log(payload)
   console.log(`${storeCopy.route.currentDevId} != ${payload.par.id}`)
   if (storeCopy.route.currentDevId != payload.par.id){
     console.log(`should somehow update to ${payload.par.id}`)
-    //nrGetDevData(payload.par.id)
+    nrGetDevData(payload.par.id)
   }  
   return {
     type: 'SENREL_CHANGED',

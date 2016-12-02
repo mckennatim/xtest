@@ -22280,6 +22280,7 @@
 	  var brow = props.brow;
 	  // console.log(props)
 	
+	  console.log('re-rendering App');
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'container' },
@@ -22413,10 +22414,11 @@
 	  };
 	});
 	var changeSenRel = exports.changeSenRel = (0, _rxflux.actionCreator)(function (payload) {
+	  //console.log(payload)
 	  console.log(storeCopy.route.currentDevId + ' != ' + payload.par.id);
 	  if (storeCopy.route.currentDevId != payload.par.id) {
 	    console.log('should somehow update to ' + payload.par.id);
-	    //nrGetDevData(payload.par.id)
+	    nrGetDevData(payload.par.id);
 	  }
 	  return {
 	    type: 'SENREL_CHANGED',
@@ -56198,7 +56200,7 @@
 	}
 	
 	function route(state, action) {
-	  console.log(action.type);
+	  // console.log(action.type)
 	  switch (action.type) {
 	    case 'PAGE_CHANGED':
 	      return _extends({}, state, {
@@ -74338,8 +74340,6 @@
 	
 	var _Cat = __webpack_require__(616);
 	
-	var _Cat2 = _interopRequireDefault(_Cat);
-	
 	var _Harry = __webpack_require__(617);
 	
 	var _Harry2 = _interopRequireDefault(_Harry);
@@ -74369,7 +74369,7 @@
 	var panes = [1, 1, 2, 2, 3, 3];
 	
 	exports.Devices = _Devices2.default;
-	exports.Cat = _Cat2.default;
+	exports.Cat = _Cat.Cat;
 	exports.Harry = _Harry2.default;
 	exports.DevInf = _DevInf2.default;
 	exports.App = _App.App;
@@ -74544,8 +74544,6 @@
 	
 	var _Cat = __webpack_require__(616);
 	
-	var _Cat2 = _interopRequireDefault(_Cat);
-	
 	var _Harry = __webpack_require__(617);
 	
 	var _Harry2 = _interopRequireDefault(_Harry);
@@ -74619,7 +74617,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.default = Cat;
+	exports.Cat = undefined;
 	
 	var _router = __webpack_require__(615);
 	
@@ -74640,6 +74638,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function Cat(props) {
+	  // console.log('cat rerouting')
 	  var _props$brow = props.brow;
 	  var types = _props$brow.types;
 	  var sizes = _props$brow.sizes;
@@ -74647,6 +74646,8 @@
 	  var size = _props$brow.size;
 	  var catbox = props.catboxr.catbox;
 	  var name = props.harrysally.name;
+	  // const catbox = props.catbox;
+	  // const name = props.name;
 	
 	  var toggled = false;
 	  var handleNavigate = function handleNavigate(data) {
@@ -74660,7 +74661,6 @@
 	  return React.createElement(
 	    'div',
 	    null,
-	    browser,
 	    React.createElement(
 	      'div',
 	      { style: styles.outer },
@@ -74694,6 +74694,29 @@
 	    )
 	  );
 	}
+	
+	// function connect(fn, props){
+	//   var newprops = {
+	//     catbox: props.catboxr.catbox,
+	//     name: props.harrysally.name
+	//   }
+	//   return fn(newprops)
+	// }
+	
+	// const Cat = connect(Catt,props)
+	
+	// function redprops(fn){
+	//   console.log(fn)
+	//   // fn()
+	// }
+	
+	// redprops(Cat)
+	// const { connect } = require('react-redux');
+	console.log(Cat);
+	
+	exports.Cat = Cat;
+	
+	
 	var styles = {
 	  outer: {
 	    background: '#ccb7b7',
@@ -74830,7 +74853,42 @@
 	//   background:'#d2ef8f',
 	//   height: 800,
 	//   textAlign: 'center'    
-	// },
+	// 
+	// function Cat(pops){
+	//   var newprops = {
+	//     cat: pops.cat,
+	//     school: pops.class.school,
+	//     course: pops.class.course
+	//   }  
+	//   return Cat(newprops)
+	// }
+	
+	
+	// var fops = {
+	//   dog: 'uli',
+	//   cat: 'mabobi',
+	//   class: {school: 'westie', grade: 12, course:{name: 'humanities', history: 'world'}}
+	// }
+	
+	// Cat(fops)
+	// console.log(Newcat)
+	
+	// function connect(fn, pops){
+	//   var newprops = {
+	//     cat: pops.cat,
+	//     school: pops.class.school,
+	//     course: pops.class.course
+	//   }
+	//   return fn(newprops)
+	//   // return fn()
+	// }
+	
+	// const acat = connect(Cat,fops)
+	
+	// console.log(acat)
+	
+	// const bcat = (Cat)=>Cat()
+	// console.log(bcat)
 
 /***/ },
 /* 618 */
@@ -75556,16 +75614,39 @@
 	
 	  var name = props.harrysally.name;
 	  // console.log(devices[0].id)
+	  // console.log(currentDevId)
 	
-	  console.log(currentDevId);
 	  var device = devices.filter(function (dev) {
 	    return dev.id == currentDevId;
 	  });
-	  // console.log(device)
+	  //console.log(device[0])
 	  // if(device[0].sched!='undefined'){
 	  //   console.log(device[0].sched[currentSenRel].pro)
 	  // }else{
 	  //   console.log(devices[0])
+	  // var sch
+	  function extractProg() {
+	    // console.log(device[0].sched)
+	    if (device[0].sched) {
+	      // console.log('there is a sched')
+	      // console.log(device[0].sched.length)
+	      var scheds = device[0].sched;
+	      var sch = scheds.filter(function (sch) {
+	        return sch.id == currentSenRel;
+	      });
+	      if (sch[0] == 0 || sch[0] == undefined) {
+	        return React.createElement(
+	          'p',
+	          null,
+	          'hi dog'
+	        );
+	      } else {
+	        return console.log(sch[0]);
+	      }
+	    }
+	  }
+	  var progData = extractProg();
+	
 	  // }
 	  return React.createElement(
 	    'div',
@@ -75578,9 +75659,12 @@
 	        null,
 	        'in SenRel ',
 	        name,
+	        ' device: ',
+	        currentDevId,
 	        ' senrel:',
 	        currentSenRel
-	      )
+	      ),
+	      progData
 	    )
 	  );
 	}
