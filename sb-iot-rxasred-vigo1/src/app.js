@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Observable } from 'rxjs/Observable';
 // var Navigo = require('navigo');
 
-import App from './components/App';
+import {App} from './components/App';
 // import Devices from './components/Devices';
 // import Cat from './components/Cat';
 // import Harry from './components/Harry';
@@ -11,7 +11,7 @@ import App from './components/App';
 
 import { createStore } from './rxflux';
 import { log } from './util/utils';
-import { changePage, setDeviceType} from './actions';
+import { changePage, setDeviceType, copyStore} from './actions';
 import {router} from './router'
 import {initState} from './data/initState'
 
@@ -25,11 +25,12 @@ Observable.fromEvent(window, 'resize')
   .debounceTime(300)
   .subscribe((e)=>setDeviceType(window.innerWidth));
 
-const domRenderer = theStore.subscribe((state)=>
-    ReactDOM.render(<App {...state} />, container)
-  )
+const domRenderer = theStore.subscribe((state)=>{
+	copyStore(state)
+	return ReactDOM.render(<App {...state} />, container)
+})
 
 var path = "/"+window.location.hash.substring(1)
 router.navigate(path)
 
-export {router}
+///export {router, storeCopy}

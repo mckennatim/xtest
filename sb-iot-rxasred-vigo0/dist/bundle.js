@@ -65,22 +65,6 @@
 	
 	var _App2 = _interopRequireDefault(_App);
 	
-	var _Devices = __webpack_require__(529);
-	
-	var _Devices2 = _interopRequireDefault(_Devices);
-	
-	var _Cat = __webpack_require__(532);
-	
-	var _Cat2 = _interopRequireDefault(_Cat);
-	
-	var _Harry = __webpack_require__(533);
-	
-	var _Harry2 = _interopRequireDefault(_Harry);
-	
-	var _DevInf = __webpack_require__(535);
-	
-	var _DevInf2 = _interopRequireDefault(_DevInf);
-	
 	var _rxflux = __webpack_require__(520);
 	
 	var _utils = __webpack_require__(527);
@@ -96,6 +80,10 @@
 	// var Navigo = require('navigo');
 	
 	window.React = _react2.default;
+	// import Devices from './components/Devices';
+	// import Cat from './components/Cat';
+	// import Harry from './components/Harry';
+	// import DevInf from './components/DevInf';
 	
 	var container = document.getElementById('app');
 	

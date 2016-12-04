@@ -1,43 +1,51 @@
-# xtest small test code in sbdev0
-Each directory represents a code exploration and has its own README.md. All share sbdev0/node_modules.
+# sb-rxasred-vigo
+##log
+### senRel-page
+#### architecture
+*App* combined with actions/index controls conditional rendering of what occurs under the menu
+### sb-iot_storeCopy
+I would like to access the store$ or state from other parts of the app not within the DOM. Here's how. In the App render function run a function on each update (whenever props update).
 
-## tags
-### sb-closure_wrap-element_modify-its-props
-Use closure to create a element with reduced props. We know from `Cat.js` what `Cat` needs from the `store`. But here it doesn't have access to the store. To access the store the function returned from  `mapStateToProps`  in `Cat.js`
+    export function App(props) {
+      const { isLoading, name, users, rtpg, route, brow } = props;
+      return (
+        <div className="container">
+          {handleCopyStore(props) }
 
-    function mapStateToProps(anElement){
-        //returns a function called later with store as its arg and el from here
-        return (store)=>{  
-            const props= {
-                    catbox: store.catboxr.catbox,
-                    name: store.harrysally.name
-                }
-            return React.createElement(anElement, props)
-        }
+which calls from `../actions`
+
+    function handleCopyStore(props){
+      copyStore(props);
     }
-    Cat = mapStateToProps(Cat)
 
-first grabs the element from its parameter and holds it in closure. It returns a function that returns and element but it doesn't do that until the wrapped `Cat` is called from `App` as `Cat(props)`. The store is passed down to `App` in `app.js`  
+`copyStore(props)` updates a `storeCopy` object in `../actions.index.js`
 
+    var storeCopy = {route: {currentDevId: 'instorcopy'}}
+    export const copyStore= (props)=>{
+      storeCopy = props
+    }
 
-    ReactDOM.render(<App {...store}/>, container)
+So now the store's `currentDevId` can be compared to the one coming from the url route param and disconnecting/reconnecting the mqtt client is avoided.
 
-In `App.js` you make the call `Cat(props)` completing the closure and returning the element whose props have been culled from store
+### fromMqttEvent
+#### the problem
+The mqttCon code connects to a device when the DevInf page is rendered ala:
 
-    const App = (props) =>{
-        const newcat = Cat(props)
-        return(
-            <div>
-                <h4>hello blank es6 rect</h4>
-                {newcat}
-            </div>
-    )}
+    componentDidMount: function() {
+      console.log('Devinf mounted')
+      this.client = mqttCon(this.currentDev.id, this.props)
+    }
 
-### sb-closure_01
-closure on a single page of code
+so it can be disconnected 
 
-### sb-mqtt
+    componentWillUnmount: function(){
+      console.log('Devinf unmountd')
+      this.client.publish('presence', 'Help, wants to close! ');
+      this.client.end();    
+    },
 
+The problem with this approach is when you have a big display with both `Devices` and `DevInf` rendered, the mqtt client never reconnects to the right device and reinitialize the data.
+#### the solution ->fromMqtt and the curried version fromMqtt$
 A wrapper `mqttCon` to turn mqtt into an Subject, ie observer+observable. 
 
 OK, so you've got 2x2 different things going on here. mqtt subscribes to the data coming out of the iot device and publishes commands from the frontend client to the iot device. fromMqtt makes the iot device data observable by the frontend app and acts as observer of the frontend app to see if it wants to send anything to the iotDevice. The frontend app subscribes to that observable to find out whats happening on the iot device and sends the subject data that it is observing via the `mqttCon.next()` callback
@@ -92,7 +100,10 @@ and when you put something in Subject.next it gets observed by fromMqtt and sent
 
      mqtt                fromMqtt                 frontend app  
      .on('message') -> data made observable -> mqttCon.subscribe      
-     client.publish <- observer.next(data) <- mqttCon.next(data)        
+     client.publish <- observer.next(data) <- mqttCon.next(data)       
+
+===== currying
+const fromMqtt$ = (devId)=>fromMqtt(Observer, url, devId)
 
 ### sb-iot_flexbox+condrender
 Flexbox does not depend on media queries. Combining it with javascript code for conditional rendering allows for the best of both worlds. 
@@ -219,25 +230,86 @@ Here the classes are assigned to elements
         return <div className="content item-default" key={i}>{el}</div>
       })}
     </div>
-### 04-sb-rxasred-vigo
-handles parameters by
 
-- in routes.js - instead of just passing the the react render function to `return changeDevInfo(pro)` create an object containing the params and render function and put that in payload. Now the reducer can parse it
-- in reducer.js - return a state that now has `currentDevId` and `currentDev` which is the devices record that matches the id.
-- in DevInfo.js, the render function - instead of passing it all the props, just pass it a destructured list `{name, currentDev}` of the parts of state that it needs.
+### sb-iot_cat-harry-if-phone
+### sb-iot_devinf-obs-size
+### sb-iot_devinf-pre-css
+### sb-iot_DevInf-onmessage
+What happens or should happen when user refreshes a devInf page or goes back to it from somewhere else. 
+
+- send token to see if authorized
+- get flags
+- respond to messages
+
+If any of that causes a state change then re-render. Re-rendering reruns `makeTimrMap` uses flag info to decide what timrs to display and formats the array of numbers into an array of objects 
+### sb-iot-rxasred-vigo-2
+todo - unpack state data as entries if table
+
+## puzlles to solve
+calling a react render function like `changePage(Harry)` changes the state by modifying rtpg changing it to the `Harry` react render function. The `Harry` has `props` that seem to be passed in by magic.
+
+    export default function Harry(props) {
+      const { isLoading, name, users, rtpg } = props;
+      return (
+        <div style={styles.outer}>
+          { isLoading ?
+            <p>Loading...</p> :
+            <h1>{ name }</h1> }
+          { renderUsers(users) }
+          <button onClick={handleChangeName('Harry')} >Harry</button>
+          <button onClick={handleChangeName('Sally')} >Sally</button>
+          <br />
+          <button className="button primary" onClick={handleLoadFollowers('ryardley')} > Load Followers</button>
+        </div>
+      );
+    }
+###solution
+have the reducer handle it keeping a currentDev in state then just pass the props you need from state like this
+
+    export default function Devinfo({name, currentDev}){
+      console.log('in Devinfo')
+      return(
+        <div style={styles.outer}>
+            <h4>in doDevinfo {name}</h4>
+            {currentDev.name} <br/>
+            {currentDev.id} <br/>
+            {currentDev.desc}
+        </div>
+        )
+    }
 
 
-### 03-sb-rxasred-vigo
-An interesting almost clean rendition where react renders from simple functions, state is managed by an rxjs implementation of redux and navigation works with navigo.
-### 02-xtest-react-router
 
-## xtest apps
+without params brings in props
 
-- `sb_rxjs-as-redux` intriguing project using composed higher order functions, plain react render functions with props as parameters
-- `sbnavigo` uses Vue but inrement/decrement doesn't work
-- `sb-redux-observable-raw` works but no routing
-- cherrytree works on examples vanilla but gets stuck on helo-world-react
-- rxjs as redux - too much gulp needed
-- sb-react-router - breaks win react router@next (4), for 2.8 hash works for -w and dist2, not for webpack-dev-server. Navigation by `this.context.router.push('about')`
-- sb-react-router4 - works on dist2 with hash routes,
-- sbasic react-router 2.8 button doesn't work for navigation. otherwise hash
+
+sb rxjs as redux with routing by navigo
+
+## based on rxjs as redux 
+
+A simple effective Redux style framework using Rx https://github.com/ryardley/rxjs-as-redux
+
+*This is an example of how you might create a simple Flux/Redux style framework using nothing other than [RxJS](http://reactivex.io/rxjs)*
+
+http://rudiyardley.com/redux-single-line-of-code-rxjs/
+
+#### on combining reducers
+Ok so at the heart of things:
+
+    action$.scan(reducer).subscribe(renderer) 
+
+is cool. How might one combine reducers? I've been thinking I would need to do some kind of merge ala:    
+
+from http://reactivex.io/rxjs/manual/tutorial.html#state-stores I see:
+
+    var state = Rx.Observable.merge(
+      increase,
+      decrease,
+      input
+    ).scan((state, changeFn) => changeFn(state), {
+      count: 0,
+      inputValue: ''
+    });
+
+but I can't quite wrap my head around it
+

@@ -21531,7 +21531,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var Cat = function Cat(props) {
+	function Cat(props) {
 		console.log(props);
 		var catbox = props.catbox;
 		var name = props.name;
@@ -21545,10 +21545,10 @@
 			name,
 			' '
 		);
-	};
+	}
 	
-	function mapStateToProps(anElement) {
-		//returns a function called later with store as its arg and el from here
+	function mapStoreToProps(anElement) {
+		//returns a function called later with store as its arg and anElement from here
 		return function (store) {
 			var props = {
 				catbox: store.catboxr.catbox,
@@ -21558,7 +21558,7 @@
 		};
 	}
 	
-	exports.Cat = Cat = mapStateToProps(Cat);
+	exports.Cat = Cat = mapStoreToProps(Cat);
 	
 	exports.Cat = Cat;
 
