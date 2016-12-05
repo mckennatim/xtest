@@ -20,5 +20,4 @@ function mapStoreToProps(anElement){
 
 Cat = mapStoreToProps(Cat)
 
-
 export {Cat}

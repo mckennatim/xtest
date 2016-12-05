@@ -9,7 +9,7 @@ const devId = 'CYURD001'
 function fromMqtt(connectObserver, url, devId){
 	const client = mqtt.connect(url)
   var deviceId = devId
-  console.log('device id = '+ deviceId)
+  // console.log('device id = '+ deviceId)
   var prg = deviceId+'/prg'
   var cmd = deviceId +'/cmd'
   var req = deviceId +'/req'

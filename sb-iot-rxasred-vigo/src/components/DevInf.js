@@ -1,21 +1,20 @@
 import React from 'react';
 import mqttCon from '../actions/mqttCon'
 
-const DevInf = React.createClass({
+let DevInf = React.createClass({
 
   componentDidMount: function() {
-    console.log('Devinf mounted')
+    // console.log('Devinf mounted')
     // this.client = mqttCon(this.currentDev.id, this.props)
   },
   componentWillUnmount: function(){
-    console.log('Devinf unmountd')
+    // console.log('Devinf unmountd')
     // this.client.publish('presence', 'Help, wants to close! ');
     // this.client.end();    
   },
   makeTimrMap: function(){
-    const dev = this.props.route.currentDev
-    const timrRaw = this.props.route.timr.tIMElEFT
-    const ISrELAYoN = this.props.route.timr.ISrELAYoN
+    const timrRaw = this.props.timr.tIMElEFT
+    const ISrELAYoN = this.props.timr.ISrELAYoN
     const timr = timrRaw.map((t,i)=>{
       const relon = (Math.pow(2,i) & ISrELAYoN)>0 ? "on" : "off"
       return {id:i, sec:t, ison:relon}
@@ -25,14 +24,14 @@ const DevInf = React.createClass({
     return timr
   },
   generateHeaders: function() {
-    const tags = this.props.route.currentDev.specs.notTimerTags
+    const tags = this.props.currentDev.specs.notTimerTags
     return tags.map(function(h,i) {
         return <th key={i}> {h} </th>;
     });
   },    
   generateRows: function(){
-    const dev = this.props.route.currentDev.id
-    const rawState = this.props.route.srstate
+    const dev = this.props.currentDev.id
+    const rawState = this.props.rawState
     const notTimer = 31 - this.HAStIMR
     const srstate = rawState.filter((sens)=>{
       return (Math.pow(2,sens.id) & notTimer)>0
@@ -45,10 +44,10 @@ const DevInf = React.createClass({
     return srstate
   },    
   render: function(){
-    this.currentDev = this.props.route.currentDev
-    this.HAStIMR = this.props.route.flags.HAStIMR
+    this.currentDev = this.props.currentDev
+    this.HAStIMR = this.props.flags.HAStIMR
     const timr = this.makeTimrMap()
-    const {name}= this.props.harrysally 
+    const {name}= this.props 
     const headerComponents = this.generateHeaders()  
     const rowComponents = this.generateRows() 
       
@@ -83,8 +82,22 @@ const DevInf = React.createClass({
     )    
   }
 })
+function mapStoreToProps(anElement){
+  //returns a function called later with store as its arg and anElement from here
+  return (store)=>{  
+    const props= {
+      currentDev: store.route.currentDev,
+      timr: store.route.timr,
+      flags: store.route.flags,
+      rawState: store.route.srstate,
+      name: store.harrysally.name
+    }
+    return React.createElement(anElement, props)
+  }
+}
 
-export default DevInf 
+DevInf = mapStoreToProps(DevInf)
+export {DevInf} 
 
 
 const styles= {

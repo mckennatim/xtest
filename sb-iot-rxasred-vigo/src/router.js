@@ -15,7 +15,7 @@ function insertElement(pro){
 
 var router;
 var routing = function(mode){
-  console.log('started routing')
+  // console.log('started routing')
   router = new Navigo(null, true);
   router
     .on({
@@ -31,7 +31,7 @@ var routing = function(mode){
       	return changeDevInfo(pro)
       },
       'dev/:id/:tmr': (params)=>{
-        console.log(`${params.id}/${params.tmr}`)
+        // console.log(`${params.id}/${params.tmr}`)
         var pro ={}
         pro.ht = 'SenRel';
         pro.par = params;

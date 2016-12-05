@@ -70,13 +70,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// var Navigo = require('navigo');
-	
 	window.React = _react2.default;
-	// import Devices from './components/Devices';
-	// import Cat from './components/Cat';
-	// import Harry from './components/Harry';
-	// import DevInf from './components/DevInf';
 	
 	var container = document.getElementById('app');
 	
@@ -93,8 +87,6 @@
 	
 	var path = "/" + window.location.hash.substring(1);
 	_router.router.navigate(path);
-	
-	///export {router, storeCopy}
 
 /***/ },
 /* 1 */
@@ -22230,17 +22222,13 @@
 	
 	function showRt(props) {
 	  var elArr = [];
-	  var harrysally = props.harrysally;
-	  var route = props.route;
-	  var catboxr = props.catboxr;
-	  var brow = props.brow;
+	  var rtPage = props.route.rtpg;
 	  var _props$brow = props.brow;
 	  var types = _props$brow.types;
 	  var sizes = _props$brow.sizes;
 	  var browser = _props$brow.browser;
 	  var size = _props$brow.size;
 	
-	  var rtPage = props.route.rtpg;
 	  var browserTypeIdx = types.indexOf(browser);
 	  var panesPerType = cf.panes[browserTypeIdx];
 	  var pageList = cf.multi.filter(function (amul, i) {
@@ -22248,7 +22236,7 @@
 	  });
 	  if (pageList.length == 0) {
 	    // console.log('no pageList for this rtPage -> 1 screen ')
-	    var singleElement = _react2.default.createElement(cf[rtPage], props);
+	    var singleElement = cf[rtPage](props);
 	    elArr.push(singleElement);
 	  } else {
 	    var multiList = pageList[0].mul.filter(function (mu) {
@@ -22257,19 +22245,51 @@
 	    // console.log(multiList.length)
 	    if (multiList.length == 0) {
 	      // console.log('no multiList for this screensize -> 1 screen')
-	      var _singleElement = _react2.default.createElement(cf[rtPage], props);
+	      var _singleElement = cf[rtPage](props);
 	      elArr.push(_singleElement);
 	    } else {
 	      // console.log(multiList[0])
 	      var elList = multiList[0].map(function (pgStr, i) {
-	        var pg = _react2.default.createElement(cf[pgStr], props);
+	        var pg = cf[pgStr](props);
 	        return pg;
 	      });
 	      elArr = elList;
 	    }
 	  }
 	  return elArr;
+	  // return [cf[rtPage](props)]
 	}
+	
+	// function showRt(props){
+	//   let elArr=[]
+	//   const {harrysally, route, catboxr, brow} = props
+	//   const {types, sizes, browser, size} = props.brow
+	//   const rtPage = props.route.rtpg
+	//   const browserTypeIdx = types.indexOf(browser)
+	//   const panesPerType = cf.panes[browserTypeIdx]
+	//   const pageList = cf.multi.filter((amul,i)=>(amul.pri==rtPage))
+	//   if(pageList.length==0){
+	//     // console.log('no pageList for this rtPage -> 1 screen ')
+	//     const singleElement = React.createElement(cf[rtPage], props)
+	//     elArr.push(singleElement)    
+	//   }else{
+	//     const multiList= pageList[0].mul.filter((mu)=>(mu.length==panesPerType))
+	//     // console.log(multiList.length)
+	//     if (multiList.length==0){
+	//       // console.log('no multiList for this screensize -> 1 screen')
+	//       const singleElement = React.createElement(cf[rtPage], props)
+	//       elArr.push(singleElement)    
+	//     }else{
+	//       // console.log(multiList[0])
+	//       const elList = multiList[0].map((pgStr, i)=>{
+	//         const pg = React.createElement(cf[pgStr], props)
+	//         return pg
+	//       })
+	//       elArr = elList
+	//     }
+	//   }
+	// return elArr
+	// }
 	
 	function App(props) {
 	  var isLoading = props.isLoading;
@@ -22279,8 +22299,8 @@
 	  var route = props.route;
 	  var brow = props.brow;
 	  // console.log(props)
+	  //console.log('re-rendering App')
 	
-	  console.log('re-rendering App');
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'container' },
@@ -22415,9 +22435,9 @@
 	});
 	var changeSenRel = exports.changeSenRel = (0, _rxflux.actionCreator)(function (payload) {
 	  //console.log(payload)
-	  console.log(storeCopy.route.currentDevId + ' != ' + payload.par.id);
+	  // console.log(`${storeCopy.route.currentDevId} != ${payload.par.id}`)
 	  if (storeCopy.route.currentDevId != payload.par.id) {
-	    console.log('should somehow update to ' + payload.par.id);
+	    // console.log(`should somehow update to ${payload.par.id}`)
 	    nrGetDevData(payload.par.id);
 	  }
 	  return {
@@ -56466,7 +56486,7 @@
 	function fromMqtt(connectObserver, url, devId) {
 		var client = mqtt.connect(url);
 		var deviceId = devId;
-		console.log('device id = ' + deviceId);
+		// console.log('device id = '+ deviceId)
 		var prg = deviceId + '/prg';
 		var cmd = deviceId + '/cmd';
 		var req = deviceId + '/req';
@@ -74336,8 +74356,6 @@
 	
 	var _Devices = __webpack_require__(613);
 	
-	var _Devices2 = _interopRequireDefault(_Devices);
-	
 	var _Cat = __webpack_require__(616);
 	
 	var _Harry = __webpack_require__(617);
@@ -74345,8 +74363,6 @@
 	var _Harry2 = _interopRequireDefault(_Harry);
 	
 	var _DevInf = __webpack_require__(619);
-	
-	var _DevInf2 = _interopRequireDefault(_DevInf);
 	
 	var _App = __webpack_require__(186);
 	
@@ -74368,10 +74384,10 @@
 	//['watch', 'phone', 'phoneL', 'tablet', 'tabletL', 'laptop']
 	var panes = [1, 1, 2, 2, 3, 3];
 	
-	exports.Devices = _Devices2.default;
+	exports.Devices = _Devices.Devices;
 	exports.Cat = _Cat.Cat;
 	exports.Harry = _Harry2.default;
-	exports.DevInf = _DevInf2.default;
+	exports.DevInf = _DevInf.DevInf;
 	exports.App = _App.App;
 	exports.DeviceList = _DeviceList2.default;
 	exports.SenRel = _SenRel2.default;
@@ -74387,7 +74403,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.default = Devices;
+	exports.Devices = undefined;
 	
 	var _DeviceList = __webpack_require__(614);
 	
@@ -74404,21 +74420,16 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function Devices(props) {
-	  var _props$brow = props.brow;
-	  var types = _props$brow.types;
-	  var sizes = _props$brow.sizes;
-	  var browser = _props$brow.browser;
-	  var size = _props$brow.size;
-	  var _props$route = props.route;
-	  var devices = _props$route.devices;
-	  var rtpg = _props$route.rtpg;
-	  var name = _props$route.name;
+	  // const {types, sizes, browser, size} = props.brow
+	  // const {devices, rtpg, name} = props.route
+	  var devices = props.devices;
+	  var name = props.name;
 	  // console.log(browser)
+	  // let more
+	  // if(browser == "phone"){
+	  //   console.log('its a phone')
+	  // }
 	
-	  var more = void 0;
-	  if (browser == "phone") {
-	    console.log('its a phone');
-	  }
 	  return React.createElement(
 	    'div',
 	    null,
@@ -74435,6 +74446,21 @@
 	    )
 	  );
 	}
+	function mapStoreToProps(anElement) {
+	  //returns a function called later with store as its arg and anElement from here
+	  return function (store) {
+	    var props = {
+	      devices: store.route.devices,
+	      name: store.harrysally.name
+	    };
+	    return React.createElement(anElement, props);
+	  };
+	}
+	
+	exports.Devices = Devices = mapStoreToProps(Devices);
+	
+	exports.Devices = Devices;
+	
 	var styles = {
 	  outer: {
 	    background: '#9338f4',
@@ -74574,7 +74600,7 @@
 	
 	var router;
 	var routing = function routing(mode) {
-	  console.log('started routing');
+	  // console.log('started routing')
 	  exports.router = router = new Navigo(null, true);
 	  router.on({
 	    'devices': function devices() {
@@ -74593,7 +74619,7 @@
 	      return (0, _actions.changeDevInfo)(pro);
 	    },
 	    'dev/:id/:tmr': function devIdTmr(params) {
-	      console.log(params.id + '/' + params.tmr);
+	      // console.log(`${params.id}/${params.tmr}`)
 	      var pro = {};
 	      pro.ht = 'SenRel';
 	      pro.par = params;
@@ -74638,15 +74664,12 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function Cat(props) {
-	  console.log('cat rerouting');
-	  var _props$brow = props.brow;
-	  var types = _props$brow.types;
-	  var sizes = _props$brow.sizes;
-	  var browser = _props$brow.browser;
-	  var size = _props$brow.size;
-	  var catbox = props.catboxr.catbox;
-	  var name = props.harrysally.name;
-	  // const {catbox, name} = props
+	  // const {types, sizes, browser, size} = props.brow
+	  // const {catbox}=props.catboxr
+	  // const {name}=props.harrysally
+	  // console.log(props)
+	  var catbox = props.catbox;
+	  var name = props.name;
 	
 	  var toggled = false;
 	  var handleNavigate = function handleNavigate(data) {
@@ -74692,22 +74715,22 @@
 	      )
 	    )
 	  );
+	} // const { connect } = require('react-redux');
+	
+	
+	function mapStoreToProps(anElement) {
+	  //returns a function called later with store as its arg and anElement from here
+	  return function (store) {
+	    var props = {
+	      catbox: store.catboxr.catbox,
+	      name: store.harrysally.name
+	    };
+	    return React.createElement(anElement, props);
+	  };
 	}
 	
-	// function mapStoreToProps(anElement){
-	//   //returns a function called later with store as its arg and anElement from here
-	//   return (store)=>{  
-	//     const props= {
-	//         catbox: store.catboxr.catbox,
-	//         name: store.harrysally.name
-	//       }
-	//     return React.createElement(anElement, props)
-	//   }
-	// }
+	exports.Cat = Cat = mapStoreToProps(Cat);
 	
-	// Cat = mapStoreToProps(Cat)
-	
-	// const { connect } = require('react-redux');
 	exports.Cat = Cat;
 	
 	
@@ -75300,6 +75323,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.DevInf = undefined;
 	
 	var _react = __webpack_require__(1);
 	
@@ -75316,20 +75340,19 @@
 	
 	
 	  componentDidMount: function componentDidMount() {
-	    console.log('Devinf mounted');
+	    // console.log('Devinf mounted')
 	    // this.client = mqttCon(this.currentDev.id, this.props)
 	  },
 	  componentWillUnmount: function componentWillUnmount() {
-	    console.log('Devinf unmountd');
+	    // console.log('Devinf unmountd')
 	    // this.client.publish('presence', 'Help, wants to close! ');
 	    // this.client.end();    
 	  },
 	  makeTimrMap: function makeTimrMap() {
 	    var _this = this;
 	
-	    var dev = this.props.route.currentDev;
-	    var timrRaw = this.props.route.timr.tIMElEFT;
-	    var ISrELAYoN = this.props.route.timr.ISrELAYoN;
+	    var timrRaw = this.props.timr.tIMElEFT;
+	    var ISrELAYoN = this.props.timr.ISrELAYoN;
 	    var timr = timrRaw.map(function (t, i) {
 	      var relon = (Math.pow(2, i) & ISrELAYoN) > 0 ? "on" : "off";
 	      return { id: i, sec: t, ison: relon };
@@ -75339,7 +75362,7 @@
 	    return timr;
 	  },
 	  generateHeaders: function generateHeaders() {
-	    var tags = this.props.route.currentDev.specs.notTimerTags;
+	    var tags = this.props.currentDev.specs.notTimerTags;
 	    return tags.map(function (h, i) {
 	      return _react2.default.createElement(
 	        'th',
@@ -75351,8 +75374,8 @@
 	    });
 	  },
 	  generateRows: function generateRows() {
-	    var dev = this.props.route.currentDev.id;
-	    var rawState = this.props.route.srstate;
+	    var dev = this.props.currentDev.id;
+	    var rawState = this.props.rawState;
 	    var notTimer = 31 - this.HAStIMR;
 	    var srstate = rawState.filter(function (sens) {
 	      return (Math.pow(2, sens.id) & notTimer) > 0;
@@ -75383,10 +75406,10 @@
 	  render: function render() {
 	    var _this2 = this;
 	
-	    this.currentDev = this.props.route.currentDev;
-	    this.HAStIMR = this.props.route.flags.HAStIMR;
+	    this.currentDev = this.props.currentDev;
+	    this.HAStIMR = this.props.flags.HAStIMR;
 	    var timr = this.makeTimrMap();
-	    var name = this.props.harrysally.name;
+	    var name = this.props.name;
 	
 	    var headerComponents = this.generateHeaders();
 	    var rowComponents = this.generateRows();
@@ -75465,8 +75488,22 @@
 	    );
 	  }
 	});
+	function mapStoreToProps(anElement) {
+	  //returns a function called later with store as its arg and anElement from here
+	  return function (store) {
+	    var props = {
+	      currentDev: store.route.currentDev,
+	      timr: store.route.timr,
+	      flags: store.route.flags,
+	      rawState: store.route.srstate,
+	      name: store.harrysally.name
+	    };
+	    return _react2.default.createElement(anElement, props);
+	  };
+	}
 	
-	exports.default = DevInf;
+	exports.DevInf = DevInf = mapStoreToProps(DevInf);
+	exports.DevInf = DevInf;
 	
 	
 	var styles = {
@@ -75531,7 +75568,7 @@
 	function mqttCon(id, props) {
 	  var client = mqtt.connect('ws://162.217.250.109:3333');
 	  var deviceId = id;
-	  console.log('device id = ' + deviceId);
+	  // console.log('device id = '+ deviceId)
 	  var prg = deviceId + '/prg';
 	  var cmd = deviceId + '/cmd';
 	  var req = deviceId + '/req';

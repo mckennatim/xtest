@@ -9,7 +9,7 @@ function stateListener(state){
 export default function mqttCon(id, props){
   const client = mqtt.connect('ws://162.217.250.109:3333')
   var deviceId = id
-  console.log('device id = '+ deviceId)
+  // console.log('device id = '+ deviceId)
   var prg = deviceId+'/prg'
   var cmd = deviceId +'/cmd'
   var req = deviceId +'/req'

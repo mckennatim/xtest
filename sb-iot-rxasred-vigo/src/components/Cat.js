@@ -6,11 +6,11 @@ import Devices from './Devices';
 import DevInf from './DevInf';
 
 function Cat(props){
-  console.log('cat rerouting')
-  const {types, sizes, browser, size} = props.brow
-  const {catbox}=props.catboxr
-  const {name}=props.harrysally
-  // const {catbox, name} = props
+  // const {types, sizes, browser, size} = props.brow
+  // const {catbox}=props.catboxr
+  // const {name}=props.harrysally
+  // console.log(props)
+  const {catbox, name} = props
   var toggled = false;
 	const handleNavigate = (data) => () =>{
 	  router.navigate(data);
@@ -34,18 +34,18 @@ function Cat(props){
     )
 }
 
-// function mapStoreToProps(anElement){
-//   //returns a function called later with store as its arg and anElement from here
-//   return (store)=>{  
-//     const props= {
-//         catbox: store.catboxr.catbox,
-//         name: store.harrysally.name
-//       }
-//     return React.createElement(anElement, props)
-//   }
-// }
+function mapStoreToProps(anElement){
+  //returns a function called later with store as its arg and anElement from here
+  return (store)=>{  
+    const props= {
+        catbox: store.catboxr.catbox,
+        name: store.harrysally.name
+      }
+    return React.createElement(anElement, props)
+  }
+}
 
-// Cat = mapStoreToProps(Cat)
+Cat = mapStoreToProps(Cat)
 
 export {Cat}
 
