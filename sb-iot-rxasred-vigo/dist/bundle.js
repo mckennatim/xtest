@@ -74372,13 +74372,12 @@
 	
 	var _SenRel = __webpack_require__(621);
 	
-	var _SenRel2 = _interopRequireDefault(_SenRel);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var multi = [{ pri: 'Cat', mul: [['Cat', 'Harry'], ['Harry', 'Cat', 'Devices']]
 	}, { pri: 'Harry', mul: [['Harry', 'Cat'], ['Cat', 'Harry', 'Devices']]
-	}, { pri: 'DevInf', mul: [['Devices', 'DevInf'], ['Devices', 'DevInf', 'Cat']]
+	}, { pri: 'SenRel', mul: [['DevInf', 'SenRel'], ['SenRel', 'DevInf', 'Devices']]
+	}, { pri: 'DevInf', mul: [['Devices', 'DevInf'], ['SenRel', 'DevInf', 'Devices']]
 	}];
 	
 	//['watch', 'phone', 'phoneL', 'tablet', 'tabletL', 'laptop']
@@ -74390,7 +74389,7 @@
 	exports.DevInf = _DevInf.DevInf;
 	exports.App = _App.App;
 	exports.DeviceList = _DeviceList2.default;
-	exports.SenRel = _SenRel2.default;
+	exports.SenRel = _SenRel.SenRel;
 	exports.multi = multi;
 	exports.panes = panes;
 
@@ -74566,8 +74565,6 @@
 	
 	var _Devices = __webpack_require__(613);
 	
-	var _Devices2 = _interopRequireDefault(_Devices);
-	
 	var _Cat = __webpack_require__(616);
 	
 	var _Harry = __webpack_require__(617);
@@ -74576,11 +74573,7 @@
 	
 	var _DevInf = __webpack_require__(619);
 	
-	var _DevInf2 = _interopRequireDefault(_DevInf);
-	
 	var _SenRel = __webpack_require__(621);
-	
-	var _SenRel2 = _interopRequireDefault(_SenRel);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -75374,12 +75367,16 @@
 	    });
 	  },
 	  generateRows: function generateRows() {
+	    var _this2 = this;
+	
 	    var dev = this.props.currentDev.id;
 	    var rawState = this.props.rawState;
 	    var notTimer = 31 - this.HAStIMR;
 	    var srstate = rawState.filter(function (sens) {
 	      return (Math.pow(2, sens.id) & notTimer) > 0;
 	    }).map(function (sens) {
+	      //console.log(sens.id)
+	      var art = '#/dev/' + _this2.currentDev.id + '/' + sens.id;
 	      var cells = sens.darr.map(function (d, i) {
 	        return _react2.default.createElement(
 	          'td',
@@ -75395,8 +75392,12 @@
 	        _react2.default.createElement(
 	          'td',
 	          null,
-	          'temp',
-	          sens.id
+	          _react2.default.createElement(
+	            'a',
+	            { href: art },
+	            'temp',
+	            sens.id
+	          )
 	        ),
 	        cells
 	      );
@@ -75404,7 +75405,7 @@
 	    return srstate;
 	  },
 	  render: function render() {
-	    var _this2 = this;
+	    var _this3 = this;
 	
 	    this.currentDev = this.props.currentDev;
 	    this.HAStIMR = this.props.flags.HAStIMR;
@@ -75435,7 +75436,7 @@
 	        'ul',
 	        { style: styles.ul },
 	        timr.map(function (tmr, idx) {
-	          var art = '#/dev/' + _this2.currentDev.id + '/' + tmr.id;
+	          var art = '#/dev/' + _this3.currentDev.id + '/' + tmr.id;
 	          return _react2.default.createElement(
 	            'li',
 	            { key: idx, style: styles.inner },
@@ -75623,62 +75624,104 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.default = SenRel;
+	exports.SenRel = undefined;
 	
 	var _actions = __webpack_require__(187);
 	
 	function SenRel(props) {
-	  var _props$brow = props.brow;
-	  var types = _props$brow.types;
-	  var sizes = _props$brow.sizes;
-	  var browser = _props$brow.browser;
-	  var size = _props$brow.size;
-	  var _props$route = props.route;
-	  var devices = _props$route.devices;
-	  var rtpg = _props$route.rtpg;
-	  var currentSenRel = _props$route.currentSenRel;
-	  var currentDevId = _props$route.currentDevId;
-	  // if (currentDevId=='00002zzz'){
-	  //   console.log(devices[0].id)
-	  //   changeDevInfo(devices[0].id)
-	  // }
+	  var name = props.name;
+	  var devId = props.devId;
+	  var sched = props.sched;
+	  var srId = props.srId;
+	  var timeLeft = props.timeLeft;
+	  // console.log(props)
+	  // console.log(timeLeft)
 	
-	  var name = props.harrysally.name;
-	  // console.log(devices[0].id)
-	  // console.log(currentDevId)
-	
-	  var device = devices.filter(function (dev) {
-	    return dev.id == currentDevId;
-	  });
-	  //console.log(device[0])
-	  // if(device[0].sched!='undefined'){
-	  //   console.log(device[0].sched[currentSenRel].pro)
-	  // }else{
-	  //   console.log(devices[0])
-	  // var sch
 	  function extractProg() {
-	    // console.log(device[0].sched)
-	    if (device[0].sched) {
-	      // console.log('there is a sched')
-	      // console.log(device[0].sched.length)
-	      var scheds = device[0].sched;
-	      var sch = scheds.filter(function (sch) {
-	        return sch.id == currentSenRel;
-	      });
-	      if (sch[0] == 0 || sch[0] == undefined) {
+	    if (sched && sched.length > 0) {
+	      // return console.log(sched)
+	    }
+	  }
+	  function getTime() {
+	    if (timeLeft) {
+	      return timeLeft[srId];
+	    }
+	  }
+	  function generateRows() {
+	    if (sched && sched.length > 0) {
+	      var arow = sched.map(function (asch, idx) {
+	        // console.log(asch)
+	        var cells = asch.map(function (as, i) {
+	          return React.createElement(
+	            'td',
+	            { key: i },
+	            as
+	          );
+	        });
 	        return React.createElement(
-	          'p',
+	          'tr',
+	          { key: idx },
+	          cells
+	        );
+	      });
+	      return arow;
+	    }
+	  }
+	  function generateHeaders() {
+	    if (sched && sched.length > 0) {
+	      if (sched.length == 3) {
+	        return React.createElement(
+	          'tr',
 	          null,
-	          'hi dog'
+	          React.createElement(
+	            'th',
+	            null,
+	            'hour'
+	          ),
+	          React.createElement(
+	            'th',
+	            null,
+	            'minute'
+	          ),
+	          React.createElement(
+	            'th',
+	            null,
+	            'state'
+	          )
 	        );
 	      } else {
-	        return console.log(sch[0]);
+	        return React.createElement(
+	          'tr',
+	          null,
+	          React.createElement(
+	            'th',
+	            null,
+	            'hour'
+	          ),
+	          React.createElement(
+	            'th',
+	            null,
+	            'minute'
+	          ),
+	          React.createElement(
+	            'th',
+	            null,
+	            'hilimit'
+	          ),
+	          React.createElement(
+	            'th',
+	            null,
+	            'lolimit'
+	          )
+	        );
 	      }
 	    }
 	  }
-	  var progData = extractProg();
-	
-	  // }
+	  var headerComponents = generateHeaders();
+	  var rowComponents = generateRows();
+	  var tleft = getTime();
+	  // const progData = extractProg()
+	  // console.log(props.timr.tIMElEFT)
 	  return React.createElement(
 	    'div',
 	    null,
@@ -75691,14 +75734,57 @@
 	        'in SenRel ',
 	        name,
 	        ' device: ',
-	        currentDevId,
-	        ' senrel:',
-	        currentSenRel
+	        devId,
+	        ' senrel: ',
+	        srId,
+	        ' '
 	      ),
-	      progData
+	      tleft,
+	      React.createElement(
+	        'div',
+	        { style: styles.tablediv },
+	        React.createElement(
+	          'table',
+	          { style: styles.table },
+	          React.createElement('thead', null),
+	          React.createElement(
+	            'tbody',
+	            null,
+	            headerComponents,
+	            rowComponents
+	          )
+	        )
+	      )
 	    )
 	  );
 	}
+	
+	function mapStoreToProps(anElement) {
+	  return function (store) {
+	    function wait4sched(srId) {
+	      if (store.route.currentDev.sched && store.route.currentDev.sched.length > srId) {
+	        return store.route.currentDev.sched[srId].pro;
+	      }
+	    }
+	    var srId = store.route.currentSenRel;
+	    //console.log(store)
+	    var props = {
+	      name: store.harrysally.name,
+	      devId: store.route.currentDevId,
+	      srId: srId,
+	      sched: wait4sched(srId),
+	      timr: store.route.timr,
+	      timeLeft: store.route.timr.tIMElEFT
+	    };
+	    //console.log(props)
+	    return React.createElement(anElement, props);
+	  };
+	}
+	
+	exports.SenRel = SenRel = mapStoreToProps(SenRel);
+	exports.SenRel = SenRel;
+	
+	
 	var styles = {
 	  outer: {
 	    background: '#9338f4',
@@ -75712,6 +75798,26 @@
 	    color: 'red',
 	    textAlign: 'center',
 	    fontSize: '300%'
+	  },
+	  tablediv: {
+	    margin: '0 auto',
+	    background: '#8fd3ba',
+	    color: 'blue',
+	    textAlign: 'left',
+	    fontSize: '100%'
+	  },
+	  span: {
+	    float: 'right',
+	    paddingLeft: 15
+	  },
+	  ul: {
+	    margin: '0 auto',
+	    listStyleType: 'none',
+	    width: 160,
+	    padding: 35
+	  },
+	  table: {
+	    borderCollapse: 'collapse'
 	  }
 	};
 

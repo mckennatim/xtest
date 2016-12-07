@@ -4,7 +4,7 @@ import Harry from './Harry';
 import {DevInf} from './DevInf';
 import {App} from './App';
 import DeviceList from './DeviceList';
-import SenRel from './SenRel';
+import {SenRel} from './SenRel';
 
 const multi =[{pri:'Cat', mul:[
 								['Cat', 'Harry'],
@@ -14,9 +14,13 @@ const multi =[{pri:'Cat', mul:[
 								['Harry', 'Cat'],
 								['Cat', 'Harry', 'Devices']]
 							 },
+							{pri:'SenRel', mul:[
+								['DevInf', 'SenRel'],
+								['SenRel', 'DevInf', 'Devices']]
+							 },
 							{pri:'DevInf', mul:[
 								['Devices', 'DevInf'],
-								['Devices', 'DevInf', 'Cat']]
+								['SenRel', 'DevInf', 'Devices']]
 							 }
 							]
 

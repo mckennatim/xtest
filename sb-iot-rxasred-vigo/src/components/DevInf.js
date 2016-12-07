@@ -35,15 +35,18 @@ let DevInf = React.createClass({
     const notTimer = 31 - this.HAStIMR
     const srstate = rawState.filter((sens)=>{
       return (Math.pow(2,sens.id) & notTimer)>0
-    }).map((sens)=>{
-      const cells = sens.darr.map((d,i)=>{
-        return <td key={i}> {d} </td>;
+      }).map((sens)=>{
+        //console.log(sens.id)
+        const art = `#/dev/${this.currentDev.id}/${sens.id}`
+        const cells = sens.darr.map((d,i)=>{
+          return <td key={i}> {d} </td>;
+        })
+        return <tr key={sens.id}><td><a href={art}>temp{sens.id}</a></td>{cells}</tr>
       })
-      return <tr key={sens.id}><td>temp{sens.id}</td>{cells}</tr>
-    })
     return srstate
   },    
   render: function(){
+
     this.currentDev = this.props.currentDev
     this.HAStIMR = this.props.flags.HAStIMR
     const timr = this.makeTimrMap()

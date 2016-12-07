@@ -2,11 +2,11 @@ var Navigo = require('navigo');
 var React = require('react');
 import { changePage, changeDevInfo, changeSenRel} from './actions';
 //import {App} from './components/App';
-import Devices from './components/Devices';
+import {Devices} from './components/Devices';
 import {Cat} from './components/Cat';
 import Harry from './components/Harry';
-import DevInf from './components/DevInf';
-import SenRel from './components/SenRel';
+import {DevInf} from './components/DevInf';
+import {SenRel} from './components/SenRel';
 
 function insertElement(pro){
   console.log(pro)

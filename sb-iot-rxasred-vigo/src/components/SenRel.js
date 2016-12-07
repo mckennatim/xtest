@@ -1,50 +1,90 @@
 import { reqSchedData, changeDevInfo } from '../actions';
 
-
-
-export default function SenRel(props){
-  const {types, sizes, browser, size} = props.brow
-  const {devices, rtpg, currentSenRel, currentDevId} = props.route
-  // if (currentDevId=='00002zzz'){
-  //   console.log(devices[0].id)
-  //   changeDevInfo(devices[0].id)
-  // }
-  const {name}=props.harrysally
-  // console.log(devices[0].id)
-  // console.log(currentDevId)
-  const device = devices.filter((dev)=>dev.id==currentDevId)
-  //console.log(device[0])
-  // if(device[0].sched!='undefined'){
-  //   console.log(device[0].sched[currentSenRel].pro)
-  // }else{
-  //   console.log(devices[0])
-  // var sch
+function SenRel(props){
+  const {name, devId, sched, srId, timeLeft} = props
+  // console.log(props)
+  // console.log(timeLeft)
   function extractProg(){
-    // console.log(device[0].sched)
-    if(device[0].sched){
-      // console.log('there is a sched')
-      // console.log(device[0].sched.length)
-      const scheds = device[0].sched     
-      const sch = scheds.filter((sch)=>sch.id==currentSenRel)
-      if(sch[0]==0 || sch[0]== undefined){
-        return <p>hi dog</p>
-      }else {
-        return console.log(sch[0])
-      }
+    if(sched && sched.length>0){
+      // return console.log(sched)
     }
   }
-  const progData = extractProg()
-
-  // }
+  function getTime(){
+    if (timeLeft){
+      return timeLeft[srId]
+    }
+  }
+  function generateRows(){
+    if(sched && sched.length>0){
+      const arow = sched.map((asch, idx)=>{
+        // console.log(asch)
+        const cells = asch.map((as,i)=>{
+          return <td key={i}>{as}</td>
+        })
+        return <tr key={idx}>{cells}</tr>
+      })
+      return arow
+    }
+  }
+  function generateHeaders(){
+    if(sched && sched.length>0){
+      if (sched.length==3){
+        return <tr><th>hour</th><th>minute</th><th>state</th></tr>
+      } else {
+        return <tr><th>hour</th><th>minute</th>
+                <th>hilimit</th><th>lolimit</th></tr>
+      }
+    } 
+  }
+  const headerComponents = generateHeaders()
+  const rowComponents = generateRows()
+  const tleft = getTime()
+  // const progData = extractProg()
+  // console.log(props.timr.tIMElEFT)
   return(
     <div>
       <div style={styles.outer} >
-        <h4>in SenRel {name} device: {currentDevId} senrel:{currentSenRel}</h4>
-        {progData}
+        <h4>in SenRel {name} device: {devId} senrel: {srId} </h4>
+        {tleft}
+        <div style={styles.tablediv}>
+          <table style={styles.table}>
+            <thead></thead>
+            <tbody>
+              {headerComponents}
+              {rowComponents}
+            </tbody>                      
+          </table>
+        </div>        
       </div>
     </div>
     )    
 }
+
+function mapStoreToProps(anElement){
+  return (store)=>{
+    function wait4sched(srId){
+      if (store.route.currentDev.sched && store.route.currentDev.sched.length>srId){
+        return store.route.currentDev.sched[srId].pro
+      }
+    }
+    const srId = store.route.currentSenRel
+    //console.log(store)
+    const props= {
+      name: store.harrysally.name,
+      devId: store.route.currentDevId,
+      srId: srId,
+      sched: wait4sched(srId),
+      timr: store.route.timr,
+      timeLeft: store.route.timr.tIMElEFT
+    }
+    //console.log(props)
+    return React.createElement(anElement, props)
+  }
+}
+
+SenRel = mapStoreToProps(SenRel)
+export {SenRel} 
+
 const styles= {
   outer: {
     background:'#9338f4',
@@ -58,5 +98,25 @@ const styles= {
     color: 'red',
     textAlign: 'center',
     fontSize: '300%'
-  }
+  },
+  tablediv: {
+    margin: '0 auto',
+    background: '#8fd3ba',
+    color: 'blue',
+    textAlign: 'left',
+    fontSize: '100%'
+  },
+  span: {
+    float: 'right',
+    paddingLeft: 15
+  },
+  ul: {
+    margin: '0 auto',
+    listStyleType: 'none',
+    width: 160,
+    padding: 35
+  },
+  table:{
+    borderCollapse: 'collapse'
+  }  
 }
