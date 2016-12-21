@@ -2,6 +2,7 @@ import Cat from '../components/Cat';
 
 
 const initState = { 
+  past: undefined,
   harrysally: {
     name: 'Harry', 
     users: [],

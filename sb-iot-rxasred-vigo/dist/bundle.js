@@ -66,7 +66,7 @@
 	
 	var _router = __webpack_require__(615);
 	
-	var _initState = __webpack_require__(622);
+	var _initState = __webpack_require__(624);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -22259,37 +22259,6 @@
 	  return elArr;
 	  // return [cf[rtPage](props)]
 	}
-	
-	// function showRt(props){
-	//   let elArr=[]
-	//   const {harrysally, route, catboxr, brow} = props
-	//   const {types, sizes, browser, size} = props.brow
-	//   const rtPage = props.route.rtpg
-	//   const browserTypeIdx = types.indexOf(browser)
-	//   const panesPerType = cf.panes[browserTypeIdx]
-	//   const pageList = cf.multi.filter((amul,i)=>(amul.pri==rtPage))
-	//   if(pageList.length==0){
-	//     // console.log('no pageList for this rtPage -> 1 screen ')
-	//     const singleElement = React.createElement(cf[rtPage], props)
-	//     elArr.push(singleElement)    
-	//   }else{
-	//     const multiList= pageList[0].mul.filter((mu)=>(mu.length==panesPerType))
-	//     // console.log(multiList.length)
-	//     if (multiList.length==0){
-	//       // console.log('no multiList for this screensize -> 1 screen')
-	//       const singleElement = React.createElement(cf[rtPage], props)
-	//       elArr.push(singleElement)    
-	//     }else{
-	//       // console.log(multiList[0])
-	//       const elList = multiList[0].map((pgStr, i)=>{
-	//         const pg = React.createElement(cf[pgStr], props)
-	//         return pg
-	//       })
-	//       elArr = elList
-	//     }
-	//   }
-	// return elArr
-	// }
 	
 	function App(props) {
 	  var isLoading = props.isLoading;
@@ -56402,7 +56371,9 @@
 	}
 	var reducersObj = { route: _route2.default, harrysally: _harrysally2.default, catboxr: _catboxr2.default, brow: _brow2.default };
 	
-	var rootReducer = exports.rootReducer = combineReducers(reducersObj);
+	var rootReducer = combineReducers(reducersObj);
+	
+	exports.rootReducer = rootReducer;
 
 /***/ },
 /* 526 */
@@ -74352,7 +74323,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.panes = exports.multi = exports.SenRel = exports.DeviceList = exports.App = exports.DevInf = exports.Harry = exports.Cat = exports.Devices = undefined;
+	exports.panes = exports.multi = exports.CachArray = exports.Blank = exports.SenRel = exports.DeviceList = exports.App = exports.DevInf = exports.Harry = exports.Cat = exports.Devices = undefined;
 	
 	var _Devices = __webpack_require__(613);
 	
@@ -74372,6 +74343,10 @@
 	
 	var _SenRel = __webpack_require__(621);
 	
+	var _Blank = __webpack_require__(622);
+	
+	var _CachArray = __webpack_require__(623);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var multi = [{ pri: 'Cat', mul: [['Cat', 'Harry'], ['Harry', 'Cat', 'Devices']]
@@ -74390,6 +74365,8 @@
 	exports.App = _App.App;
 	exports.DeviceList = _DeviceList2.default;
 	exports.SenRel = _SenRel.SenRel;
+	exports.Blank = _Blank.Blank;
+	exports.CachArray = _CachArray.CachArray;
 	exports.multi = multi;
 	exports.panes = panes;
 
@@ -74575,6 +74552,10 @@
 	
 	var _SenRel = __webpack_require__(621);
 	
+	var _Blank = __webpack_require__(622);
+	
+	var _CachArray = __webpack_require__(623);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Navigo = __webpack_require__(618);
@@ -74601,6 +74582,12 @@
 	    },
 	    'cat': function cat() {
 	      return (0, _actions.changePage)('Cat');
+	    },
+	    'blank': function blank() {
+	      return (0, _actions.changePage)('Blank');
+	    },
+	    'cach0': function cach0() {
+	      return (0, _actions.changePage)('CachArray');
 	    },
 	    'harry': function harry() {
 	      return (0, _actions.changePage)('Harry');
@@ -75626,6 +75613,8 @@
 	});
 	exports.SenRel = undefined;
 	
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+	
 	var _actions = __webpack_require__(187);
 	
 	function SenRel(props) {
@@ -75634,14 +75623,7 @@
 	  var sched = props.sched;
 	  var srId = props.srId;
 	  var timeLeft = props.timeLeft;
-	  // console.log(props)
-	  // console.log(timeLeft)
 	
-	  function extractProg() {
-	    if (sched && sched.length > 0) {
-	      // return console.log(sched)
-	    }
-	  }
 	  function getTime() {
 	    if (timeLeft) {
 	      return timeLeft[srId];
@@ -75665,6 +75647,32 @@
 	        );
 	      });
 	      return arow;
+	    }
+	  }
+	  function createTsched() {
+	    console.log('trying to create tsched');
+	    console.log(goby);
+	    if (goby.bypass) {
+	      console.log(goby.data);
+	      return goby.data;
+	    } else {
+	      if (sched && sched.length > 0) {
+	        var ts = sched.map(function (r, i) {
+	          var ob = {};
+	          var h = r[0] + '';
+	          var m = r[1] + '';
+	          ob.time = "00".substring(0, 2 - h.length) + h + ':' + ("00".substring(0, 2 - m.length) + m);
+	          if (r.length == 3) {
+	            ob.state = r[2];
+	            return ob;
+	          } else {
+	            ob.hilimit = r[2];
+	            ob.diff = r[2] - r[3];
+	            return ob;
+	          }
+	        });
+	        return ts;
+	      } else return [];
 	    }
 	  }
 	  function generateHeaders() {
@@ -75717,11 +75725,16 @@
 	      }
 	    }
 	  }
+	  // function handleCb(){
+	  //   console.log('in handleCb')
+	  // }
+	
+	
 	  var headerComponents = generateHeaders();
 	  var rowComponents = generateRows();
 	  var tleft = getTime();
-	  // const progData = extractProg()
-	  // console.log(props.timr.tIMElEFT)
+	
+	  //const tsched = createTsched()
 	  return React.createElement(
 	    'div',
 	    null,
@@ -75746,20 +75759,36 @@
 	        React.createElement(
 	          'table',
 	          { style: styles.table },
-	          React.createElement('thead', null),
+	          React.createElement(
+	            'thead',
+	            null,
+	            headerComponents
+	          ),
 	          React.createElement(
 	            'tbody',
 	            null,
-	            headerComponents,
 	            rowComponents
 	          )
 	        )
-	      )
+	      ),
+	      React.createElement(Ached, { sche: createTsched() })
 	    )
 	  );
 	}
 	
+	var goby = {
+	  data: {},
+	  bypass: false,
+	  doby: function doby(data) {
+	    return data;
+	  }
+	};
+	
 	function mapStoreToProps(anElement) {
+	  // console.log(goby)
+	  // if (goby.bypass){
+	
+	  // }
 	  return function (store) {
 	    function wait4sched(srId) {
 	      if (store.route.currentDev.sched && store.route.currentDev.sched.length > srId) {
@@ -75780,10 +75809,114 @@
 	    return React.createElement(anElement, props);
 	  };
 	}
-	
 	exports.SenRel = SenRel = mapStoreToProps(SenRel);
 	exports.SenRel = SenRel;
 	
+	
+	function handleCb(x) {
+	  console.log('in handle cb');
+	  // console.log(x)
+	  goby.data = x;
+	  goby.bypass = true;
+	  // console.log(goby)
+	}
+	
+	function Ached(_ref) {
+	  var sche = _ref.sche;
+	
+	  var osc = sche.slice();
+	  var osc2;
+	  function handle(e) {
+	    osc[e.target.dataset.row][e.target.dataset.ke] = e.target.value;
+	    osc2 = osc.slice();
+	    console.log(osc2);
+	    handleCb(osc2);
+	  }
+	  function createList() {
+	    if (osc && osc.length > 0) {
+	      var _ret = function () {
+	        var keys = Object.keys(osc[0]);
+	        var headers = keys.map(function (h, i) {
+	          return React.createElement(
+	            'th',
+	            { key: i },
+	            h
+	          );
+	        });
+	        var rows = osc.map(function (r, i) {
+	          var k = keys.map(function (k, j) {
+	            // console.log(r[k])
+	            if (j == 0) {
+	              return React.createElement(
+	                'td',
+	                { key: j },
+	                React.createElement('input', { 'data-row': i, 'data-ke': k, type: 'time', value: r[k], onChange: handle })
+	              );
+	            } else {
+	              return React.createElement(
+	                'td',
+	                { key: j },
+	                React.createElement('input', { 'data-row': i, 'data-ke': k, type: 'number', value: r[k], size: '2', onChange: handle })
+	              );
+	            }
+	          });
+	          return React.createElement(
+	            'tr',
+	            { key: i },
+	            k
+	          );
+	        });
+	        return {
+	          v: React.createElement(
+	            'div',
+	            { style: styles.tablediv },
+	            React.createElement(
+	              'table',
+	              { style: styles.table },
+	              React.createElement(
+	                'thead',
+	                null,
+	                React.createElement(
+	                  'tr',
+	                  null,
+	                  headers
+	                )
+	              ),
+	              React.createElement(
+	                'tbody',
+	                null,
+	                rows
+	              )
+	            )
+	          )
+	        };
+	      }();
+	
+	      if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
+	    }
+	  }
+	  // console.log(osc)
+	  function createAction() {
+	    console.log(osc2);
+	  }
+	
+	  var slist = createList();
+	  return React.createElement(
+	    'div',
+	    null,
+	    React.createElement(
+	      'h4',
+	      null,
+	      'my dog is cold'
+	    ),
+	    React.createElement(
+	      'button',
+	      { onClick: createAction },
+	      'upd'
+	    ),
+	    slist
+	  );
+	}
 	
 	var styles = {
 	  outer: {
@@ -75823,6 +75956,130 @@
 
 /***/ },
 /* 622 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	function Blank(props) {
+	  var catbox = props.catbox;
+	  var name = props.name;
+	
+	  return React.createElement(
+	    'div',
+	    null,
+	    React.createElement(
+	      'div',
+	      { style: styles.outer },
+	      React.createElement(
+	        'h4',
+	        null,
+	        'in doBlank ',
+	        name
+	      )
+	    )
+	  );
+	}
+	
+	function mapStoreToProps(anElement) {
+	  return function (store) {
+	    var props = {
+	      catbox: store.catboxr.catbox,
+	      name: store.harrysally.name
+	    };
+	    return React.createElement(anElement, props);
+	  };
+	}
+	
+	exports.Blank = Blank = mapStoreToProps(Blank);
+	
+	exports.Blank = Blank;
+	
+	
+	var styles = {
+	  outer: {
+	    background: '#ccb7b7',
+	    height: 400,
+	    textAlign: 'center'
+	  }
+	};
+
+/***/ },
+/* 623 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.CachArray = undefined;
+	
+	var _actions = __webpack_require__(187);
+	
+	function CachArray(props) {
+	  var catbox = props.catbox;
+	  var name = props.name;
+	  var sched = props.sched;
+	
+	  function getSched() {
+	    if (sched == undefined) {
+	      console.log('sched is undefined');
+	      //nrGetDevData('CYURD001')
+	    }
+	    console.log(sched);
+	  }
+	  var thesched = getSched();
+	  return React.createElement(
+	    'div',
+	    null,
+	    React.createElement(
+	      'div',
+	      { style: styles.outer },
+	      React.createElement(
+	        'h4',
+	        null,
+	        'in doCachArray ',
+	        name
+	      )
+	    )
+	  );
+	}
+	
+	function mapStoreToProps(anElement) {
+	  console.log(anElement.name);
+	  return function (store) {
+	    function wait4sched(srId) {
+	      if (store.route.currentDev.sched && store.route.currentDev.sched.length > srId) {
+	        return store.route.currentDev.sched[srId].pro;
+	      }
+	    }
+	    var props = {
+	      catbox: store.catboxr.catbox,
+	      sched: wait4sched(0),
+	      name: store.harrysally.name
+	    };
+	    return React.createElement(anElement, props);
+	  };
+	}
+	
+	exports.CachArray = CachArray = mapStoreToProps(CachArray);
+	
+	exports.CachArray = CachArray;
+	
+	
+	var styles = {
+	  outer: {
+	    background: '#ccb7b7',
+	    height: 400,
+	    textAlign: 'center'
+	  }
+	};
+
+/***/ },
+/* 624 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -75839,6 +76096,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var initState = {
+	  past: undefined,
 	  harrysally: {
 	    name: 'Harry',
 	    users: [],

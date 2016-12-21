@@ -16,7 +16,8 @@ function combineReducers(reducersObject) {
 }
 var reducersObj={route, harrysally, catboxr, brow}
 
-export const rootReducer = combineReducers(reducersObj)
+const rootReducer = combineReducers(reducersObj)
 
 
 
+export {rootReducer}

@@ -7,6 +7,8 @@ import {Cat} from './components/Cat';
 import Harry from './components/Harry';
 import {DevInf} from './components/DevInf';
 import {SenRel} from './components/SenRel';
+import {Blank} from './components/Blank';
+import {CachArray} from './components/CachArray';
 
 function insertElement(pro){
   console.log(pro)
@@ -23,6 +25,8 @@ var routing = function(mode){
         return changePage('Devices')
       },
       'cat': ()=>changePage('Cat'),
+      'blank': ()=>changePage('Blank'),
+      'cach0': ()=>changePage('CachArray'),
       'harry': ()=>changePage('Harry'),
       'dev/:id': (params)=>{
       	var pro ={}

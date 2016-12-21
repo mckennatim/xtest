@@ -1,5 +1,8 @@
 # sb-rxasred-vigo
 ##log
+https://toddmotto.com/stateful-stateless-components
+https://blog.risingstack.com/handling-react-forms-with-mobx-observables/
+http://joebuschmann.com/react-by-example-stateless-functional-components/
 ### senRel-page
 #### architecture
 *App* combined with actions/index controls conditional rendering of what occurs under the menu
