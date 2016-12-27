@@ -46,6 +46,8 @@
 
 	'use strict';
 	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(1);
@@ -68,146 +70,413 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
+	/*-------------------------------------------------------*/
 	var Wel = function Wel(props) {
-		return _react2.default.createElement(
-			'h5',
-			null,
-			'inner ',
-			props.name
-		);
+	  return _react2.default.createElement(
+	    'h5',
+	    null,
+	    'inner ',
+	    props.name
+	  );
 	};
 	
-	var Va = function Va(props) {
-		var lo = "dlo";
-		function log(x) {
-			lo = lo + x;
-			return lo;
-		}
-		var alog = log('dog fuel');
-		alog = log(' a newone ');
-		var subjBypass = new _Rx2.default.Subject();
-	
-		subjBypass.subscribe({ next: function next(v) {
-				return console.log(v);
-			} });
-	
-		function setBypass() {
-			subjBypass.next(true);
-		}
-		function unsetBypass() {
-			subjBypass.next(false);
-		}
-		return _react2.default.createElement(
-			'div',
-			null,
-			_react2.default.createElement(
-				'h5',
-				null,
-				'observe var ',
-				props.name
-			),
-			_react2.default.createElement(
-				'button',
-				{ onClick: setBypass },
-				'set bypass'
-			),
-			_react2.default.createElement(
-				'button',
-				{ onClick: unsetBypass },
-				'un-set bypass'
-			),
-			_react2.default.createElement(
-				'div',
-				null,
-				alog
-			)
-		);
-	};
+	/*-------------------------------------------------------*/
 	
 	var We = function We(props) {
-		var clicks = _Rx2.default.Observable.fromEvent(document, 'click');
-		// Each click event is mapped to an Observable that ticks every second
-		var higherOrder = clicks.map(function (ev) {
-			return _Rx2.default.Observable.interval(1000);
-		});
-		var switched = higherOrder.switch();
-		// The outcome is that `switched` is essentially a timer that restarts
-		// on every click. The interval Observables from older clicks do not merge
-		// with the current interval Observable.
-		switched.subscribe(function (x) {
-			return console.log(x);
-		});
-		return _react2.default.createElement(
-			'h5',
-			null,
-			'Rx inner ',
-			props.name
-		);
+	  var clicks = _Rx2.default.Observable.fromEvent(document, 'click');
+	  // Each click event is mapped to an Observable that ticks every second
+	  var higherOrder = clicks.map(function (ev) {
+	    return _Rx2.default.Observable.interval(1000);
+	  });
+	  var switched = higherOrder.switch();
+	  // The outcome is that `switched` is essentially a timer that restarts
+	  // on every click. The interval Observables from older clicks do not merge
+	  // with the current interval Observable.
+	  switched.subscribe(function (x) {
+	    return console.log(x);
+	  });
+	  return _react2.default.createElement(
+	    'h5',
+	    null,
+	    'Rx inner ',
+	    props.name
+	  );
 	};
+	/*-------------------------------------------------------*/
+	function LoginButton(props) {
+	  return _react2.default.createElement(
+	    'button',
+	    { onClick: props.onClick },
+	    'Login'
+	  );
+	}
+	
+	function LogoutButton(props) {
+	  return _react2.default.createElement(
+	    'button',
+	    { onClick: props.onClick },
+	    'Logout'
+	  );
+	}
+	function Greeting(props) {
+	  var isLoggedIn = props.isLoggedIn;
+	  if (isLoggedIn) {
+	    return _react2.default.createElement(
+	      'h5',
+	      null,
+	      'wlecome back'
+	    );
+	  }
+	  return _react2.default.createElement(
+	    'h5',
+	    null,
+	    'fuck off'
+	  );
+	}
 	
 	var Welc = function (_React$Component) {
-		_inherits(Welc, _React$Component);
+	  _inherits(Welc, _React$Component);
 	
-		function Welc() {
-			_classCallCheck(this, Welc);
+	  function Welc(props) {
+	    _classCallCheck(this, Welc);
 	
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Welc).apply(this, arguments));
-		}
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Welc).call(this, props));
 	
-		_createClass(Welc, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(
-					'h5',
-					null,
-					'welc ',
-					this.props.name
-				);
-			}
-		}]);
+	    _this.handleLoginClick = _this.handleLoginClick.bind(_this);
+	    _this.handleLogoutClick = _this.handleLogoutClick.bind(_this);
+	    _this.state = { isLoggedIn: false };
+	    return _this;
+	  }
 	
-		return Welc;
+	  _createClass(Welc, [{
+	    key: 'handleLoginClick',
+	    value: function handleLoginClick() {
+	      this.setState({ isLoggedIn: true });
+	    }
+	  }, {
+	    key: 'handleLogoutClick',
+	    value: function handleLogoutClick() {
+	      this.setState({ isLoggedIn: false });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var isLoggedIn = this.state.isLoggedIn;
+	      var button = null;
+	      if (isLoggedIn) {
+	        button = _react2.default.createElement(LogoutButton, { onClick: this.handleLogoutClick });
+	      } else {
+	        button = _react2.default.createElement(LoginButton, { onClick: this.handleLoginClick });
+	      }
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h5',
+	          null,
+	          'welc ',
+	          this.props.name,
+	          ' ',
+	          isLoggedIn
+	        ),
+	        _react2.default.createElement(Greeting, { isLoggedIn: this.state.isLoggedIn }),
+	        button
+	      );
+	    }
+	  }]);
+	
+	  return Welc;
 	}(_react2.default.Component);
+	/*-------------------------------------------------------*/
 	
 	var Welco = _react2.default.createClass({
-		displayName: 'Welco',
+	  displayName: 'Welco',
 	
-		componentDidMount: function componentDidMount() {
-			console.log('yard mounted');
-		},
-		componentWillUnmount: function componentWillUnmount() {
-			console.log('yard unmountd');
-		},
-		render: function render() {
-			return _react2.default.createElement(
-				'h5',
-				null,
-				'welco ',
-				this.props.name
-			);
-		}
+	  componentDidMount: function componentDidMount() {
+	    // console.log('yard mounted')
+	  },
+	  componentWillUnmount: function componentWillUnmount() {
+	    console.log('yard unmountd');
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'h5',
+	      null,
+	      'welco ',
+	      this.props.name
+	    );
+	  }
 	});
+	/*-------------------------------------------------------
+	setState causes a rerender of the component from which it is called. 
+	That causes a re-render of the children (with those states?)
 	
-	var App = function App(props) {
-		return _react2.default.createElement(
-			'div',
-			null,
-			_react2.default.createElement(
-				'h4',
-				null,
-				'hello blank es6 react'
-			),
-			_react2.default.createElement(Va, { name: 'duck' }),
-			_react2.default.createElement(Wel, { name: 'fred' }),
-			_react2.default.createElement(Welc, { name: 'dirt' }),
-			_react2.default.createElement(Welco, { name: 'funcy' }),
-			_react2.default.createElement('div', { id: 'test1' })
-		);
+	So the child vaco is getting changes of 
+	<Vaco name='timothy' olddog={this.state.dog}/><hr/> so props.olddog changes
+	based on the Observable.
+	*/
+	function Cvaco(props) {
+	  console.log(props);
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'h4',
+	      null,
+	      'Cvaco ',
+	      props.pr.dog,
+	      ' ',
+	      props.zd,
+	      ' ',
+	      props.pr.name
+	    ),
+	    _react2.default.createElement('input', { type: 'text', value: props.zd, onChange: props.cChangeIt }),
+	    _react2.default.createElement(
+	      'button',
+	      { onClick: props.stBypass },
+	      'set bypass'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { onClick: props.csubmi },
+	      'Submit'
+	    )
+	  );
+	}
+	
+	var Vaco = function (_React$Component2) {
+	  _inherits(Vaco, _React$Component2);
+	
+	  function Vaco(props) {
+	    _classCallCheck(this, Vaco);
+	
+	    var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Vaco).call(this, props));
+	
+	    console.log(props);
+	    _this2.setBypass = _this2.setBypass.bind(_this2);
+	    _this2.changeIt = _this2.changeIt.bind(_this2);
+	    _this2.submi = _this2.submi.bind(_this2);
+	    _this2.whichDog = _this2.whichDog.bind(_this2);
+	    _this2.state = _extends({}, props, { dog: props.olddog, bypass: false, cdog: props.olddog });
+	    console.log(_this2.state);
+	    return _this2;
+	  }
+	
+	  _createClass(Vaco, [{
+	    key: 'setBypass',
+	    value: function setBypass() {
+	      var _this3 = this;
+	
+	      this.setState({ dog: 'Ulysses', bypass: true }, function () {
+	        console.log(_this3.state);
+	        //this.props.addDog(this.state.dog)
+	      });
+	    }
+	  }, {
+	    key: 'submi',
+	    value: function submi() {
+	      var _this4 = this;
+	
+	      if (this.state.bypass) {
+	        this.setState({ bypass: false }, function () {
+	          console.log(_this4.state);
+	          _this4.props.addDog(_this4.state.dog);
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'changeIt',
+	    value: function changeIt(x) {
+	      var _this5 = this;
+	
+	      console.log(x.target.value);
+	      this.setState({ dog: x.target.value, bypass: true }, function () {
+	        return console.log(_this5.state);
+	      });
+	    }
+	  }, {
+	    key: 'whichDog',
+	    value: function whichDog() {
+	      console.log(this.state.bypass);
+	      if (this.state.bypass) {
+	        return this.state.dog;
+	      } else {
+	        return this.props.olddog;
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var thedog = this.whichDog();
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          'Vaco ',
+	          this.state.dog,
+	          ' ',
+	          this.props.olddog,
+	          ' ',
+	          this.state.bypass
+	        ),
+	        _react2.default.createElement(Cvaco, { pr: this.state,
+	          zd: thedog,
+	          cChangeIt: this.changeIt,
+	          stBypass: this.setBypass,
+	          csubmi: this.submi
+	        }),
+	        _react2.default.createElement(
+	          'h5',
+	          null,
+	          'observe var ',
+	          this.props.name
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Vaco;
+	}(_react2.default.Component);
+	/*-------------------------------------------------------*/
+	
+	
+	function Cva(props) {
+	  return _react2.default.createElement(
+	    'h4',
+	    null,
+	    'Va ',
+	    props.dog
+	  );
+	}
+	var Va = function Va(props) {
+	  console.log(props);
+	  var state = { dog: 'Fritz' };
+	
+	  function setBypass() {
+	    console.log('set ');
+	    state = _extends({}, state, { dog: 'Petey' });
+	  }
+	  function unsetBypass() {
+	    console.log('unset');
+	  }
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'h4',
+	      null,
+	      'Va  '
+	    ),
+	    _react2.default.createElement(Cva, { dog: state.dog }),
+	    _react2.default.createElement(
+	      'h5',
+	      null,
+	      'observe var ',
+	      props.name
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { onClick: setBypass },
+	      'set bypass'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { onClick: unsetBypass },
+	      'un-set bypass'
+	    )
+	  );
 	};
+	
+	/*-------------------------------------------------------*/
+	
+	// const propsObs = Rx.Observable.from(['Butler', 'Fritz', 'Dusty', 'Petey'])
+	// const inte = Rx.Observable.interval(1000).take(4)
+	var props = { olddog: 'Rusty' };
+	// const propsOverTime = propsObs.zip(inte, (aprop,intx)=>aprop) 
+	// propsOverTime.subscribe((x)=>{
+	//     props={...props, olddog:x}
+	//     console.log(props)
+	//   }
+	// )
+	
+	var App = function (_React$Component3) {
+	  _inherits(App, _React$Component3);
+	
+	  function App(props) {
+	    _classCallCheck(this, App);
+	
+	    var _this6 = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
+	
+	    _this6.aNewDog = _this6.aNewDog.bind(_this6);
+	    _this6.createObs = _this6.createObs.bind(_this6);
+	    console.log(props);
+	    _this6.state = _extends({}, props, { dog: props.olddog });
+	    console.log(_this6.state);
+	    _this6.arr = ['Butler', 'Fritz', 'Dusty', 'Petey'];
+	    _this6.createObs();
+	    return _this6;
+	  }
+	
+	  _createClass(App, [{
+	    key: 'createObs',
+	    value: function createObs() {
+	      var _this7 = this;
+	
+	      var propsObs = _Rx2.default.Observable.from(this.arr);
+	      var inte = _Rx2.default.Observable.interval(1000).take(this.arr.length);
+	      var propsOverTime = propsObs.zip(inte, function (aprop, intx) {
+	        return aprop;
+	      });
+	      this.subs = propsOverTime.subscribe(function (x) {
+	        console.log(x);
+	        _this7.setState({ dog: x });
+	      });
+	    }
+	  }, {
+	    key: 'aNewDog',
+	    value: function aNewDog(newdog) {
+	      console.log('theres a new dog in town, ' + newdog);
+	      console.log(newdog);
+	      this.arr.push(newdog);
+	      console.log(this.arr);
+	      this.subs.unsubscribe();
+	      this.subs = this.createObs();
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h4',
+	          null,
+	          'hello blank es6 react ',
+	          this.state.dog
+	        ),
+	        _react2.default.createElement('hr', null),
+	        _react2.default.createElement(Vaco, { name: 'timothy', olddog: this.state.dog, addDog: this.aNewDog }),
+	        _react2.default.createElement('hr', null),
+	        _react2.default.createElement(Wel, { name: 'fred' }),
+	        _react2.default.createElement('hr', null),
+	        _react2.default.createElement(Welc, { name: 'dirt' }),
+	        _react2.default.createElement('hr', null),
+	        _react2.default.createElement(Welco, { name: 'funcy' }),
+	        _react2.default.createElement('hr', null),
+	        _react2.default.createElement('div', { id: 'test1' }),
+	        _react2.default.createElement('hr', null)
+	      );
+	    }
+	  }]);
+	
+	  return App;
+	}(_react2.default.Component);
 	
 	var container = document.getElementById('app');
 	
-	_reactDom2.default.render(_react2.default.createElement(App, null), container);
+	_reactDom2.default.render(_react2.default.createElement(App, props), container);
 
 /***/ },
 /* 1 */
